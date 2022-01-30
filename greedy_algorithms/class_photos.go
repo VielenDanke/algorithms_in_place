@@ -12,7 +12,7 @@ func ClassPhotos(redShirtHeights []int, blueShirtHeights []int) bool {
 		return redShirtHeights[i] > redShirtHeights[j]
 	})
 	sort.Slice(blueShirtHeights, func(i, j int) bool {
-		return redShirtHeights[i] > redShirtHeights[j]
+		return blueShirtHeights[i] > blueShirtHeights[j]
 	})
 	shortInFrontRow := "BLUE"
 	if redShirtHeights[0] < blueShirtHeights[0] {
