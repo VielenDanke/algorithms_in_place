@@ -1,12 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/vielendanke/preparation/greedy_algorithms"
+)
 
 func main() {
-	tree := &BST{
-		Left:  &BST{Value: 5, Left: &BST{Value: 2, Left: &BST{Value: 1}}, Right: &BST{Value: 5}},
-		Right: &BST{Value: 15, Left: &BST{Value: 13, Right: &BST{Value: 14}}, Right: &BST{Value: 22}},
-		Value: 10,
-	}
-	fmt.Println(tree.FindClosestValue2(12))
+	arr := []int{3, 2, 1, 2, 6}
+	fmt.Printf("Result: %d\n", greedy_algorithms.MinimumWaitingTime(arr))
 }
