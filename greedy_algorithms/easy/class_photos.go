@@ -1,4 +1,4 @@
-package greedy_algorithms
+package easy
 
 import "sort"
 

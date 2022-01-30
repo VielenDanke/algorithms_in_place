@@ -1,4 +1,4 @@
-package array
+package easy
 
 func IsValidSubsequence(array []int, sequence []int) bool {
 	// Write your code here.

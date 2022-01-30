@@ -1,4 +1,4 @@
-package array
+package easy
 
 const HomeTeamWon = 1
 

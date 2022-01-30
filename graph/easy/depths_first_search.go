@@ -1,4 +1,4 @@
-package graph
+package easy
 
 type Node struct {
 	Name      string
