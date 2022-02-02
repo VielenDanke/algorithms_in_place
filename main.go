@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	l := linked_list.RemoveDuplicatesFromLinkedList(
+	l := linked_list.RemoveDuplicatesFromLinkedList3(
 		&linked_list.LinkedList{Value: 1, Next: &linked_list.LinkedList{Value: 1, Next: &linked_list.LinkedList{Value: 3, Next: &linked_list.LinkedList{Value: 4, Next: &linked_list.LinkedList{Value: 4, Next: &linked_list.LinkedList{Value: 5,
 			Next: &linked_list.LinkedList{Value: 6, Next: &linked_list.LinkedList{Value: 6}}}}}}}})
 
