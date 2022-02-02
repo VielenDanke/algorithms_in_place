@@ -1,4 +1,4 @@
-package leetcode
+package easy
 
 func LengthOfLastWord2(s string) (length int) {
 	chs := []rune(s)
