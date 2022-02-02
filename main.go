@@ -2,11 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/vielendanke/preparation/greedy_algorithms/easy"
+	"github.com/vielendanke/preparation/linked_list"
 )
 
 func main() {
-	b := easy.TandemBicycle([]int{5, 5, 3, 9, 2}, []int{3, 6, 7, 2, 1}, false)
+	l := linked_list.RemoveDuplicatesFromLinkedList(
+		&linked_list.LinkedList{Value: 1, Next: &linked_list.LinkedList{Value: 1, Next: &linked_list.LinkedList{Value: 3, Next: &linked_list.LinkedList{Value: 4, Next: &linked_list.LinkedList{Value: 4, Next: &linked_list.LinkedList{Value: 5,
+			Next: &linked_list.LinkedList{Value: 6, Next: &linked_list.LinkedList{Value: 6}}}}}}}})
 
-	fmt.Printf("Result: %d\n", b)
+	for l != nil {
+		fmt.Println(l.Value)
+		l = l.Next
+	}
 }
