@@ -7,7 +7,7 @@ type TreeNode struct {
 }
 
 func IsValidBst(root *TreeNode) bool {
-	return searchValid(root, -1<<63, 1<<63)
+	return searchValid(root, -1<<61, 1<<61)
 }
 
 func searchValid(node *TreeNode, min, max int64) bool {
