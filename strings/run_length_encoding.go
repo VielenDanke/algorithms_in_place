@@ -32,12 +32,13 @@ func RunLengthEncoding(str string) (result string) {
 }
 
 func helper(result string, lastLetter rune, counter int) string {
-	if counter > 9 {
+	maxNumberCount := 9
+	if counter > maxNumberCount {
 		// calculate the amount of 9s, for each 9 - append the same letter and number 9
-		module := counter % 9
-		for counter > 9 {
+		module := counter % maxNumberCount
+		for counter > maxNumberCount {
 			result += fmt.Sprintf("9%s", string(lastLetter))
-			counter -= 9
+			counter -= maxNumberCount
 		}
 		result += fmt.Sprintf("%d%s", module, string(lastLetter))
 	} else {
