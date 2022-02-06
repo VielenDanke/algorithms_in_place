@@ -2,7 +2,7 @@ package backtracking
 
 func Combine(n int, k int) [][]int {
 	// 1 to n combinations with k
-	// meaning
+	// meaning using backtracking
 	result := make([][]int, 0)
 	backtrack(&result, make([]int, 0), 1, n, k)
 	return result
