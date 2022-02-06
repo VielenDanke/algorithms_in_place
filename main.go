@@ -1,7 +1,11 @@
 package main
 
-import "github.com/vielendanke/preparation/backtracking"
+import (
+	"fmt"
+	"github.com/vielendanke/preparation/strings"
+	"os"
+)
 
 func main() {
-	backtracking.Combine(4, 2)
+	fmt.Fprintf(os.Stdout, "Result: %s\n", strings.RunLengthEncoding("AAAAAAAAAAAAABBCCCCDD"))
 }

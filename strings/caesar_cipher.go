@@ -17,3 +17,20 @@ func CaesarCipherEncryptor(str string, key int) string {
 	}
 	return string(runes)
 }
+
+func CaesarCipherEncryptor2(str string, key int) string {
+	start, end := 96, 122
+
+	key = key % 26
+
+	runes := []rune(str)
+
+	for i, char := range runes {
+		if start <= int(char)+key && end >= int(char)+key {
+			runes[i] = rune(int(char) + key)
+		} else if int(char)+key > end {
+			runes[i] = rune(start + int(char) + key - end)
+		}
+	}
+	return string(runes)
+}
