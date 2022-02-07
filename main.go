@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/vielendanke/preparation/sberbank"
+	"github.com/vielendanke/preparation/leetcode/medium"
 	"os"
 )
 
 func main() {
-	fmt.Fprintf(os.Stdout, "Result: %t\n", sberbank.DynamicArraySum([]int{3, 2, 4, 5}, 9))
+	fmt.Fprintf(os.Stdout, "Result: %d\n", medium.MaxProduct([]string{"eae", "ea", "aaf", "bda", "fcf", "dc", "ac", "ce", "cefde", "dabae"}))
 }
