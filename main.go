@@ -7,5 +7,5 @@ import (
 )
 
 func main() {
-	fmt.Fprintf(os.Stdout, "Result: %d\n", sberbank.MaxCommonSubsequence("agdd", 1, "gdd"))
+	fmt.Fprintf(os.Stdout, "Result: %t\n", sberbank.DynamicArraySum([]int{3, 2, 4, 5}, 9))
 }
