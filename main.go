@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/vielendanke/preparation/recursion"
+	"github.com/vielendanke/preparation/sberbank"
 	"os"
 )
 
 func main() {
-	fmt.Fprintf(os.Stdout, "Result: %d\n", recursion.NumWaysDynamic(5))
+	fmt.Fprintf(os.Stdout, "Result: %d\n", sberbank.MaxCommonSubsequence("agdd", 1, "gdd"))
 }
