@@ -1,12 +1,11 @@
 package main
 
-import (
-	"fmt"
-	"github.com/vielendanke/preparation/leetcode/easy"
-)
+import "github.com/vielendanke/preparation/array/medium"
 
 func main() {
-	head := &easy.ListNode{Val: 1, Next: &easy.ListNode{Val: 1, Next: &easy.ListNode{Val: 2, Next: &easy.ListNode{Val: 1}}}}
+	res := medium.MaxSubarraySum([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 15)
 
-	fmt.Printf("Result: %t\n", easy.IsPalindrome(head))
+	for _, v := range res {
+		println(v)
+	}
 }
