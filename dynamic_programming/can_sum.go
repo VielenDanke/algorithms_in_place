@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func canSumIterative(target int, numbers []int) bool {
 	if len(numbers) == 2 {
 		return target == numbers[0]+numbers[1]
@@ -45,8 +43,4 @@ func canSum(target int, numbers []int, memo map[int]bool) bool {
 	}
 	memo[target] = false
 	return false
-}
-
-func main() {
-	fmt.Println(canSum(300, []int{7, 14}, make(map[int]bool)))
 }
