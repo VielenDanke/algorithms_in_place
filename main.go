@@ -2,20 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/vielendanke/preparation/leetcode/medium"
+	"github.com/vielendanke/preparation/leetcode/easy"
 )
 
 func main() {
-	tree := medium.BuildTree([]int{-1}, []int{-1})
+	head := &easy.ListNode{Val: 1, Next: &easy.ListNode{Val: 1, Next: &easy.ListNode{Val: 2, Next: &easy.ListNode{Val: 1}}}}
 
-	traverseTree(tree)
-}
-
-func traverseTree(node *medium.TreeNode) {
-	if node == nil {
-		return
-	}
-	fmt.Println(node.Val)
-	traverseTree(node.Left)
-	traverseTree(node.Right)
+	fmt.Printf("Result: %t\n", easy.IsPalindrome(head))
 }

@@ -1,6 +1,7 @@
 package easy
 
 import (
+	"fmt"
 	"math"
 	"sort"
 )
@@ -30,4 +31,41 @@ func InsertIntervals(intervals [][]int, newInterval []int) [][]int {
 		}
 	}
 	return resultIntervals
+}
+
+func insertIntervalsFree(interviewer [][]int, candidate [][]int) [][]int {
+	for _, v := range candidate {
+		interviewer = append(interviewer, v)
+	}
+	sort.Slice(interviewer, func(i, j int) bool {
+		return interviewer[i][0] < interviewer[j][0]
+	})
+	resultIntervals := make([][]int, 0)
+	for _, v := range interviewer {
+		if len(resultIntervals) == 0 || resultIntervals[len(resultIntervals)-1][1] < v[0] {
+			resultIntervals = append(resultIntervals, v)
+		} else {
+			resultIntervals[len(resultIntervals)-1][1] = max(resultIntervals[len(resultIntervals)-1][1], v[1])
+		}
+	}
+	return resultIntervals
+}
+
+func FindFreeTime(interviewer [][]int, candidate [][]int) [][]int {
+	start := 0
+	end := 1
+	resultIntervals := insertIntervalsFree(interviewer, candidate)
+	freeIntervals := make([][]int, 0)
+	for i := 0; i < len(resultIntervals)-1; i++ {
+		freeIntervals = append(freeIntervals, []int{resultIntervals[start][1], resultIntervals[end][0]})
+	}
+	return resultIntervals
+}
+
+func max(f, s int) int {
+	fmt.Println(3 / 2)
+	if f > s {
+		return f
+	}
+	return s
 }
