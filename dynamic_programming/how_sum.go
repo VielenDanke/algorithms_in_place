@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // O(n^m) - without memo
-// O(n*m) - with memo
+// O(n*m^2) - with memo
 func howSum(target int, numbers []int, memo map[int][]int) []int {
 	if _, ok := memo[target]; ok {
 		return memo[target]
