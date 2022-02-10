@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/vielendanke/preparation/strings"
+	"github.com/vielendanke/preparation/array/medium"
 )
 
 func main() {
-	fmt.Printf("Result: %d\n", strings.CharacterReplacement("AABABBAB", 2))
+	fmt.Printf("Result: %d\n", medium.SubarraySum([]int{1, 2, 3}, 3))
 }
