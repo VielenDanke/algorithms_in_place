@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/vielendanke/preparation/array/medium"
+	"github.com/vielendanke/preparation/leetcode/medium"
 )
 
 func main() {
-	fmt.Printf("Result: %d\n", medium.SubarraySum([]int{1, 2, 3}, 3))
+	fmt.Printf("Result: %t\n", medium.CheckInclusion("abc", "ccccbbbbaaaa"))
 }

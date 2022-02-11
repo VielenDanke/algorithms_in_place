@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // O(n^m) - without memo
 // O(n*m^2) - with memo
 func howSum(target int, numbers []int, memo map[int][]int) []int {
@@ -25,8 +23,4 @@ func howSum(target int, numbers []int, memo map[int][]int) []int {
 	}
 	memo[target] = nil
 	return nil
-}
-
-func main() {
-	fmt.Printf("Result: %v\n", howSum(300, []int{130, 170}, make(map[int][]int)))
 }

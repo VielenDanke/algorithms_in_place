@@ -8,15 +8,15 @@ func NumWays(n int) int {
 	}
 }
 
-func NumWaysDynamic(n int) int {
+func NumWaysDynamic(n int, memo map[int]int) int {
+	if val, ok := memo[n]; ok {
+		return val
+	}
 	if n == 0 || n == 1 {
 		return 1
 	} else {
-		nums := make([]int, n)
-		nums = append(nums, 1, 1)
-		for i := 2; i < n; i++ {
-			nums[i] = nums[i-1] + nums[i-2]
-		}
-		return nums[n]
+		val := NumWaysDynamic(n-1, memo) + NumWaysDynamic(n-2, memo)
+		memo[n] = val
+		return val
 	}
 }
