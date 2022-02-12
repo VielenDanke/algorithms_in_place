@@ -1,4 +1,4 @@
-package strings
+package easy
 
 func FirstNonRepeatingCharacter(str string) int {
 	// Write your code here.

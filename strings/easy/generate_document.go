@@ -1,4 +1,4 @@
-package strings
+package easy
 
 func GenerateDocument(characters string, document string) bool {
 	// Write your code here.

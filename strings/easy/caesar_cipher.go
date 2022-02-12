@@ -1,4 +1,4 @@
-package strings
+package easy
 
 func CaesarCipherEncryptor(str string, key int) string {
 	// check if string is empty?

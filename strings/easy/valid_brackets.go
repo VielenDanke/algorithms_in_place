@@ -1,4 +1,4 @@
-package strings
+package easy
 
 var brackets = make(map[rune]rune)
 

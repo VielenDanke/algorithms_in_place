@@ -1,4 +1,4 @@
-package strings
+package medium
 
 func IsPalindrome(str string) bool {
 	// translate to an array of rune

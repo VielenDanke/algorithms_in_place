@@ -1,4 +1,4 @@
-package strings
+package easy
 
 func CharacterReplacement(s string, k int) int {
 	runes := []rune(s)
