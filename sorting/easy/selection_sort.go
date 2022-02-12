@@ -1,4 +1,4 @@
-package sorting
+package easy
 
 func SelectionSort(array []int) []int {
 	// Write your code here.

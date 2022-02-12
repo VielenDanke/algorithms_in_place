@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/vielendanke/preparation/strings/medium"
+	"github.com/vielendanke/preparation/sorting/medium"
 )
 
 func main() {
-	fmt.Printf("Result: %s\n", medium.SplitPi("3141592653589793238462643383279",
-		[]string{"314", "49", "9001", "15926535897", "14", "9323", "8462643383279", "4", "793"}))
+	arr := []int{14, 3, 1, 5, 6, 2, 55}
+	arr = medium.Sort(arr)
+	fmt.Println(arr)
 }

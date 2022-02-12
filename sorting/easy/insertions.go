@@ -1,4 +1,4 @@
-package sorting
+package easy
 
 func InsertionSort(arr []int) {
 	var n = len(arr)
