@@ -3,7 +3,7 @@ package medium
 func IsPalindrome(str string) bool {
 	// translate to an array of rune
 	strRunes := []rune(str)
-	// if string is empty? if string is one letter?
+	// if string is empty? if string is one letters?
 	if len(strRunes) == 0 {
 		return false
 	}
@@ -27,7 +27,7 @@ func IsPalindrome2(str string) bool {
 	// translate to runes
 	// check if length is 0 or 1
 	// create stack and add untill we would reached middle of string
-	// and after we pop from the stack and match the end letter
+	// and after we pop from the stack and match the end letters
 	runes := []rune(str)
 
 	if len(runes) == 0 {

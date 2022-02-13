@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/vielendanke/preparation/sorting/medium"
+	"github.com/vielendanke/preparation/strings/medium"
+	"os"
 )
 
 func main() {
-	arr := []int{14, 3, 1, 5, 6, 2, 55}
-	arr = medium.Sort(arr)
-	fmt.Println(arr)
+	fmt.Fprintf(os.Stdout, "Result: %s\n", medium.DecodeString("3[a]2[bc]"))
 }
