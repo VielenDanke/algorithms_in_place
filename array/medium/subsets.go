@@ -3,7 +3,7 @@ package medium
 var k int
 var result [][]int
 
-func Subsets(nums []int) [][]int {
+func subsets(nums []int) [][]int {
 	for k = 0; k < len(nums)+1; k++ {
 		recursiveResult(make([]int, 0), make(map[int]interface{}), nums, 0)
 	}
@@ -28,4 +28,24 @@ func recursiveResult(temp []int, m map[int]interface{}, nums []int, start int) {
 		delete(m, temp[len(temp)-1])
 		temp = temp[:len(temp)-1]
 	}
+}
+
+func Subsets(nums []int) [][]int {
+	return helper(nums, 0)
+}
+
+func helper(nums []int, p int) [][]int {
+	var result [][]int
+	result = append(result, []int{})
+	if p == len(nums) {
+		return result
+	}
+	for i := p; i < len(nums); i++ {
+		temp := helper(nums, i+1)
+		for j := range temp {
+			t := append([]int{nums[i]}, temp[j]...)
+			result = append(result, t)
+		}
+	}
+	return result
 }
