@@ -1,11 +1,7 @@
 package main
 
-import (
-	"fmt"
-	"github.com/vielendanke/preparation/strings/medium"
-	"os"
-)
+import "github.com/vielendanke/preparation/array/medium"
 
 func main() {
-	fmt.Fprintf(os.Stdout, "Result: %s\n", medium.DecodeString("3[a]2[bc]"))
+	medium.Subsets([]int{1, 2, 3})
 }
