@@ -26,3 +26,7 @@ func gridTravelerMemo(rows, column int, memo map[string]int) int {
 		return memo[uniqueKey]
 	}
 }
+
+func main() {
+	fmt.Printf("Result: %d\n", gridTraveler(3, 7))
+}

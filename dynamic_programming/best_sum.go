@@ -1,11 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"log"
-	"os"
-)
-
 func bestSum(target int, numbers []int, memo map[int][]int) []int {
 	if val, ok := memo[target]; ok {
 		return val
@@ -28,13 +22,4 @@ func bestSum(target int, numbers []int, memo map[int][]int) []int {
 	}
 	memo[target] = shortestCombination
 	return shortestCombination
-}
-
-func main() {
-	memo := make(map[int][]int)
-	n, err := fmt.Fprintf(os.Stdout, "Result: %v\n", bestSum(7, []int{5, 3, 4, 25}, memo))
-	if err != nil {
-		log.Fatalln(err)
-	}
-	fmt.Printf("Bytes written: %d\n", n)
 }
