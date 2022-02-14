@@ -1,7 +1,14 @@
 package main
 
-import "github.com/vielendanke/preparation/array/medium"
+import (
+	"github.com/vielendanke/preparation/strings/medium"
+)
 
 func main() {
-	medium.Subsets([]int{1, 2, 3})
+	for _, v := range medium.Partition("aab") {
+		for _, j := range v {
+			print(j + " ")
+		}
+		println()
+	}
 }
