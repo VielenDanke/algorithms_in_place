@@ -1,6 +1,6 @@
 package medium
 
-func partition(s string) [][]string {
+func Partition(s string) [][]string {
 	return partitionMemo(s, make(map[string][][]string))
 }
 
