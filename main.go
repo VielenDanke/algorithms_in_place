@@ -5,10 +5,7 @@ import (
 )
 
 func main() {
-	for _, v := range medium.Partition("aab") {
-		for _, j := range v {
-			print(j + " ")
-		}
-		println()
+	for _, v := range medium.RestoreIpAddresses("25525511135") {
+		println(v)
 	}
 }
