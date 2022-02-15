@@ -1,7 +1,10 @@
 package main
 
-import "github.com/vielendanke/preparation/sorting/medium"
+import (
+	"fmt"
+	"github.com/vielendanke/preparation/strings/medium"
+)
 
 func main() {
-	medium.ThreeNumberSort([]int{1, 0, 0, -1, -1, 0, 1, 1}, []int{0, 1, -1})
+	fmt.Printf("Result %s\n", medium.LongestPalindromicSubstring("it's highnoon"))
 }
