@@ -1,11 +1,7 @@
 package main
 
-import (
-	"github.com/vielendanke/preparation/strings/medium"
-)
+import "github.com/vielendanke/preparation/sorting/medium"
 
 func main() {
-	for _, v := range medium.RestoreIpAddresses("25525511135") {
-		println(v)
-	}
+	medium.ThreeNumberSort([]int{1, 0, 0, -1, -1, 0, 1, 1}, []int{0, 1, -1})
 }
