@@ -19,9 +19,9 @@ func allConstruct(target string, wordBank []string) [][]string {
 }
 
 func allConstructCollector(target string, wordBank []string, memo map[string][][]string) [][]string {
-	//if val, ok := memo[target]; ok {
-	//	return val
-	//}
+	if val, ok := memo[target]; ok {
+		return val
+	}
 	if target == "" {
 		return [][]string{}
 	}
@@ -38,6 +38,7 @@ func allConstructCollector(target string, wordBank []string, memo map[string][][
 			}
 		}
 	}
+	memo[target] = result
 	return result
 }
 
