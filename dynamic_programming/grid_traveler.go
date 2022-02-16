@@ -26,3 +26,33 @@ func gridTravelerMemo(rows, column int, memo map[string]int) int {
 		return memo[uniqueKey]
 	}
 }
+
+func gridTravelerTabulation(rows, column int) int {
+	var tab [][]int
+
+	for i := 0; i < rows+1; i++ {
+		tab = append(tab, []int{})
+		for j := 0; j < column+1; j++ {
+			tab[i] = append(tab[i], 0)
+		}
+	}
+	tab[1][1] = 1
+	for i := 0; i < len(tab); i++ {
+		for j := 0; j < len(tab[i]); j++ {
+			current := tab[i][j]
+			if j+1 < len(tab[i]) {
+				tab[i][j+1] += current
+			}
+			if i+1 < len(tab) {
+				tab[i+1][j] += current
+			}
+		}
+	}
+	return tab[rows][column]
+}
+
+func main() {
+	rows, column := 18, 18
+
+	fmt.Printf("Result: %v", gridTravelerTabulation(rows, column))
+}

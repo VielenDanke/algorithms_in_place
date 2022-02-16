@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -84,8 +83,4 @@ func isContains(prefix string, wordBank []string) bool {
 		}
 	}
 	return false
-}
-
-func main() {
-	fmt.Printf("Result: %v\n", allConstruct("purple", []string{"purp", "p", "ur", "le", "purpl"}))
 }

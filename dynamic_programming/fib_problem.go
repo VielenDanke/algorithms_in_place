@@ -28,3 +28,17 @@ func fibMemoization(n int, memo map[int]int) int {
 		return memo[n]
 	}
 }
+
+// building table
+func fibTabulation(n int) int {
+	var tab []int
+	for i := 0; i < n+1; i++ {
+		tab = append(tab, 0)
+	}
+	tab[1] = 1
+	for i := 0; i < len(tab); i++ {
+		tab[i+1] += tab[i]
+		tab[i+2] += tab[i]
+	}
+	return tab[n]
+}
