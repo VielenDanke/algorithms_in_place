@@ -76,6 +76,63 @@ func construct(target string, wordBank []string, memo map[string]bool) bool {
 	return false
 }
 
+// ---------------------------------------------------------------------------------------------------
+
+func canConstructTabulation(target string, wordBank []string) bool {
+	var tab []bool
+	for i := 0; i < len(target)+1; i++ {
+		tab = append(tab, false)
+	}
+	tab[0] = true
+	for idx := range tab {
+		if tab[idx] {
+			for _, word := range wordBank {
+				// if the word matches the characters starting at position i
+				if idx+len(word) <= len(target) && target[idx:idx+len(word)] == word && idx+len(word) < len(tab) {
+					tab[idx+len(word)] = true
+				}
+			}
+		}
+	}
+	return tab[len(target)]
+}
+
+func canCountConstructTabulation(target string, wordBank []string) int {
+	var tab []int
+	for i := 0; i < len(target)+1; i++ {
+		tab = append(tab, 0)
+	}
+	tab[0] = 1
+	for idx := range tab {
+		for _, word := range wordBank {
+			if idx+len(word) <= len(target) && target[idx:idx+len(word)] == word && idx+len(word) < len(tab) {
+				tab[idx+len(word)] += tab[idx]
+			}
+		}
+	}
+	return tab[len(target)]
+}
+
+func allConstructTabulation(target string, wordBank []string) [][]string {
+	var tab [][][]string
+
+	for i := 0; i < len(target)+1; i++ {
+		tab = append(tab, nil)
+	}
+	tab[0] = [][]string{}
+	for idx := range tab {
+		if tab[idx] != nil {
+			for _, word := range wordBank {
+				if idx+len(word) <= len(target) && target[idx:idx+len(word)] == word && idx+len(word) < len(tab) {
+					t := append(tab[idx], []string{word})
+					tab[idx+len(word)] = append(tab[idx+len(word)], t...)
+				}
+			}
+		}
+	}
+	return tab[len(target)]
+}
+
 func isContains(prefix string, wordBank []string) bool {
 	for _, v := range wordBank {
 		if prefix == v {
