@@ -44,3 +44,26 @@ func canSum(target int, numbers []int, memo map[int]bool) bool {
 	memo[target] = false
 	return false
 }
+
+func canSumTabulation(target int, numbers []int) bool {
+	var tab []bool
+	for i := 0; i < target+1; i++ {
+		tab = append(tab, false)
+	}
+	for _, v := range numbers {
+		if v < len(tab) {
+			tab[v] = true
+		}
+	}
+	tab[0] = true
+	for idx := range tab {
+		if tab[idx] {
+			for _, v := range numbers {
+				if idx+v < len(tab) {
+					tab[idx+v] = true
+				}
+			}
+		}
+	}
+	return tab[target]
+}

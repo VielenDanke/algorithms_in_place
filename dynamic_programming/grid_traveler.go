@@ -50,9 +50,3 @@ func gridTravelerTabulation(rows, column int) int {
 	}
 	return tab[rows][column]
 }
-
-func main() {
-	rows, column := 18, 18
-
-	fmt.Printf("Result: %v", gridTravelerTabulation(rows, column))
-}
