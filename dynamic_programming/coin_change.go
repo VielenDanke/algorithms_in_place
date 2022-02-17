@@ -1,5 +1,7 @@
 package main
 
+// Space O(N) Time O(N*D)
+
 func NumberOfWaysToMakeChange2(n int, denoms []int) int {
 	// Write your code here.
 	ways := make([]int, n+1)
@@ -16,11 +18,10 @@ func NumberOfWaysToMakeChange2(n int, denoms []int) int {
 
 func NumberOfWaysToMakeChange(n int, denoms []int) int {
 	// Write your code here.
-	memo := make(map[int]int)
-	return changeCoin(n, denoms, memo)
+	return changeCoin(n, denoms)
 }
 
-func changeCoin(n int, denoms []int, memo map[int]int) (sum int) {
+func changeCoin(n int, denoms []int) (sum int) {
 	if n == 0 {
 		return 1
 	}
@@ -29,9 +30,7 @@ func changeCoin(n int, denoms []int, memo map[int]int) (sum int) {
 	}
 	for idx, v := range denoms {
 		remainder := n - v
-		sum += changeCoin(remainder, denoms[idx:], memo)
-		memo[n] = sum
+		sum += changeCoin(remainder, denoms[idx:])
 	}
-	memo[n] = sum
 	return sum
 }

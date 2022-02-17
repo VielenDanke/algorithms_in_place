@@ -1,28 +1,10 @@
 package main
 
-import "fmt"
-
-func NumberOfWaysToMakeChange(n int, denoms []int) int {
-	// Write your code here.
-	counter := 0
-	howSum(n, denoms, &counter)
-	return counter
-}
-
-func howSum(n int, denoms []int, counter *int) {
-	if n == 0 {
-		*counter += 1
-		return
-	}
-	for idx, v := range denoms {
-		remainder := n - v
-		if remainder < 0 {
-			continue
-		}
-		howSum(remainder, denoms[idx:], counter)
-	}
-}
+import (
+	"fmt"
+	"github.com/vielendanke/preparation/array/medium"
+)
 
 func main() {
-	fmt.Printf("%v", NumberOfWaysToMakeChange(6, []int{1, 5}))
+	fmt.Printf("Result: %v\n", medium.CombinationSum([]int{2, 3, 5}, 8))
 }

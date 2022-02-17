@@ -121,12 +121,10 @@ func allConstructTabulation(target string, wordBank []string) [][]string {
 	}
 	tab[0] = [][]string{}
 	for idx := range tab {
-		if tab[idx] != nil {
-			for _, word := range wordBank {
-				if idx+len(word) <= len(target) && target[idx:idx+len(word)] == word && idx+len(word) < len(tab) {
-					t := append(tab[idx], []string{word})
-					tab[idx+len(word)] = append(tab[idx+len(word)], t...)
-				}
+		for _, word := range wordBank {
+			if idx+len(word) <= len(target) && target[idx:idx+len(word)] == word && idx+len(word) < len(tab) {
+				t := append(tab[idx], []string{word})
+				tab[idx+len(word)] = append(tab[idx+len(word)], t...)
 			}
 		}
 	}

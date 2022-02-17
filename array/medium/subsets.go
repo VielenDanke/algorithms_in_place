@@ -15,12 +15,7 @@ func recursiveResult(temp []int, m map[int][]int, nums []int, start int) {
 		result = append(result, val)
 	}
 	if len(temp) == k {
-		tempRes := make([]int, 0)
-		for _, v := range temp {
-			tempRes = append(tempRes, v)
-		}
-		m[start] = tempRes
-		result = append(result, tempRes)
+		result = append(result, append(make([]int, 0), temp...))
 		return
 	}
 	for i := start; i < len(nums); i++ {
@@ -35,22 +30,18 @@ func Subsets(nums []int) [][]int {
 	//return helper(nums, 0, make(map[int][][]int))
 }
 
-func helper(nums []int, start int, memo map[int][][]int) [][]int {
-	if val, ok := memo[start]; ok {
-		return val
-	}
+func helper(nums []int, p int, memo map[int][][]int) [][]int {
 	var result [][]int
 	result = append(result, []int{})
-	if start == len(nums) {
+	if len(nums) == p {
 		return result
 	}
-	for i := start; i < len(nums); i++ {
+	for i := p; i < len(nums); i++ {
 		temp := helper(nums, i+1, memo)
 		for j := range temp {
 			t := append([]int{nums[i]}, temp[j]...)
 			result = append(result, t)
 		}
 	}
-	memo[start] = result
 	return result
 }
