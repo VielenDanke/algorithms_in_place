@@ -10,11 +10,11 @@ func bestSum(target int, numbers []int, memo map[int][]int) []int {
 	}
 	var shortestCombination []int
 
-	for _, v := range numbers {
-		remainder := target - v
-		remainderComb := bestSum(remainder, numbers, memo)
+	for idx := range numbers {
+		remainder := target - numbers[idx]
+		remainderComb := bestSum(remainder, numbers[idx:], memo)
 		if remainderComb != nil {
-			remainderComb = append(remainderComb, v)
+			remainderComb = append(remainderComb, numbers[idx])
 			if shortestCombination == nil || len(remainderComb) < len(shortestCombination) {
 				shortestCombination = remainderComb
 			}

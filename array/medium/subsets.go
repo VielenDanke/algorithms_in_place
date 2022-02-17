@@ -1,26 +1,21 @@
 package medium
 
-var k int
-var result [][]int
-
 func subsets(nums []int, m map[int][]int) [][]int {
-	for k = 1; k < len(nums)+1; k++ {
-		recursiveResult(make([]int, 0), m, nums, 0)
+	result := make([][]int, 0)
+	for k := 1; k < len(nums)+1; k++ {
+		recursiveResult(&result, make([]int, 0), m, nums, 0, k)
 	}
 	return result
 }
 
-func recursiveResult(temp []int, m map[int][]int, nums []int, start int) {
-	if val, ok := m[start]; ok {
-		result = append(result, val)
-	}
+func recursiveResult(result *[][]int, temp []int, m map[int][]int, nums []int, start, k int) {
 	if len(temp) == k {
-		result = append(result, append(make([]int, 0), temp...))
+		*result = append(*result, append(make([]int, 0), temp...))
 		return
 	}
 	for i := start; i < len(nums); i++ {
 		temp = append(temp, nums[i])
-		recursiveResult(temp, m, nums, i+1)
+		recursiveResult(result, temp, m, nums, i+1, k)
 		temp = temp[:len(temp)-1]
 	}
 }

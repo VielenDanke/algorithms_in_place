@@ -1,15 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
-
-type BST struct {
-	Value int
-
-	Left  *BST
-	Right *BST
-}
+import "fmt"
 
 func (tree BST) String() string {
 	return fmt.Sprintf("%v\n", tree.inOrderTraversal(make([]int, 0)))
@@ -30,6 +21,18 @@ func MinHeightBST(array []int) *BST {
 	return recursive(array, nil, 0, len(array)-1)
 }
 
+func recursiveBetter(array []int, start, end int) *BST {
+	if end < start {
+		return nil
+	}
+	midIdx := (start + end) / 2
+	val := array[midIdx]
+	node := &BST{Value: val}
+	node.Left = recursiveBetter(array, start, midIdx-1)
+	node.Right = recursiveBetter(array, midIdx+1, end)
+	return node
+}
+
 func recursive(array []int, node *BST, start, end int) *BST {
 	if end < start {
 		return nil
@@ -44,26 +47,4 @@ func recursive(array []int, node *BST, start, end int) *BST {
 	recursive(array, node, start, middle-1)
 	recursive(array, node, middle+1, end)
 	return node
-}
-
-func (tree *BST) Insert(value int) *BST {
-	if value < tree.Value {
-		if tree.Left == nil {
-			tree.Left = &BST{Value: value}
-		} else {
-			tree.Left.Insert(value)
-		}
-	} else {
-		if tree.Right == nil {
-			tree.Right = &BST{Value: value}
-		} else {
-			tree.Right.Insert(value)
-		}
-	}
-	return tree
-}
-
-func main() {
-	root := MinHeightBST([]int{1, 2, 5, 7, 10, 13, 14, 15, 22})
-	fmt.Printf("Result: %v\n", root)
 }
