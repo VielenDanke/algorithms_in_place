@@ -7,7 +7,6 @@ func RemoveKdigits(num string, k int) (result string) {
 	if len(num) <= k {
 		return "0"
 	}
-
 	stack := make([]byte, 0)
 
 	stack = append(stack, num[0])
