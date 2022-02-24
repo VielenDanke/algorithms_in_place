@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/vielendanke/preparation/tree/medium"
-)
+import "fmt"
 
 var maxSum int
 var maxDepth int
@@ -49,6 +47,28 @@ func bottomUp(node *BinaryTree) (int, int) {
 	return sum, depth
 }
 
+func merge(nums1 []int, m int, nums2 []int, n int) {
+	firstIdx, secondIdx := 0, 0
+
+	nums1 = nums1[:m]
+	nums2 = nums2[:n]
+
+	for firstIdx < m && secondIdx < n {
+		if nums1[firstIdx] > nums2[secondIdx] {
+			nums1[firstIdx], nums2[secondIdx] = nums2[secondIdx], nums1[firstIdx]
+			secondIdx++
+		} else {
+			firstIdx++
+		}
+	}
+	for _, v := range nums2 {
+		nums1 = append(nums1, v)
+	}
+}
+
 func main() {
-	medium.ReconstructBst([]int{10, 4, 2, 1, 5, 17, 19, 18})
+	f := []int{1, 2, 3, 0, 0, 0}
+	s := []int{2, 5, 6}
+	merge(f, 3, s, len(s))
+	fmt.Println(f)
 }
