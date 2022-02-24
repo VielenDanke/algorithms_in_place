@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"github.com/vielendanke/preparation/linked_list/medium"
+)
 
 var maxSum int
 var maxDepth int
@@ -67,8 +69,8 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 }
 
 func main() {
-	f := []int{1, 2, 3, 0, 0, 0}
-	s := []int{2, 5, 6}
-	merge(f, 3, s, len(s))
-	fmt.Println(f)
+	medium.SumOfLinkedLists(
+		&medium.LinkedList{Value: 2, Next: &medium.LinkedList{Value: 4, Next: &medium.LinkedList{Value: 7, Next: &medium.LinkedList{Value: 1}}}},
+		&medium.LinkedList{Value: 9, Next: &medium.LinkedList{Value: 4, Next: &medium.LinkedList{Value: 5}}},
+	)
 }
