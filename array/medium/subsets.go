@@ -25,6 +25,19 @@ func Subsets(nums []int) [][]int {
 	//return helper(nums, 0, make(map[int][][]int))
 }
 
+func Powerset(array []int) [][]int {
+	subsets := append(make([][]int, 0), []int{})
+	for _, v := range array {
+		length := len(subsets)
+		for i := 0; i < length; i++ {
+			newSubset := append([]int{}, subsets[i]...)
+			newSubset = append(newSubset, v)
+			subsets = append(subsets, newSubset)
+		}
+	}
+	return subsets
+}
+
 func helper(nums []int, p int, memo map[int][][]int) [][]int {
 	var result [][]int
 	result = append(result, []int{})
