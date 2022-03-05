@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Stack;
 
 public class BinaryTreeLevelOrderTraversal {
@@ -15,6 +16,23 @@ public class BinaryTreeLevelOrderTraversal {
         public Node(TreeNode node, int depth) {
             this.node = node;
             this.depth = depth;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            Node node1 = (Node) o;
+            return depth == node1.depth && Objects.equals(node, node1.node);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(node, depth);
         }
     }
 
