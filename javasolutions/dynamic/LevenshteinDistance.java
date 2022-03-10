@@ -56,6 +56,7 @@ public class LevenshteinDistance {
 
     // ######################################################################################################
 
+    // Time O(nm) | Space O(nm)
     public static int levenshteinDistance(String str1, String str2) {
         // Write your code here.
         int[][] edits = new int[str2.length() + 1][str1.length() + 1];
