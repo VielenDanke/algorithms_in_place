@@ -1,6 +1,5 @@
 package javasolutions.linkedlist.medium;
 
-import java.util.HashSet;
 import javasolutions.linkedlist.ListNode;
 
 public class MergeTwoSortedList {
