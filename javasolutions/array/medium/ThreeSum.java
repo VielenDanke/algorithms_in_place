@@ -1,4 +1,4 @@
-package javasolutions.array;
+package javasolutions.array.medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +31,4 @@ public class ThreeSum {
         return new ArrayList<>(resultSet);
     }
 
-    public static void main(String[] args) {
-        System.out.printf("Result: %s\n", threeSum(new int[]{-1,0,1,2,-1,-4}));
-    }
 }

@@ -1,4 +1,6 @@
-package javasolutions;
+package javasolutions.binarytree.medium;
+
+import javasolutions.binarytree.TreeNode;
 
 public class SymmetricTree {
 
@@ -21,11 +23,4 @@ public class SymmetricTree {
         return checkNode(root, root);
     }
 
-    public static void main(String[] args) {
-        SymmetricTree st = new SymmetricTree();
-
-        System.out.println(st.isSymmetric(new TreeNode(1,
-                new TreeNode(2, new TreeNode(3, null, null), new TreeNode(4, null, null)),
-                new TreeNode(2, new TreeNode(4, null, null), new TreeNode(3, null, null)))));
-    }
 }

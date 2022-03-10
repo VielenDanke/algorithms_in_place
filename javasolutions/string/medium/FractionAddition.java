@@ -1,4 +1,4 @@
-package javasolutions;
+package javasolutions.string.medium;
 
 import java.util.stream.Stream;
 
@@ -29,9 +29,5 @@ public class FractionAddition {
 
     private int[] toArray(String s) {
         return Stream.of(s.split("/")).mapToInt(Integer::parseInt).toArray();
-    }
-
-    public static void main(String[] args) {
-        System.out.printf("Result: %s\n", new FractionAddition().fractionAddition("-1/2+1/2"));
     }
 }

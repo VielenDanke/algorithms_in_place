@@ -1,4 +1,4 @@
-package javasolutions;
+package javasolutions.array.medium;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +28,4 @@ public class ValidSquare {
         return (p1[0] - p2[0]) * (p1[0] - p2[0]) + (p1[1] - p2[1]) * (p1[1] - p2[1]);
     }
 
-    public static void main(String[] args) {
-        System.out.printf("Result: %b\n", new ValidSquare().validSquare(new int[]{0, 0}, new int[]{1, 1}, new int[]{1, 0}, new int[]{0, 12}));
-    }
 }

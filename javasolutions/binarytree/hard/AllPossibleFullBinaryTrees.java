@@ -1,9 +1,10 @@
-package javasolutions;
+package javasolutions.binarytree.hard;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import javasolutions.binarytree.TreeNode;
 
 public class AllPossibleFullBinaryTrees {
 

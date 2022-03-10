@@ -1,4 +1,4 @@
-package javasolutions.array;
+package javasolutions.array.easy;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -26,9 +26,5 @@ public class SingleNumber {
             }
         }
         return visited.entrySet().stream().filter(entrySet -> entrySet.getValue() == 1).map(Entry::getKey).findFirst().orElse(-1);
-    }
-
-    public static void main(String[] args) {
-        System.out.printf("Result: %d\n", SingleNumber.singleNumberBetter(new int[]{4,1,2,1,2}));
     }
 }

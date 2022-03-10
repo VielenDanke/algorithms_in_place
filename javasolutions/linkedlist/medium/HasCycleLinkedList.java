@@ -1,9 +1,10 @@
-package javasolutions.linkedlist;
+package javasolutions.linkedlist.medium;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import javasolutions.linkedlist.ListNode;
 
 public class HasCycleLinkedList {
 

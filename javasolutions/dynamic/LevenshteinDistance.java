@@ -103,7 +103,4 @@ public class LevenshteinDistance {
         return Arrays.stream(numbers).min().orElse(Integer.MAX_VALUE);
     }
 
-    public static void main(String[] args) {
-        System.out.printf("Result: %d\n", LevenshteinDistance.levenshteinDistance3("biting", "mitten"));
-    }
 }

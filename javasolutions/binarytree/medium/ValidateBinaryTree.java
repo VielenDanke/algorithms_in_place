@@ -1,4 +1,6 @@
-package javasolutions.binarytree;
+package javasolutions.binarytree.medium;
+
+import javasolutions.binarytree.TreeNode;
 
 public class ValidateBinaryTree {
 
@@ -16,8 +18,4 @@ public class ValidateBinaryTree {
                 && validateBST(node.right, node.val, max);
     }
 
-    public static void main(String[] args) {
-        boolean validBST = ValidateBinaryTree.isValidBST(new TreeNode(2147483647));
-        System.out.println(validBST);
-    }
 }

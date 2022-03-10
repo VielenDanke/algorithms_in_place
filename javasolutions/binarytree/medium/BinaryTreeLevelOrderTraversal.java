@@ -1,4 +1,4 @@
-package javasolutions;
+package javasolutions.binarytree.medium;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,10 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Stack;
+import javasolutions.binarytree.TreeNode;
 
 public class BinaryTreeLevelOrderTraversal {
 
-    class Node {
+    private class Node {
         TreeNode node;
         int depth;
 
@@ -63,11 +64,4 @@ public class BinaryTreeLevelOrderTraversal {
         return new ArrayList<>(nodesByDepth.values());
     }
 
-    public static void main(String[] args) {
-        System.out.println(new BinaryTreeLevelOrderTraversal().levelOrder(new TreeNode(3,
-                new TreeNode(9, null, null),
-                new TreeNode(20,
-                        new TreeNode(15, null, null),
-                        new TreeNode(7, null, null)))));
-    }
 }

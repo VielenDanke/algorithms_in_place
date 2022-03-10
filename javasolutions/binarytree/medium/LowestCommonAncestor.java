@@ -1,4 +1,6 @@
-package javasolutions.binarytree;
+package javasolutions.binarytree.medium;
+
+import javasolutions.binarytree.TreeNode;
 
 public class LowestCommonAncestor {
 

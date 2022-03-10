@@ -1,11 +1,11 @@
-package javasolutions;
+package javasolutions.binarytree.easy;
 
-import java.util.Objects;
 import java.util.Stack;
+import javasolutions.binarytree.TreeNode;
 
 public class MaximumDepthBinaryTree {
 
-    class Node {
+    private class Node {
         private TreeNode node;
         private int depth;
 
@@ -38,14 +38,4 @@ public class MaximumDepthBinaryTree {
         return maxDepth;
     }
 
-    public static void main(String[] args) {
-        MaximumDepthBinaryTree btmax = new MaximumDepthBinaryTree();
-
-        System.out.println(btmax.maxDepth(
-                new TreeNode(3,
-                        new TreeNode(9, null, null),
-                        new TreeNode(20,
-                                new TreeNode(15, null, null),
-                                new TreeNode(7, null, null)))));
-    }
 }

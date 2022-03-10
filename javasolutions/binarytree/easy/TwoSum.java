@@ -1,8 +1,9 @@
-package javasolutions.binarytree;
+package javasolutions.binarytree.easy;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
+import javasolutions.binarytree.TreeNode;
 
 public class TwoSum {
 

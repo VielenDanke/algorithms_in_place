@@ -1,4 +1,6 @@
-package javasolutions.linkedlist;
+package javasolutions.linkedlist.medium;
+
+import javasolutions.linkedlist.ListNode;
 
 public class SumOfTwoLists {
 

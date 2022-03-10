@@ -1,9 +1,10 @@
-package javasolutions.linkedlist;
+package javasolutions.linkedlist.easy;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+import javasolutions.linkedlist.ListNode;
 
 public class RemoveDuplicatesFromSortedList {
 

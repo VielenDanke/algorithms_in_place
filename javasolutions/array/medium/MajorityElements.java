@@ -1,4 +1,4 @@
-package javasolutions.array;
+package javasolutions.array.medium;
 
 import java.util.Arrays;
 
@@ -23,9 +23,5 @@ public class MajorityElements {
             return nums[nums.length - 1];
         }
         return -1;
-    }
-
-    public static void main(String[] args) {
-        MajorityElements.majorityElement(new int[]{3,2,3});
     }
 }
