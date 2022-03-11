@@ -78,6 +78,7 @@ class MyHashMap {
                 }
             }
         }
+        this.size--;
     }
 
     static class KeyValue {
