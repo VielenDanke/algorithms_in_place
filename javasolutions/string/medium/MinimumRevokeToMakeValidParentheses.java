@@ -28,9 +28,13 @@ public class MinimumRevokeToMakeValidParentheses {
         if (size > 0) {
             stack = new Stack<>();
             for (int i = result.length() - 1; i >= 0; i--) {
+                if (size <= 0) {
+                    break;
+                }
                 char c = result.charAt(i);
                 if (c == '(' && stack.isEmpty()) {
                     result.deleteCharAt(i);
+                    size--;
                 } else if (c == '(') {
                     stack.pop();
                 } else if (c == ')') {
