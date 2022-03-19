@@ -1,17 +1,12 @@
 package main
 
-import "github.com/vielendanke/preparation/array/hard"
+import (
+	"github.com/vielendanke/preparation/strings/medium"
+	"log"
+)
 
 func main() {
-	freqStack := hard.Constructor()
+	labels := medium.PartitionLabels("eccbbbbdec")
 
-	freqStack.Push(5)
-	freqStack.Push(7)
-	freqStack.Push(5)
-	freqStack.Push(7)
-	freqStack.Push(4)
-	freqStack.Push(5)
-
-	freqStack.Pop()
-	freqStack.Pop()
+	log.Printf("%v\n", labels)
 }
