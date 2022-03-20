@@ -1,12 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"github.com/vielendanke/preparation/strings/medium"
-	"log"
 )
 
 func main() {
-	labels := medium.PartitionLabels("eccbbbbdec")
-
-	log.Printf("%v\n", labels)
+	fmt.Printf("Result: %s\n", medium.Multiply("9133", "0"))
 }
