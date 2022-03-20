@@ -20,3 +20,23 @@ func PartitionLabels(s string) []int {
 	}
 	return result
 }
+
+func partitionLabels2(s string) []int {
+	last, result := make([]int, 26), make([]int, 0)
+
+	runes := []rune(s)
+
+	for i := 0; i < len(runes); i++ {
+		last[runes[i]-'a'] = i
+	}
+	var j, anchor int
+
+	for i := 0; i < len(runes); i++ {
+		j = max(j, last[runes[i]-'a'])
+		if i == j {
+			result = append(result, i-anchor+1)
+			anchor = i + 1
+		}
+	}
+	return result
+}
