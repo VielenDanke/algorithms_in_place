@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Printf("Result: %v\n", medium.FindRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"))
+	fmt.Printf("Result: %v\n", medium.LongestPalindrome("ccc"))
 }
