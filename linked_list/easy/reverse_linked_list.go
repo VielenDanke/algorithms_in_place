@@ -1,4 +1,4 @@
-package linked_list
+package easy
 
 import "github.com/vielendanke/preparation/leetcode/easy"
 
