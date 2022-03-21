@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Printf("Result: %d\n", medium.MinDominoRotations([]int{1, 1, 1, 1, 1}, []int{1, 1, 1, 1, 1}))
+	fmt.Printf("Result: %v\n", medium.FindRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"))
 }
