@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	medium2 "github.com/vielendanke/preparation/strings/medium"
+	"github.com/vielendanke/preparation/leetcode/medium"
 )
 
 func main() {
-	fmt.Printf("%s\n", medium2.GetSmallestStringOptimal(3, 27))
+	fmt.Printf("%d\n", medium.MinMoves(19, 2))
 }
