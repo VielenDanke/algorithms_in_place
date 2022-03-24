@@ -2,19 +2,14 @@ package medium
 
 import "github.com/vielendanke/preparation/tree"
 
-type Node struct {
-	InnerNode *tree.TreeNode
-	Depth     int
-}
-
 func ZigzagLevelOrder(root *tree.TreeNode) [][]int {
 	depthsMap := make(map[int][]int)
 	result := make([][]int, 0)
-	stack := make([]*Node, 0)
+	stack := make([]*tree.Node, 0)
 
-	stack = append(stack, &Node{InnerNode: root, Depth: 1})
+	stack = append(stack, &tree.Node{InnerNode: root, Depth: 1})
 
-	var tempNode *Node
+	var tempNode *tree.Node
 
 	for len(stack) > 0 {
 		tempNode, stack = stack[len(stack)-1], stack[:len(stack)-1]
@@ -27,8 +22,8 @@ func ZigzagLevelOrder(root *tree.TreeNode) [][]int {
 		} else {
 			depthsMap[tempNode.Depth] = append(depthsMap[tempNode.Depth], tempNode.InnerNode.Val)
 		}
-		stack = append(stack, &Node{InnerNode: tempNode.InnerNode.Left, Depth: tempNode.Depth + 1})
-		stack = append(stack, &Node{InnerNode: tempNode.InnerNode.Right, Depth: tempNode.Depth + 1})
+		stack = append(stack, &tree.Node{InnerNode: tempNode.InnerNode.Left, Depth: tempNode.Depth + 1})
+		stack = append(stack, &tree.Node{InnerNode: tempNode.InnerNode.Right, Depth: tempNode.Depth + 1})
 	}
 	isLeftRightTraversal := true
 	currentLevel := 1
