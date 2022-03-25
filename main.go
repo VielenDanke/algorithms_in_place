@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"github.com/vielendanke/preparation/array/medium"
+	"github.com/vielendanke/preparation/tree"
+	"github.com/vielendanke/preparation/tree/medium"
 )
 
 func main() {
-	fmt.Printf("%d\n", medium.NumRescueBoats([]int{2, 49, 10, 7, 11, 41, 47, 2, 22, 6, 13, 12, 33, 18, 10, 26, 2, 6, 50, 10}, 50))
+	medium.BSTConstructor(&tree.TreeNode{Val: 7, Left: &tree.TreeNode{Val: 3}, Right: &tree.TreeNode{Val: 15, Left: &tree.TreeNode{Val: 9}, Right: &tree.TreeNode{Val: 20}}})
 }
