@@ -1,10 +1,30 @@
 package main
 
 import (
+	"fmt"
 	"github.com/vielendanke/preparation/tree"
 	"github.com/vielendanke/preparation/tree/medium"
 )
 
 func main() {
-	medium.BSTConstructor(&tree.TreeNode{Val: 7, Left: &tree.TreeNode{Val: 3}, Right: &tree.TreeNode{Val: 15, Left: &tree.TreeNode{Val: 9}, Right: &tree.TreeNode{Val: 20}}})
+	fmt.Printf("%v\n", medium.PathSum(&tree.TreeNode{
+		Val: 5,
+		Left: &tree.TreeNode{
+			Val: 4,
+			Left: &tree.TreeNode{
+				Val:   11,
+				Left:  &tree.TreeNode{Val: 7},
+				Right: &tree.TreeNode{Val: 2},
+			},
+		},
+		Right: &tree.TreeNode{
+			Val: 8,
+			Left: &tree.TreeNode{
+				Left: &tree.TreeNode{Val: 13}},
+			Right: &tree.TreeNode{
+				Val:   4,
+				Left:  &tree.TreeNode{Val: 5},
+				Right: &tree.TreeNode{Val: 1}}},
+	}, 22,
+	))
 }
