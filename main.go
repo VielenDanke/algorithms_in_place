@@ -7,5 +7,5 @@ import (
 )
 
 func main() {
-	fmt.Fprintf(os.Stdout, "Result: %d\n", sberbank.GetResult2([]int{3, 2, 1, 4}, []int{1, 2, 3, 4}))
+	fmt.Fprintf(os.Stdout, "Result: %t\n", sberbank.GuestsList2(4, []string{"1-2", "3-4"}))
 }
