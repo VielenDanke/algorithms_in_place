@@ -1,4 +1,6 @@
-package linked_list
+package easy
+
+import "github.com/vielendanke/preparation/leetcode/easy"
 
 type LinkedList struct {
 	Value int
@@ -54,4 +56,19 @@ func RemoveDuplicatesFromLinkedList(linkedList *LinkedList) *LinkedList {
 		}
 	}
 	return linkedList
+}
+
+func RemoveDuplicatesFromLinkedList4(head *easy.ListNode) *easy.ListNode {
+	if head == nil {
+		return nil
+	}
+	if head.Next != nil && head.Val == head.Next.Val {
+		for head.Next != nil && head.Val == head.Next.Val {
+			head = head.Next
+		}
+		return RemoveDuplicatesFromLinkedList4(head.Next)
+	} else {
+		head.Next = RemoveDuplicatesFromLinkedList4(head.Next)
+	}
+	return head
 }
