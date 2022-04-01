@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Printf("%v\n", hard.SplitArray([]int{7, 2, 5, 10, 8}, 2))
+	fmt.Printf("%v\n", hard.SplitArraySecond([]int{7, 2, 5, 10, 8}, 2))
 }
