@@ -1,10 +1,35 @@
 package hard
 
-func LongestSubstringWithoutDuplication(str string) (result string) {
+type substring struct {
+	left  int
+	right int
+}
+
+func (ss substring) length() int {
+	return ss.right - ss.left
+}
+
+func LongestSubstringWithoutDuplication(str string) string {
+	lastSeen := make(map[rune]int)
+	longest := substring{0, 1}
+	startIndex := 0
+	for i, char := range str {
+		if seenIndex, found := lastSeen[char]; found && startIndex < seenIndex+1 {
+			startIndex = seenIndex + 1
+		}
+		if longest.length() < i+1-startIndex {
+			longest = substring{startIndex, i + 1}
+		}
+		lastSeen[char] = i
+	}
+	return str[longest.left:longest.right]
+}
+
+func LongestSubstringWithoutDuplicationSecondApproach(str string) (result string) {
 	start, end := 0, 1
+	storage := make(map[byte]int)
 
 	for end < len(str) {
-		storage := make(map[byte]int)
 		storage[str[start]] = start
 		for end < len(str) {
 			if idx, ok := storage[str[end]]; ok {
