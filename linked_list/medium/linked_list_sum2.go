@@ -1,12 +1,9 @@
 package medium
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import "github.com/vielendanke/preparation/linked_list"
 
-func addTwoNumbers(f *ListNode, s *ListNode) *ListNode {
-	dump := &ListNode{}
+func addTwoNumbers(f *linked_list.ListNode, s *linked_list.ListNode) *linked_list.ListNode {
+	dump := &linked_list.ListNode{}
 	temp := dump
 	remainder := 0
 
@@ -20,7 +17,7 @@ func addTwoNumbers(f *ListNode, s *ListNode) *ListNode {
 			remainder = tempVal / 10
 			tempVal %= 10
 		}
-		dump.Next = &ListNode{Val: tempVal}
+		dump.Next = &linked_list.ListNode{Val: tempVal}
 		dump = dump.Next
 		f = f.Next
 		s = s.Next
@@ -32,7 +29,7 @@ func addTwoNumbers(f *ListNode, s *ListNode) *ListNode {
 			remainder = tempVal / 10
 			tempVal %= 10
 		}
-		dump.Next = &ListNode{Val: tempVal}
+		dump.Next = &linked_list.ListNode{Val: tempVal}
 		dump = dump.Next
 		f = f.Next
 	}
@@ -43,12 +40,12 @@ func addTwoNumbers(f *ListNode, s *ListNode) *ListNode {
 			remainder = tempVal / 10
 			tempVal %= 10
 		}
-		dump.Next = &ListNode{Val: tempVal}
+		dump.Next = &linked_list.ListNode{Val: tempVal}
 		dump = dump.Next
 		s = s.Next
 	}
 	if remainder != 0 {
-		dump.Next = &ListNode{Val: remainder}
+		dump.Next = &linked_list.ListNode{Val: remainder}
 	}
 	return temp.Next
 }

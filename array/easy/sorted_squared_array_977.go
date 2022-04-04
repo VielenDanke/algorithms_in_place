@@ -2,11 +2,7 @@ package easy
 
 import "sort"
 
-func powerArrayOfTwo(array []int) {
-	for k, v := range array {
-		array[k] = v * v
-	}
-}
+// O(NlogN) time | O(1) space
 
 func SortedSquaredArray(array []int) []int {
 	// Write your code here.
@@ -17,6 +13,16 @@ func SortedSquaredArray(array []int) []int {
 	}
 	return array
 }
+
+func powerArrayOfTwo(array []int) {
+	for k, v := range array {
+		array[k] = v * v
+	}
+}
+
+// ------------------------------------------------------
+
+// O(N) time | O(N) space
 
 func SortedSquaredArray2(array []int) []int {
 	// Write your code here.

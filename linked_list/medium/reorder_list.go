@@ -1,6 +1,8 @@
 package medium
 
-func reorderList(head *ListNode) {
+import "github.com/vielendanke/preparation/linked_list"
+
+func reorderList(head *linked_list.ListNode) {
 	nodes := make([]int, 0)
 	temp := head
 
