@@ -1,6 +1,7 @@
 package medium
 
 // O(N) time | O(N) space
+// The fastest
 
 func rotate(nums []int, k int) {
 	temp := make([]int, len(nums))
