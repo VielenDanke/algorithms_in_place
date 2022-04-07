@@ -1,12 +1,9 @@
 package easy
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import "github.com/vielendanke/algorithms_in_place/linked_list"
 
-func getIntersectionNode(headA, headB *ListNode) *ListNode {
-	storage := make(map[*ListNode]interface{})
+func getIntersectionNode(headA, headB *linked_list.ListNode) *linked_list.ListNode {
+	storage := make(map[*linked_list.ListNode]interface{})
 
 	for headA != nil {
 		storage[headA] = nil
@@ -21,7 +18,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	return nil
 }
 
-func getIntersectionNodeConstantSpace(headA, headB *ListNode) *ListNode {
+func getIntersectionNodeConstantSpace(headA, headB *linked_list.ListNode) *linked_list.ListNode {
 	lenA, lenB := findLen(headA), findLen(headB)
 	skipA, diffNum := diff(lenA, lenB)
 
@@ -50,7 +47,7 @@ func diff(lenA, lenB int) (bool, int) {
 	return false, lenB - lenA
 }
 
-func moveHead(head *ListNode, diff int) *ListNode {
+func moveHead(head *linked_list.ListNode, diff int) *linked_list.ListNode {
 	for diff > 0 {
 		head = head.Next
 		diff--
@@ -58,7 +55,7 @@ func moveHead(head *ListNode, diff int) *ListNode {
 	return head
 }
 
-func findLen(node *ListNode) (length int) {
+func findLen(node *linked_list.ListNode) (length int) {
 	for node != nil {
 		length++
 		node = node.Next
