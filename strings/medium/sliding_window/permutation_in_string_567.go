@@ -4,16 +4,22 @@ func checkInclusionArrayCountRune(s1, s2 string) bool {
 	if len(s1) > len(s2) {
 		return false
 	}
+	// only lower letters are considered, 26 low letters in english alphabet
 	s1RuneCount := make([]int, 26)
 	s2RuneCount := make([]int, 26)
 
+	// add to s1 and s2 start of strings in amount of len(s1)
 	for idx := range s1 {
 		s1RuneCount[s1[idx]-'a']++
 		s2RuneCount[s2[idx]-'a']++
 	}
+	// check if start already equals
 	if arrayEqual(s1RuneCount, s2RuneCount) {
 		return true
 	}
+	// iterate over, the key thing here is add new letter and remove previous letter in window
+	// window = len(s1)
+	// everytime check if arrays are equal
 	for i := len(s1); i < len(s2); i++ {
 		s2RuneCount[s2[i]-'a']++
 		s2RuneCount[s2[i-len(s1)]-'a']--
