@@ -1,6 +1,6 @@
 package medium
 
-import "github.com/vielendanke/preparation/linked_list"
+import "github.com/vielendanke/algorithms_in_place/linked_list"
 
 func addTwoNumbers(f *linked_list.ListNode, s *linked_list.ListNode) *linked_list.ListNode {
 	dump := &linked_list.ListNode{}

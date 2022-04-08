@@ -1,6 +1,6 @@
 package medium
 
-import "github.com/vielendanke/preparation/linked_list"
+import "github.com/vielendanke/algorithms_in_place/linked_list"
 
 func reorderList(head *linked_list.ListNode) {
 	nodes := make([]int, 0)

@@ -1,6 +1,6 @@
 package medium
 
-import "github.com/vielendanke/preparation/tree"
+import "github.com/vielendanke/algorithms_in_place/tree"
 
 func lowestCommonAncestor(root, p, q *tree.TreeNode) *tree.TreeNode {
 	if root == nil {

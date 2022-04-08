@@ -1,6 +1,6 @@
 package medium
 
-import "github.com/vielendanke/preparation/tree"
+import "github.com/vielendanke/algorithms_in_place/tree"
 
 func rightSideViewShorter(root *tree.TreeNode) []int {
 	var result []int

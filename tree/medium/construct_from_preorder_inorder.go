@@ -1,6 +1,6 @@
 package medium
 
-import "github.com/vielendanke/preparation/tree"
+import "github.com/vielendanke/algorithms_in_place/tree"
 
 var globalIdx = 0
 var inorderIdxMap = make(map[int]int)

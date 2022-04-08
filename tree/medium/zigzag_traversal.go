@@ -1,6 +1,6 @@
 package medium
 
-import "github.com/vielendanke/preparation/tree"
+import "github.com/vielendanke/algorithms_in_place/tree"
 
 func ZigzagLevelOrder(root *tree.TreeNode) [][]int {
 	depthsMap := make(map[int][]int)

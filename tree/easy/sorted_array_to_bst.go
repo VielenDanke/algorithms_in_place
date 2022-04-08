@@ -1,6 +1,6 @@
 package easy
 
-import "github.com/vielendanke/preparation/tree"
+import "github.com/vielendanke/algorithms_in_place/tree"
 
 func sortedArrayToBST(nums []int) *tree.TreeNode {
 	if len(nums) == 0 {

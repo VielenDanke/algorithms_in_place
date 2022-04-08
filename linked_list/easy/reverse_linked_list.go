@@ -1,6 +1,6 @@
 package easy
 
-import "github.com/vielendanke/preparation/leetcode/easy"
+import "github.com/vielendanke/algorithms_in_place/leetcode/easy"
 
 func reverse(head *easy.ListNode) *easy.ListNode {
 	var prev *easy.ListNode

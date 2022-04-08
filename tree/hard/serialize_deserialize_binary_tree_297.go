@@ -1,7 +1,7 @@
 package hard
 
 import (
-	"github.com/vielendanke/preparation/tree"
+	"github.com/vielendanke/algorithms_in_place/tree"
 	"strconv"
 	"strings"
 )

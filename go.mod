@@ -1,3 +1,3 @@
-module github.com/vielendanke/preparation
+module github.com/vielendanke/algorithms_in_place
 
-go 1.17
+go 1.18
