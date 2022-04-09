@@ -10,3 +10,8 @@ type Node struct {
 	InnerNode *TreeNode
 	Depth     int
 }
+
+type BinaryTree struct {
+	Value       int
+	Left, Right *BinaryTree
+}
