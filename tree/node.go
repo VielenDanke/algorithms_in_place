@@ -15,3 +15,10 @@ type BinaryTree struct {
 	Value       int
 	Left, Right *BinaryTree
 }
+
+type NodePointer struct {
+	Val   int
+	Left  *NodePointer
+	Right *NodePointer
+	Next  *NodePointer
+}
