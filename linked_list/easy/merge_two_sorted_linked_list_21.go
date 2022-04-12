@@ -1,8 +1,11 @@
 package easy
 
-import "sort"
+import (
+	"github.com/vielendanke/algorithms_in_place/linked_list"
+	"sort"
+)
 
-func mergeTwoListsSort(first, second *ListNode) *ListNode {
+func mergeTwoListsSort(first, second *linked_list.ListNode) *linked_list.ListNode {
 	arr := make([]int, 0)
 	for first != nil {
 		arr = append(arr, first.Val)
@@ -16,17 +19,17 @@ func mergeTwoListsSort(first, second *ListNode) *ListNode {
 		return nil
 	}
 	sort.Ints(arr)
-	root := &ListNode{Val: arr[0]}
+	root := &linked_list.ListNode{Val: arr[0]}
 	temp := root
 	for i := 1; i < len(arr); i++ {
-		temp.Next = &ListNode{Val: arr[i]}
+		temp.Next = &linked_list.ListNode{Val: arr[i]}
 		temp = temp.Next
 	}
 	return root
 }
 
-func MergeList(first, second *ListNode) *ListNode {
-	root := &ListNode{}
+func MergeList(first, second *linked_list.ListNode) *linked_list.ListNode {
+	root := &linked_list.ListNode{}
 
 	if first != nil && second != nil {
 		if first.Val < second.Val {
@@ -71,8 +74,8 @@ func MergeList(first, second *ListNode) *ListNode {
 	return root
 }
 
-func MergeRecursive(first, second *ListNode) *ListNode {
-	root := &ListNode{}
+func MergeRecursive(first, second *linked_list.ListNode) *linked_list.ListNode {
+	root := &linked_list.ListNode{}
 
 	if first != nil && second != nil {
 		if first.Val < second.Val {
@@ -97,7 +100,7 @@ func MergeRecursive(first, second *ListNode) *ListNode {
 	return root
 }
 
-func recursiveList(root, first, second *ListNode) {
+func recursiveList(root, first, second *linked_list.ListNode) {
 	if first == nil && second == nil {
 		return
 	}
