@@ -3,15 +3,15 @@ package easy
 import "github.com/vielendanke/algorithms_in_place/leetcode/easy"
 
 func reverse(head *easy.ListNode) *easy.ListNode {
-	var prev *easy.ListNode
-	current := head
-	for current != nil {
-		next := current.Next
-		current.Next = prev
-		current = current.Next
-		current = next
+	var previousNode, currentNode *easy.ListNode = nil, head
+
+	for currentNode != nil {
+		nextNode := currentNode.Next
+		currentNode.Next = previousNode
+		previousNode = currentNode
+		currentNode = nextNode
 	}
-	return prev
+	return previousNode
 }
 
 func reverseRecursive(head, prev *easy.ListNode) *easy.ListNode {
