@@ -1,6 +1,6 @@
 package easy
 
-func GenerateMatrix(n int) [][]int {
+func generateMatrix(n int) [][]int {
 	// create matrix
 	matrix := make([][]int, n)
 
