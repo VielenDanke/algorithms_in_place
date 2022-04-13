@@ -20,9 +20,8 @@ func checkSymmetric(left, right *tree.TreeNode) bool {
 	}
 	if left.Val != right.Val {
 		return false
-	} else {
-		return checkSymmetric(left.Left, right.Right) && checkSymmetric(left.Right, right.Left)
 	}
+	return checkSymmetric(left.Left, right.Right) && checkSymmetric(left.Right, right.Left)
 }
 
 func isSymmetric(root *tree.TreeNode) bool {
