@@ -25,3 +25,23 @@ func backtrackPermute(result *[][]int, nums []int, temp []int, visited []bool) {
 		visited[i] = false
 	}
 }
+
+func permuteSecond(nums []int) [][]int {
+	result := make([][]int, 0)
+	backtrackPermuteSecond(&result, nums, 0)
+	return result
+}
+
+func backtrackPermuteSecond(result *[][]int, nums []int, left int) {
+	if left == len(nums) {
+		copyOfArr := make([]int, len(nums))
+		copy(copyOfArr, nums)
+		*result = append(*result, copyOfArr)
+		return
+	}
+	for i := left; i < len(nums); i++ {
+		nums[left], nums[i] = nums[i], nums[left]
+		backtrackPermuteSecond(result, nums, left+1)
+		nums[left], nums[i] = nums[i], nums[left]
+	}
+}
