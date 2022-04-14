@@ -2,8 +2,20 @@ package dynamic_programming
 
 import "fmt"
 
-func minimumTotalTabulation(triangle [][]int) (minSum int) {
-	return
+func minimumTotalTabulation(triangle [][]int) int {
+	n := len(triangle)
+
+	dp := make([]int, n)
+
+	for i := 0; i < n; i++ {
+		dp[i] = triangle[n-1][i]
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := 0; j <= i; j++ {
+			dp[j] = minSum(dp[j]+triangle[i][j], dp[j+1]+triangle[i][j])
+		}
+	}
+	return dp[0]
 }
 
 func minimumTotalMemoization(triangle [][]int) (minSum int) {
