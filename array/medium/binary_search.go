@@ -1,4 +1,4 @@
-package searching
+package medium
 
 func BinarySearch(array []int, target int) (result int) {
 	// Write your code here.

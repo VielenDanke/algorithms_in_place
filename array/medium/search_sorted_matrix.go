@@ -1,4 +1,4 @@
-package searching
+package medium
 
 func SearchInSortedMatrix(matrix [][]int, target int) []int {
 	// Write your code here.

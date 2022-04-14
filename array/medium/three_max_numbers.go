@@ -1,4 +1,4 @@
-package searching
+package medium
 
 func FindThreeLargestNumbers(array []int) []int {
 	// Write your code here.
