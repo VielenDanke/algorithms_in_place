@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 func bestSum(target int, numbers []int, memo map[int][]int) []int {
 	if val, ok := memo[target]; ok {

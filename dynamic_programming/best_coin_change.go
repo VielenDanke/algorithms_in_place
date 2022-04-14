@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 func MinNumberOfCoinsForChange(n int, denoms []int) int {
 	if n == 0 {

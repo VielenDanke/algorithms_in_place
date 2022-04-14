@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 func MinCostClimbingStairs(cost []int) (result int) {
 	memo := make(map[int]int)

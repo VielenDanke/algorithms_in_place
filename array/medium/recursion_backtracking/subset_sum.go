@@ -1,4 +1,4 @@
-package backtracking
+package recursion_backtracking
 
 import "sort"
 

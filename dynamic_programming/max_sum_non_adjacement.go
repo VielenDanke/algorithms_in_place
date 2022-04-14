@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 func MaxSubsetSumNoAdjacent(array []int) int {
 	// Write your code here.

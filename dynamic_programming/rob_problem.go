@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 func Rob(nums []int) int {
 	n := len(nums) + 1

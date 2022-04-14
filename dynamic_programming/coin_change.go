@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 // Space O(N) Time O(N*D)
 
