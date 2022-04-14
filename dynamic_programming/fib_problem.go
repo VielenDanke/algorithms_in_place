@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 func fib(n int) int {
 	f, s := 0, 1

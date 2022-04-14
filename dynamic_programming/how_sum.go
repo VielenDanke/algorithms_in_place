@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 // O(n^m) - without memo
 // O(n*m^2) - with memo

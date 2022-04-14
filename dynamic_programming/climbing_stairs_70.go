@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 func climbStairs(n int) int {
 	return climbStairsMemo(n, make(map[int]int))

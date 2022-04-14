@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 func canSumIterative(target int, numbers []int) bool {
 	if len(numbers) == 2 {

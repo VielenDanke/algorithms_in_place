@@ -1,4 +1,4 @@
-package main
+package dynamic_programming
 
 func StaircaseTraversal(height int, maxSteps int) int {
 	// Write your code here.
