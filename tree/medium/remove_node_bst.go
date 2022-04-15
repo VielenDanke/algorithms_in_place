@@ -38,7 +38,7 @@ func deleteNodeVal(root *tree.TreeNode, key int) *tree.TreeNode {
 		if root.Left != nil && root.Right != nil {
 			rMin := minRightNode(root.Right)
 			root.Val = rMin
-			root.Right = deleteNode(root.Right, rMin)
+			root.Right = deleteNodeVal(root.Right, rMin)
 			return root
 		} else if root.Left != nil {
 			return root.Left
