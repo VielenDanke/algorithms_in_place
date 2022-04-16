@@ -8,10 +8,10 @@ func convertBST(root *tree.TreeNode) *tree.TreeNode {
 	vals := make([]int, 0)
 	sum := inOrderTraversal(root, &vals)
 
-	oldMap := make(map[int]int)
+	greaterMap := make(map[int]int)
 
 	for i := 0; i < len(vals); i++ {
-		oldMap[vals[i]] = sum
+		greaterMap[vals[i]] = sum
 		sum -= vals[i]
 	}
 	stack := make([]*tree.TreeNode, 0)
@@ -26,7 +26,7 @@ func convertBST(root *tree.TreeNode) *tree.TreeNode {
 		if temp == nil {
 			continue
 		}
-		temp.Val = oldMap[temp.Val]
+		temp.Val = greaterMap[temp.Val]
 		stack = append(stack, temp.Left)
 		stack = append(stack, temp.Right)
 	}
