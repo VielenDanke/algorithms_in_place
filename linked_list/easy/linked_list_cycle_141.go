@@ -1,4 +1,4 @@
-package medium
+package easy
 
 import "github.com/vielendanke/algorithms_in_place/linked_list"
 
@@ -16,26 +16,18 @@ func detectCycle(head *linked_list.ListNode) *linked_list.ListNode {
 }
 
 func detectCycleWithoutMap(head *linked_list.ListNode) *linked_list.ListNode {
-	if head == nil || head.Next == nil || head.Next.Next == nil {
-		return nil
-	}
-	first := head.Next
-	second := head.Next.Next
+	slow := head
+	fast := head
 
-	for first != nil && second != nil && second.Next != nil {
-		if first == second {
-			break
-		}
-		first = first.Next
-		second = second.Next.Next
+	if slow == nil && fast == nil {
+		return head
 	}
-	first = head
-	for first != nil && second != nil {
-		if first == second {
-			return first
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			return slow
 		}
-		first = first.Next
-		second = second.Next
 	}
 	return nil
 }
