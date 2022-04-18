@@ -1,14 +1,14 @@
 package easy
 
-func InsertionSort(arr []int) {
-	var n = len(arr)
-	for i := 1; i < n; i++ {
-		j := i
-		for j > 0 {
-			if arr[j-1] > arr[j] {
-				arr[j-1], arr[j] = arr[j], arr[j-1]
-			}
-			j = j - 1
+func InsertionSort(nums []int) {
+	for j := 1; j < len(nums); j++ {
+		current := nums[j]
+
+		i := j - 1
+
+		for i >= 0 && nums[i] > current {
+			nums[i], nums[i+1] = nums[i+1], nums[i]
+			i--
 		}
 	}
 }
