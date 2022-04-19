@@ -5,7 +5,7 @@ import javasolutions.binarytree.TreeNode;
 public class ValidateBinaryTree {
 
     public static boolean isValidBST(TreeNode root) {
-        return validateBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        return validateBST(root, -1 << 29, 1 << 29);
     }
 
     private static boolean validateBST(TreeNode node, long min, long max) {
