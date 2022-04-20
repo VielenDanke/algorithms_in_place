@@ -1,33 +1,26 @@
 package easy
 
-import "bytes"
+import (
+	"strings"
+)
 
 func reverseWords(s string) string {
-	if s == "" {
-		return s
-	}
-	buff := bytes.NewBufferString("")
+	words := strings.Split(s, " ")
 
-	start := 0
-
-	for idx := range s {
-		if s[idx] == ' ' {
-			buff.WriteString(reverseWord([]rune(s[start:idx])))
-			buff.WriteRune(' ')
-			start = idx + 1
-		}
+	for idx, v := range words {
+		letters := []rune(v)
+		reverseLetters(letters)
+		words[idx] = string(letters)
 	}
-	buff.WriteString(reverseWord([]rune(s[start:len(s)])))
-	return buff.String()
+	return strings.Join(words, " ")
 }
 
-func reverseWord(s []rune) string {
-	left, right := 0, len(s)-1
+func reverseLetters(word []rune) {
+	left, right := 0, len(word)-1
 
-	for left < right {
-		s[left], s[right] = s[right], s[left]
+	for left <= right {
+		word[left], word[right] = word[right], word[left]
 		left++
 		right--
 	}
-	return string(s)
 }

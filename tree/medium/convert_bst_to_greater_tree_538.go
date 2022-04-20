@@ -6,7 +6,7 @@ import (
 
 func convertBST(root *tree.TreeNode) *tree.TreeNode {
 	vals := make([]int, 0)
-	sum := inOrderTraversal(root, &vals)
+	sum := inOrderTraversalWithSum(root, &vals)
 
 	greaterMap := make(map[int]int)
 
@@ -33,12 +33,12 @@ func convertBST(root *tree.TreeNode) *tree.TreeNode {
 	return root
 }
 
-func inOrderTraversal(root *tree.TreeNode, vals *[]int) int {
+func inOrderTraversalWithSum(root *tree.TreeNode, vals *[]int) int {
 	if root == nil {
 		return 0
 	}
-	left := inOrderTraversal(root.Left, vals)
+	left := inOrderTraversalWithSum(root.Left, vals)
 	*vals = append(*vals, root.Val)
-	right := inOrderTraversal(root.Right, vals)
+	right := inOrderTraversalWithSum(root.Right, vals)
 	return root.Val + left + right
 }

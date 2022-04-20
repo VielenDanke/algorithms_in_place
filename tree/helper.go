@@ -1,10 +1,10 @@
 package tree
 
-func DFS(root *TreeNode, array *[]int) {
+func InOrderTraversal(root *TreeNode, array *[]int) {
 	if root == nil {
 		return
 	}
-	DFS(root.Left, array)
+	InOrderTraversal(root.Left, array)
 	*array = append(*array, root.Val)
-	DFS(root.Right, array)
+	InOrderTraversal(root.Right, array)
 }
