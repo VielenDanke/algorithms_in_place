@@ -28,3 +28,23 @@ func removeNthFromEnd(head *linked_list.ListNode, n int) *linked_list.ListNode {
 	}
 	return head
 }
+
+func removeNthFromEndSecond(head *linked_list.ListNode, n int) *linked_list.ListNode {
+	dummy := &linked_list.ListNode{
+		Val:  0,
+		Next: head,
+	}
+	for n > 0 {
+		n--
+		head = head.Next
+	}
+	prev := dummy
+	cur := dummy.Next
+	for head != nil {
+		prev = prev.Next
+		cur = cur.Next
+		head = head.Next
+	}
+	prev.Next = cur.Next
+	return dummy.Next
+}

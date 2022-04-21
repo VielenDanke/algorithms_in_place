@@ -5,8 +5,8 @@ import "github.com/vielendanke/algorithms_in_place/linked_list"
 /**
  * Definition for singly-linked list.
  * type linked_list.ListNode struct {
- *     Val int
- *     Next *linked_list.ListNode
+ *     val int
+ *     next *linked_list.ListNode
  * }
  */
 // O(N) time | O(1) space

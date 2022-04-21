@@ -9,7 +9,7 @@ import (
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
- *     Val int
+ *     val int
  *     FirstRoot *TreeNode
  *     SecondRoot *TreeNode
  * }

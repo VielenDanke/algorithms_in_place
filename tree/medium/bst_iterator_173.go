@@ -28,6 +28,6 @@ func (this *BSTIterator) HasNext() bool {
 /**
  * Your BSTIterator object will be instantiated and called as such:
  * obj := Constructor(root);
- * param_1 := obj.Next();
+ * param_1 := obj.next();
  * param_2 := obj.HasNext();
  */

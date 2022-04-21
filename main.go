@@ -6,5 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Printf("%v\n", medium.MinSubArrayLen(4, []int{1, 4, 4}))
+	fmt.Printf("%v\n", medium.LengthOfLISTabulation([]int{0, 1, 0, 3, 2, 3}))
+
 }
