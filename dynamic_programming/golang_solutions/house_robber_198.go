@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 func rob(nums []int) int {
 	n := len(nums)

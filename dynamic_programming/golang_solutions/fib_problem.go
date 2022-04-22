@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 func fib(n int) int {
 	f, s := 0, 1

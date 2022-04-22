@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 func StaircaseTraversal(height int, maxSteps int) int {
 	// Write your code here.

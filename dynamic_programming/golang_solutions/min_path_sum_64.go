@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 func minPathSum(grid [][]int) int {
 	return step(grid, 0, 0, make(map[string]int))

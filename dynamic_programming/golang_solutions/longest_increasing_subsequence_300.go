@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 // link https://leetcode.com/problems/longest-increasing-subsequence/
 

@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 func bestSum(target int, numbers []int, memo map[int][]int) []int {
 	if val, ok := memo[target]; ok {

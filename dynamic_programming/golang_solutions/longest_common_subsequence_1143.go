@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 func longestCommonSubsequence(text1 string, text2 string) int {
 	dp := make([][]int, len(text1)+1)

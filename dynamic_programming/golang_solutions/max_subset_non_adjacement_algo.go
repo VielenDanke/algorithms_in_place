@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 /*
 Input: array of numbers

@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 func canSumIterative(target int, numbers []int) bool {
 	if len(numbers) == 2 {

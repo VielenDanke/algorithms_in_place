@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 func WordBreakDP(s string, wordDict []string) bool {
 	dp := make([]bool, len(s)+1)

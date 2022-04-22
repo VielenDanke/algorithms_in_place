@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 // Space O(N) Time O(N*D)
 

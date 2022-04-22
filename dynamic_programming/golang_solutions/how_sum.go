@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 // O(n^m) - without memo
 // O(n*m^2) - with memo

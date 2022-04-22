@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 func climbStairs(n int) int {
 	return climbStairsMemo(n, make(map[int]int))

@@ -1,4 +1,4 @@
-package dynamic_programming
+package golang_solutions
 
 func MinNumberOfCoinsForChange(n int, denoms []int) int {
 	if n == 0 {
