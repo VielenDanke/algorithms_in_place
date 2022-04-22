@@ -1,5 +1,10 @@
 package dynamic_programming
 
+/*
+Input: array of numbers
+Output: max sum of non-adjacent numbers
+*/
+
 func MaxSubsetSumNoAdjacent(array []int) int {
 	// Write your code here.
 	arrLen := len(array)
