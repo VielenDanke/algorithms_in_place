@@ -1,4 +1,4 @@
-package hard
+package golang_solutions
 
 func NumDistinctDynamic(s string, t string) int {
 	matrix := make([][]int, len(t)+1)

@@ -1,4 +1,4 @@
-package hard
+package golang_solutions
 
 func MinWindow(s string, t string) string {
 	if len(s) < len(t) {
