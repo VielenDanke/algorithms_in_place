@@ -18,4 +18,32 @@ public class MaxSubsetSumNonAdjacent {
         }
         return result[result.length - 1];
     }
+
+    public static int maxSubsetNoAdjacentBacktrack(int[] array) {
+        if (array.length == 0) {
+            return 0;
+        } else if (array.length == 1) {
+            return array[0];
+        }
+        var maxSum = 0;
+
+        for (var i = 0; i < array.length; i++) {
+            var tempSum = backtrack(array, i);
+            if (maxSum < tempSum) {
+                maxSum = tempSum;
+            }
+        }
+        return maxSum;
+    }
+
+    public static int backtrack(int[] array, int start) {
+        if (start == array.length) {
+            return 0;
+        }
+        var maxSum = 0;
+        for (int i = start; i < array.length; i++) {
+            maxSum = Math.max(maxSum, backtrack(array, i + 2) + array[i]);
+        }
+        return maxSum;
+    }
 }
