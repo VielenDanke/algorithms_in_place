@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 // link - https://leetcode.com/problems/longest-substring-without-repeating-characters/
 

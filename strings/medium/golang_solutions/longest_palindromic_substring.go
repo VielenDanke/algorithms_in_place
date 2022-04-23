@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func LongestPalindrome(s string) (answer string) {
 	windowLength := 2

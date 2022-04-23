@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func IsPalindrome(str string) bool {
 	// translate to an array of rune

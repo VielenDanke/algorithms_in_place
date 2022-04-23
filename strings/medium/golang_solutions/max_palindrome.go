@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func LongestPalindromicSubstring(str string) string {
 	// Write your code here.

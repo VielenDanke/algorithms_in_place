@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func Partition(s string) [][]string {
 	return partitionMemo(s, make(map[string][][]string))

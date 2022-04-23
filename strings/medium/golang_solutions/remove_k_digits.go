@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func RemoveKdigits(num string, k int) (result string) {
 	if k == 0 {

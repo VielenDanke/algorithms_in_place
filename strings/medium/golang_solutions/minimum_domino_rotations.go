@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func MinDominoRotations(tops []int, bottoms []int) int {
 	maxTops := make(map[int]int)

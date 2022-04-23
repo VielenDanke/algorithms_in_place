@@ -2,9 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/vielendanke/algorithms_in_place/strings/hard/golang_solutions"
+	"github.com/vielendanke/algorithms_in_place/strings/medium/golang_solutions"
 )
 
 func main() {
-	fmt.Printf("%t\n", golang_solutions.InterweavingStrings("algoexpert", "your-dream-job", "your-algodream-expertjob"))
+	codec := golang_solutions.Constructor()
+
+	shortUrl := codec.Encode("https://leetcode.com/problems/design-tinyurl")
+	fmt.Printf("%v\n", codec.Decode(shortUrl))
 }

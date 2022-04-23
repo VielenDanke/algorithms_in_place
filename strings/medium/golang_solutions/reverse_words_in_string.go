@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func ReverseWordsInString2(str string) string {
 	stack := make([]string, 0)

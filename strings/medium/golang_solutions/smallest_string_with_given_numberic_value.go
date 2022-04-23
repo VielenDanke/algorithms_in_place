@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func GetSmallestStringOptimal(n, k int) string {
 	result := make([]rune, n)
