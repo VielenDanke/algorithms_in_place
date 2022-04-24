@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 func searchInsert(nums []int, target int) int {
 	left, right, middle := 0, len(nums)-1, 0

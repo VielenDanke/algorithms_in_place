@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 /**
  * Forward declaration of isBadVersion API.
