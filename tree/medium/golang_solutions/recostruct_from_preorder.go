@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 // O(N) time | O(N) space
 

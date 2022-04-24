@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func HeightBalancedBinaryTree(tree *BinaryTree) bool {
 	isBalanced, _ := checkIfBalanced(tree)
