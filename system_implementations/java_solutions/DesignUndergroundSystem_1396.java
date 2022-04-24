@@ -34,13 +34,13 @@ public class DesignUndergroundSystem_1396 {
     public void checkOut(int id, String stationName, int t) {
         PassengerTime passengerTime = passengerTimeMap.get(id);
         int currentTime = t - passengerTime.startTime;
-        if (timeKeeper.get(passengerTime.startStation).containsKey(stationName)) {
-            timeKeeper.get(passengerTime.startStation).get(stationName).add(currentTime);
-        } else {
-            timeKeeper.get(passengerTime.startStation).put(stationName, new ArrayList<>() {{
-                add(currentTime);
-            }});
-        }
+        timeKeeper.get(passengerTime.startStation).compute(stationName, (s, integers) -> {
+            if (integers == null) {
+                return new ArrayList<>() {{add(currentTime);}};
+            }
+            integers.add(currentTime);
+            return integers;
+        });
     }
 
     public double getAverageTime(String startStation, String endStation) {
