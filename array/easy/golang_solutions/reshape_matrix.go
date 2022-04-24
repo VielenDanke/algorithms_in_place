@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 func MatrixReshape(mat [][]int, r int, c int) [][]int {
 	if r*c != len(mat)*len(mat[0]) {

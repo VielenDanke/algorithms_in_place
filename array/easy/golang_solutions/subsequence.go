@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 func IsValidSubsequence(array []int, sequence []int) bool {
 	// Write your code here.

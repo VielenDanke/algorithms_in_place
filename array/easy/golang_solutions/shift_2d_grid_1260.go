@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 func ShiftGrid(grid [][]int, k int) [][]int {
 	// calculate amount of elements

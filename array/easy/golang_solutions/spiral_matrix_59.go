@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 func generateMatrix(n int) [][]int {
 	// create matrix

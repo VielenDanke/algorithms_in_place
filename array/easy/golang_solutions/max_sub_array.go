@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 func MaxSubArray(nums []int) int {
 	max, maxSub := -1<<63, 0

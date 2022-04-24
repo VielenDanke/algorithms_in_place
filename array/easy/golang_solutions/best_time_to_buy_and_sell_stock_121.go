@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 // link https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 

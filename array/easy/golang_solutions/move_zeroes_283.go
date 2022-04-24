@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 // O(N) time | O(1) space | 77.50% time 65.97% space
 
