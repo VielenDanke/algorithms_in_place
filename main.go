@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/vielendanke/algorithms_in_place/strings/medium/golang_solutions"
+	"github.com/vielendanke/algorithms_in_place/system_implementations/golang_solutions"
 )
 
 func main() {
