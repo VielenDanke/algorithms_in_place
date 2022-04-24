@@ -24,6 +24,24 @@ func connectRecursive(root *tree.NodePointer) *tree.NodePointer {
 	return root
 }
 
+func connectRecursiveNodePointer(root *tree.NodePointer) *tree.NodePointer {
+	start := root
+	for start != nil {
+		current := start
+		for current != nil {
+			if current.Left != nil {
+				current.Left.Next = current.Right
+			}
+			if current.Right != nil && current.Next != nil {
+				current.Right.Next = current.Next.Left
+			}
+			current = current.Next
+		}
+		start = start.Next
+	}
+	return root
+}
+
 func connect(root *tree.NodePointer) *tree.NodePointer {
 	if root == nil {
 		return root
