@@ -1,5 +1,7 @@
 package strings.medium.java_solutions;
 
+import java.util.Arrays;
+
 public class WordSearch_79 {
 
     private static final int[][] DIR = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};

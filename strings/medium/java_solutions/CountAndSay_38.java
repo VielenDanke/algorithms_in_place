@@ -30,8 +30,4 @@ public class CountAndSay_38 {
         builder.append(c);
         return builder.toString();
     }
-
-    public static void main(String[] args) {
-        System.out.printf("%s\n", new CountAndSay_38().countAndSay(4));
-    }
 }
