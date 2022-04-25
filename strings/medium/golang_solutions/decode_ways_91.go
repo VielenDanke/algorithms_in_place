@@ -17,6 +17,12 @@ func init() {
 	}
 }
 
+func numDecodingsDP(s string) int {
+	return -1
+}
+
+// -----------------------------------------------------------------------
+
 func numDecodings(s string) int {
 	globalWaysCounter = 0
 	decodeWays(s, 1)
