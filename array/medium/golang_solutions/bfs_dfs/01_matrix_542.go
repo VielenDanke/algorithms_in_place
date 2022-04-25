@@ -1,47 +1,43 @@
 package bfs_dfs
 
-import "github.com/vielendanke/algorithms_in_place/array"
-
 func updateMatrix(mat [][]int) [][]int {
 	rows := len(mat)
-
-	if rows == 0 {
-		return mat
-	}
 	cols := len(mat[0])
 
-	result := make([][]int, rows)
-
-	queue := make([]*array.Pair, 0)
+	queue := make([][]int, 0)
 
 	for i := 0; i < rows; i++ {
-		result[i] = make([]int, cols)
 		for j := 0; j < cols; j++ {
 			if mat[i][j] == 0 {
-				result[i][j] = 0
-				queue = append(queue, &array.Pair{Row: i, Col: j})
+				// add all 0 values from what we are able to expand
+				queue = append(queue, []int{i, j})
 			} else {
-				result[i][j] = 1 << 61
+				// mark other values as -1 - means they are not explored yet
+				mat[i][j] = -1
 			}
 		}
 	}
+	// all directions - left, right, up, down
 	dir := [][]int{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}
 
-	var curr *array.Pair
+	var curr []int
 
+	// explore all
 	for len(queue) > 0 {
 		curr, queue = queue[0], queue[1:]
 
 		for i := 0; i < 4; i++ {
-			newRow := curr.Row + dir[i][0]
-			newCol := curr.Col + dir[i][1]
-			if newRow >= 0 && newCol >= 0 && newRow < rows && newCol < cols {
-				if result[newRow][newCol] > result[curr.Row][curr.Col]+1 {
-					result[newRow][newCol] = result[curr.Row][curr.Col] + 1
-					queue = append(queue, &array.Pair{Row: newRow, Col: newCol})
-				}
+			newRow := curr[0] + dir[i][0]
+			newCol := curr[1] + dir[i][1]
+			// check boarders and next point is not explored
+			if newRow < 0 || newCol < 0 || newRow >= rows || newCol >= cols || mat[newRow][newCol] != -1 {
+				continue
 			}
+			// add current position + 1 to next position
+			mat[newRow][newCol] = mat[curr[0]][curr[1]] + 1
+			// add next point to explore
+			queue = append(queue, []int{newRow, newCol})
 		}
 	}
-	return result
+	return mat
 }
