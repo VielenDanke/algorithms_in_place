@@ -29,7 +29,7 @@ public class RottingOranges_994 {
             int currentSize = queue.size();
 
             for (int i = 0; i < currentSize; i++) {
-                int[] current = queue.poll();
+                var current = queue.poll();
                 var currentRow = current[0];
                 var currentColumn = current[1];
 
