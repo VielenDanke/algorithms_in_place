@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 import "github.com/vielendanke/algorithms_in_place/leetcode/easy"
 
