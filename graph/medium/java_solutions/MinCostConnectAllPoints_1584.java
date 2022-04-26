@@ -1,4 +1,4 @@
-package array.medium.java_solutions;
+package graph.medium.java_solutions;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

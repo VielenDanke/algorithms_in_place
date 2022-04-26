@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 type AncestralTree struct {
 	Name     string

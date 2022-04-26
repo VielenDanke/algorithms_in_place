@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func MinIslandSize(grid [][]string) (min int) {
 	visited := make(map[string]interface{})

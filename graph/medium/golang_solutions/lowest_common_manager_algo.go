@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 type OrgChart struct {
 	Name          string

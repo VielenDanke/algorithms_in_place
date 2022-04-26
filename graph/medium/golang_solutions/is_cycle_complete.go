@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func HasSingleCycle(array []int) bool {
 	// Write your code here.

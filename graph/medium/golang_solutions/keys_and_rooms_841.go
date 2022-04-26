@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func canVisitAllRooms(rooms [][]int) bool {
 	visited := make(map[int]interface{})

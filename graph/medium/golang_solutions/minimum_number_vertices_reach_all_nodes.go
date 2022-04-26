@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func FindSmallestSetOfVertices(n int, edges [][]int) []int {
 	inDeg := make([]bool, n)
