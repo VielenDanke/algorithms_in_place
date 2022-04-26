@@ -1,4 +1,4 @@
-package easy
+package golang_solution
 
 func CharacterReplacement(s string, k int) int {
 	runes := []rune(s)

@@ -1,4 +1,4 @@
-package easy
+package golang_solution
 
 import (
 	"strings"

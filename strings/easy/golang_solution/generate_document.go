@@ -1,4 +1,4 @@
-package easy
+package golang_solution
 
 func GenerateDocument(characters string, document string) bool {
 	// Write your code here.

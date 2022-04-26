@@ -1,4 +1,4 @@
-package easy
+package golang_solution
 
 var brackets = make(map[rune]rune)
 

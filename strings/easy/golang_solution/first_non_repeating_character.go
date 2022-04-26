@@ -1,4 +1,4 @@
-package easy
+package golang_solution
 
 func FirstNonRepeatingCharacter(str string) int {
 	// Write your code here.

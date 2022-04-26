@@ -1,4 +1,4 @@
-package easy
+package golang_solution
 
 func validPalindrome(s string) bool {
 	left, right := 0, len(s)-1

@@ -1,4 +1,4 @@
-package easy
+package golang_solution
 
 func CaesarCipherEncryptor(str string, key int) string {
 	// check if string is empty?

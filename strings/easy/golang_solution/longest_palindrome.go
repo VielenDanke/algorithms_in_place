@@ -1,4 +1,4 @@
-package easy
+package golang_solution
 
 func LongestPalindrome2(s string) (result int) {
 	storage := make(map[rune]int)

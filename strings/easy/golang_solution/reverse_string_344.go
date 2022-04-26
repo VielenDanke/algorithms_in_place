@@ -1,4 +1,4 @@
-package easy
+package golang_solution
 
 func reverseString(s []byte) {
 	left, right := 0, len(s)-1
