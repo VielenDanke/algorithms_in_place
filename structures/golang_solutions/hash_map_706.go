@@ -1,4 +1,4 @@
-package structures
+package golang_solutions
 
 type treeMap struct {
 	left  *treeMap
