@@ -3,7 +3,50 @@ package structures.java_solutions;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SuffixTrieAlgo {
+/*
+Python solution
+
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+
+class Trie:
+
+    def __init__(self):
+        self.root = TrieNode()
+
+
+    def insert(self, word: str) -> None:
+        node = self.root
+
+        for i, letter in enumerate(word):
+            if letter not in node.children:
+                node.children[letter] = TrieNode()
+            node = node.children[letter]
+        node.children['*'] = None
+
+
+    def search(self, word: str) -> bool:
+        node = self.root
+
+        for i, letter in enumerate(word):
+            if letter not in node.children:
+                return False
+            node = node.children[letter]
+        return '*' in node.children
+
+
+    def startsWith(self, prefix: str) -> bool:
+        node = self.root
+
+        for i, letter in enumerate(prefix):
+            if letter not in node.children:
+                return False
+            node = node.children[letter]
+        return True
+ */
+
+public class PrefixTrie_208 {
 
     static class TrieNode {
         Map<Character, TrieNode> children = new HashMap<>();
