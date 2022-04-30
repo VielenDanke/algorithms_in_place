@@ -1,4 +1,4 @@
-package bit_manipulation
+package golang_solutions
 
 func isPowerOfTwo(n int) bool {
 	pow := 0

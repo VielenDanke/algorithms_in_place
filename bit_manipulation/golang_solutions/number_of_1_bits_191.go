@@ -1,4 +1,4 @@
-package bit_manipulation
+package golang_solutions
 
 func hammingWeight(num uint32) int {
 	var bitsNum uint32
