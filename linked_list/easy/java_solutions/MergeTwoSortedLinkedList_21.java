@@ -1,6 +1,6 @@
 package linked_list.easy.java_solutions;
 
-import static linked_list.Helper.*;
+import static linked_list.Helper.ListNode;
 
 public class MergeTwoSortedLinkedList_21 {
 
