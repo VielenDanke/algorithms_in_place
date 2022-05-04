@@ -45,8 +45,4 @@ public class SortArrayByParity_905 {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(new SortArrayByParity_905().sortArrayByParity(new int[]{3,1,2,4})));
-    }
 }

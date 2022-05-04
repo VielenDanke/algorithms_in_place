@@ -1,5 +1,7 @@
 package array.easy.java_solutions;
 
+import java.util.Arrays;
+
 public class BestTimeToBuyAndSellStock_121 {
 
     public int maxProfit(int[] prices) {
@@ -19,6 +21,11 @@ public class BestTimeToBuyAndSellStock_121 {
     }
 
     public int maxProfitDivideAndConquer(int[] prices) {
-        return -1;
+      return -1;
+    }
+
+    public static void main(String[] args) {
+        int i = new BestTimeToBuyAndSellStock_121().maxProfitDivideAndConquer(new int[]{7, 1, 5, 3, 6, 4});
+        System.out.println(i);
     }
 }
