@@ -1,4 +1,4 @@
-package medium
+package golang_solution
 
 func reverseLinkedList(head *LinkedList) *LinkedList {
 	var previousNode, currentNode *LinkedList = nil, head

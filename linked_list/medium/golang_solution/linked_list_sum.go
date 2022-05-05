@@ -1,4 +1,4 @@
-package medium
+package golang_solution
 
 import "fmt"
 

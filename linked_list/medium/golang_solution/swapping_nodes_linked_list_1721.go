@@ -1,4 +1,4 @@
-package medium
+package golang_solution
 
 import "github.com/vielendanke/algorithms_in_place/linked_list"
 

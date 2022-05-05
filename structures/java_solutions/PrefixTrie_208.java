@@ -91,9 +91,4 @@ public class PrefixTrie_208 {
             node.children.put(endSymbol, null);
         }
     }
-
-    public static void main(String[] args) {
-        SuffixTrie suffixTrie = new SuffixTrie("babc");
-        System.out.println(suffixTrie.contains("abc"));
-    }
 }
