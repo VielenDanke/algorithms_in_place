@@ -1,4 +1,4 @@
-package strings.medium.java_solutions;
+package graph.medium.java_solutions;
 
 import java.util.*;
 
