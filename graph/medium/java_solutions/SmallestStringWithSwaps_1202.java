@@ -93,17 +93,4 @@ public class SmallestStringWithSwaps_1202 {
     private void union(int i, int j) {
        p[find(i)] = find(j);
     }
-
-    public static void main(String[] args) {
-        int[][] ints = {{0, 3}, {1, 2}};
-        List<List<Integer>> l = new ArrayList<>();
-        for (int[] i : ints) {
-            List<Integer> innerList = new ArrayList<>();
-            for (int j : i) {
-                innerList.add(j);
-            }
-            l.add(innerList);
-        }
-        System.out.println(new SmallestStringWithSwaps_1202().smallestStringWithSwapsUnionFind("dcab", l));
-    }
 }
