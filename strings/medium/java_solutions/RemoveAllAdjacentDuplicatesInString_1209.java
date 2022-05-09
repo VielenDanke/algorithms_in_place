@@ -53,8 +53,4 @@ public class RemoveAllAdjacentDuplicatesInString_1209 {
         }
         return new String(stack, 0, i);
     }
-
-    public static void main(String[] args) {
-        System.out.println(new RemoveAllAdjacentDuplicatesInString_1209().removeDuplicatesTwoPointers("pbbcggttciiippooaais", 2));
-    }
 }
