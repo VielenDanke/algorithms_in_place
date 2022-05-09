@@ -40,6 +40,13 @@ public class LetterCombinationsPhoneNumber_17 {
 
     // ---------------------------------------------------------------------------------------------------------
 
+    /*
+    "23" input
+    1. add all letters from 2 - "abc"
+    2. remove 'a' and add all letters from 3 - "def"
+    3. remove 'b' and add all letters from 3 - "def"
+    4. remove 'c' and add all letters from 3 - "def"
+     */
     public List<String> letterCombinationsQueue(String digits) {
         LinkedList<String> ans = new LinkedList<String>();
         if (digits.isEmpty()) return ans;
