@@ -31,7 +31,7 @@ public class NumberOfProvinces_547 {
     private static class UnionFind {
 
         private final int[] id;
-        private int numOfComponents = 0;
+        private int numOfComponents;
 
         private UnionFind(int size) {
             id = new int[size];
@@ -57,11 +57,7 @@ public class NumberOfProvinces_547 {
         }
 
         private void union(int p, int q) {
-            int pid = find(p);
-            int qid = find(q);
-
-            if (pid == qid) return;
-            id[pid] = qid;
+            id[find(p)] = find(q);
             numOfComponents--;
         }
     }
