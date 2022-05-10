@@ -18,8 +18,4 @@ public class MinimumSizeSubarraySum_209 {
         }
         return minLength == 1 << 30 ? 0 : minLength;
     }
-
-    public static void main(String[] args) {
-        System.out.println(new MinimumSizeSubarraySum_209().minSubArrayLen(7, new int[]{2,3,1,2,4,3}));
-    }
 }
