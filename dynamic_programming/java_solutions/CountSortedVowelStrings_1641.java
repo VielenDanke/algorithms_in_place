@@ -94,7 +94,21 @@ public class CountSortedVowelStrings_1641 {
         return sum;
     }
 
-    public static void main(String[] args) {
-        System.out.println(new CountSortedVowelStrings_1641().countVowelStringsDP3(33));
+    // ---------------------------------------------------------------------------------------------
+
+    /*
+    Using formula (repeating n elements by k)
+     */
+
+    public int countVowelStringsFormula(int n) {
+        int mult = 1;
+        for (int i = n + 1; i <= n + 4; i++) {
+            mult *= i;
+        }
+        return mult / factorial(4);
+    }
+
+    public int factorial(int n) {
+        return (n == 0 || n == 1) ? 1 : n * factorial(n - 1);
     }
 }
