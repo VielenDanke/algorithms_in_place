@@ -12,19 +12,19 @@ public class AllPathFromSourceToTarget_797 {
 
         temp.add(0);
 
-        dfs(result, temp, graph, 0);
+        backtrack(result, temp, graph, 0);
 
         return result;
     }
 
-    private void dfs(List<List<Integer>> result, List<Integer> temp, int[][] graph, int nextIdx) {
+    private void backtrack(List<List<Integer>> result, List<Integer> temp, int[][] graph, int nextIdx) {
         if (nextIdx == graph.length - 1) {
             result.add(new ArrayList<>(temp));
             return;
         }
         for (int i = 0; i < graph[nextIdx].length; i++) {
             temp.add(graph[nextIdx][i]);
-            dfs(result, temp, graph, graph[nextIdx][i]);
+            backtrack(result, temp, graph, graph[nextIdx][i]);
             temp.remove(temp.size() - 1);
         }
     }
