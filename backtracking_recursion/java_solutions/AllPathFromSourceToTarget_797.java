@@ -1,4 +1,4 @@
-package graph.medium.java_solutions;
+package backtracking_recursion.java_solutions;
 
 import java.util.ArrayList;
 import java.util.List;
