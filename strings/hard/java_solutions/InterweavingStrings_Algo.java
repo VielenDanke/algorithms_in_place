@@ -1,9 +1,6 @@
 package strings.hard.java_solutions;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
-public class InterweavingStringsAlgo {
+public class InterweavingStrings_Algo {
 
     public static boolean interweavingStrings(String one, String two, String three) {
         // Write your code here.
