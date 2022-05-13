@@ -21,4 +21,22 @@ public class Subsets_78 {
             temp.remove(temp.size() - 1);
         }
     }
+
+    // ----------------------------------------------------------------------------------------------
+
+    public List<List<Integer>> subsetsIterative(int[] nums) {
+        List<List<Integer>> subsets = new ArrayList<>();
+
+        subsets.add(new ArrayList<>());
+
+        for (int element : nums) {
+            int length = subsets.size();
+            for (int i = 0; i < length; i++) {
+                List<Integer> current = new ArrayList<>(subsets.get(i));
+                current.add(element);
+                subsets.add(current);
+            }
+        }
+        return subsets;
+    }
 }

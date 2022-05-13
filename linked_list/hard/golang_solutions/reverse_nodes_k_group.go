@@ -1,4 +1,4 @@
-package hard
+package golang_solutions
 
 type ListNode struct {
 	Val  int

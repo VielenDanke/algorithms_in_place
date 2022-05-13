@@ -1,13 +1,9 @@
 package tree.medium.java_solutions.bfs_dfs;
 
-import tree.Helper;
-
 import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Queue;
 
-import static tree.Helper.*;
+import static tree.Helper.Node;
 
 public class PopulateNextRightPointersEachNode_117 {
 

@@ -4,9 +4,11 @@ import tree.Helper;
 
 import java.util.*;
 
+import static tree.Helper.*;
+
 public class PopulateNextRightPointers_116 {
 
-    public Helper.Node connect(Helper.Node root) {
+    public Node connect(Node root) {
         if (root == null || root.left == null) return root;
         root.left.next = root.right;
         if (root.next != null) root.right.next = root.next.left;
@@ -17,10 +19,10 @@ public class PopulateNextRightPointers_116 {
 
     // ---------------------------------------------------------------------------------------
 
-    public Helper.Node connectIterative(Helper.Node root) {
-        Helper.Node start = root;
+    public Node connectIterative(Node root) {
+        Node start = root;
         while (start != null) {
-            Helper.Node current = start;
+            Node current = start;
             while (current != null) {
                 if (current.left != null) current.left.next = current.right;
                 if (current.right != null && current.next != null) current.right.next = current.next.left;
@@ -34,18 +36,18 @@ public class PopulateNextRightPointers_116 {
     // ----------------------------------------------------------------------------------------
 
     private static class NodeDepth {
-        Helper.Node node;
+        Node node;
         int depth;
 
-        public NodeDepth(Helper.Node node, int depth) {
+        public NodeDepth(Node node, int depth) {
             this.node = node;
             this.depth = depth;
         }
     }
 
-    public Helper.Node connectWithMap(Helper.Node root) {
+    public Node connectWithMap(Node root) {
         Queue<NodeDepth> queue = new LinkedList<>();
-        Map<Integer, List<Helper.Node>> nodes = new HashMap<>();
+        Map<Integer, List<Node>> nodes = new HashMap<>();
 
         queue.add(new NodeDepth(root, 1));
 
@@ -66,7 +68,7 @@ public class PopulateNextRightPointers_116 {
         }
 
         nodes.forEach((key, depthNodes) -> {
-            Helper.Node currentNode = depthNodes.get(0);
+            Node currentNode = depthNodes.get(0);
 
             for (int i = 1; i < depthNodes.size(); i++) {
                 currentNode.next = depthNodes.get(i);
