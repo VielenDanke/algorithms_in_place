@@ -7,7 +7,7 @@ public class Sum3_15 {
     // [-4,-1,-1,0,1,2]
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
-        Set<List<Integer>> result = new HashSet<>();
+        List<List<Integer>> result = new ArrayList<>();
 
         for (int i = 0; i < nums.length; i++) {
             int left = i+1, right = nums.length - 1;
@@ -26,6 +26,6 @@ public class Sum3_15 {
                 }
             }
         }
-        return new ArrayList<>(result);
+        return result;
     }
 }
