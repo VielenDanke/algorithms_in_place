@@ -59,8 +59,7 @@ public class ShortenPath_Algo {
             return "";
         }
         boolean startsWithPath = path.charAt(0) == '/';
-        List<String> tokenList = Arrays.asList(path.split("/"));
-        tokenList = tokenList.stream().filter(ShortenPath_Algo::isImportantToken).toList();
+        String[] tokenList = path.split("/");
         Stack<String> stack = new Stack<>();
         if (startsWithPath) stack.add("");
         for (String token : tokenList) {
@@ -70,15 +69,13 @@ public class ShortenPath_Algo {
                 } else if (!stack.peek().equals("")) {
                     stack.pop();
                 }
+            } else if (token.isBlank() || token.equals(".")) {
+                continue;
             } else {
                 stack.add(token);
             }
         }
         if (stack.size() == 1 && stack.peek().equals("")) return "/";
         return String.join("/", stack);
-    }
-
-    private static boolean isImportantToken(String token) {
-        return token.length() > 0 && !token.equals(".");
     }
 }
