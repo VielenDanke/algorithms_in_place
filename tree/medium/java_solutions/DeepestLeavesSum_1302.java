@@ -1,4 +1,4 @@
-package tree.medium.java_solutions.bfs_dfs;
+package tree.medium.java_solutions;
 
 import java.util.LinkedList;
 import java.util.Queue;
