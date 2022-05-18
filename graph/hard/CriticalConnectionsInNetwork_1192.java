@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// TODO: implement Tarjan Algorithm (https://www.youtube.com/watch?v=wUgWX0nc4NY&t=51s)
 public class CriticalConnectionsInNetwork_1192 {
 
     private int time = 0;
@@ -32,21 +33,21 @@ public class CriticalConnectionsInNetwork_1192 {
     }
 
 
-    private void dfs(int u, int[] low, int[] disc, List<List<Integer>> graph, List<List<Integer>> criticalConnectionList, int pre) {
+    private void dfs(int u, int[] low, int[] disc, List<List<Integer>> graph, List<List<Integer>> criticalConnectionList, int parent) {
         disc[u] = low[u] = ++time;
         for (int j = 0; j < graph.get(u).size(); j++) {
-            int v = graph.get(u).get(j);
-            if (v == pre) {
+            int current = graph.get(u).get(j);
+            if (current == parent) {
                 continue;
             }
-            if (disc[v] == -1) {
-                dfs(v, low, disc, graph, criticalConnectionList, u);
-                low[u] = Math.min(low[u], low[v]);
-                if (low[v] > disc[u]) {
-                    criticalConnectionList.add(Arrays.asList(u, v));
+            if (disc[current] == -1) {
+                dfs(current, low, disc, graph, criticalConnectionList, u);
+                low[u] = Math.min(low[u], low[current]);
+                if (low[current] > disc[u]) {
+                    criticalConnectionList.add(Arrays.asList(u, current));
                 }
             } else {
-                low[u] = Math.min(low[u], disc[v]);
+                low[u] = Math.min(low[u], disc[current]);
             }
         }
     }
