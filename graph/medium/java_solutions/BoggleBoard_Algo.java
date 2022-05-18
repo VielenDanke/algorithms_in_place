@@ -1,0 +1,66 @@
+package graph.medium.java_solutions;
+
+import java.util.*;
+
+public class BoggleBoard_Algo {
+
+    private static final int[][] DIR = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}, {-1, -1}, {-1, 1}, {1, 1}, {1, -1}};
+
+    private static Set<String> foundSet;
+
+    public static List<String> boggleBoard(char[][] board, String[] words) {
+        // Write your code here.
+        List<String> resultWords = new ArrayList<>();
+        if (board == null || board.length == 0) {
+            return resultWords;
+        }
+        int rowLength = board.length;
+        int colLength = board[0].length;
+        List<String> wordsList = Arrays.asList(words);
+        foundSet = new HashSet<>();
+        for (int i = 0; i < rowLength; i++) {
+            for (int j = 0; j < colLength; j++) {
+                explore(resultWords, board, i, j, 0, wordsList, new boolean[rowLength][colLength]);
+            }
+        }
+        return resultWords;
+    }
+
+    private static void explore(List<String> resultWords, char[][] board, int row, int col, int nextIdx, List<String> words, boolean[][] visited) {
+        List<String> filteredWords = filterList(words, board, row, col, nextIdx);
+        if (filteredWords.size() == 0) {
+            return;
+        }
+        for (String w : filteredWords) {
+            if (w.length() == nextIdx + 1) {
+                resultWords.add(w);
+                foundSet.add(w);
+            }
+        }
+        visited[row][col] = true;
+        for (int[] direction : DIR) {
+            int nextRow = row + direction[0];
+            int nextCol = col + direction[1];
+            if (isCrossingBoarder(board, nextRow, nextCol) || visited[nextRow][nextCol]) {
+                continue;
+            }
+            visited[nextRow][nextCol] = true;
+            explore(resultWords, board, nextRow, nextCol, nextIdx + 1, filteredWords, visited);
+            visited[nextRow][nextCol] = false;
+        }
+    }
+
+    private static List<String> filterList(List<String> words, char[][] board, int row, int col, int nextIdx) {
+        List<String> filteredList = new ArrayList<>();
+        for (String word : words) {
+            if (word.length() > nextIdx && word.charAt(nextIdx) == board[row][col] && !foundSet.contains(word)) {
+                filteredList.add(word);
+            }
+        }
+        return filteredList;
+    }
+
+    private static boolean isCrossingBoarder(char[][] board, int row, int col) {
+        return row < 0 || col < 0 || row >= board.length || col >= board[row].length;
+    }
+}
