@@ -4,26 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// TODO: implement Tarjan Algorithm (https://www.youtube.com/watch?v=wUgWX0nc4NY&t=51s)
 public class CriticalConnectionsInNetwork_1192 {
 
     private int time = 0;
 
     public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
         int[] disc = new int[n], low = new int[n];
-        List<List<Integer>> graph = new ArrayList<>();
+        List<List<Integer>> graph = buildGraph(connections);
         List<List<Integer>> criticalConnectionList = new ArrayList<>();
-
         Arrays.fill(disc, -1);
-
-        for (int i = 0; i < n; i++) {
-            graph.add(new ArrayList<>());
-        }
-        for (List<Integer> connection : connections) {
-            int from = connection.get(0), to = connection.get(1);
-            graph.get(from).add(to);
-            graph.get(to).add(from);
-        }
         for (int i = 0; i < n; i++) {
             if (disc[i] == -1) {
                 dfs(i, low, disc, graph, criticalConnectionList, i);
@@ -50,5 +39,19 @@ public class CriticalConnectionsInNetwork_1192 {
                 low[u] = Math.min(low[u], disc[current]);
             }
         }
+    }
+
+    private List<List<Integer>> buildGraph(List<List<Integer>> connections) {
+        int n = connections.size();
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            graph.add(new ArrayList<>());
+        }
+        for (List<Integer> connection : connections) {
+            int from = connection.get(0), to = connection.get(1);
+            graph.get(from).add(to);
+            graph.get(to).add(from);
+        }
+        return graph;
     }
 }
