@@ -1,4 +1,4 @@
-package sorting.medium.java_solutions;
+package array.medium.java_solutions;
 
 public class SubarraySort_Algo {
 
