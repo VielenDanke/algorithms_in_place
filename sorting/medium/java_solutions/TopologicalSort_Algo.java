@@ -50,4 +50,50 @@ public class TopologicalSort_Algo {
         }
         return graph;
     }
+
+    // ------------------------------------------------------------------------------------------------------
+    // Iterative
+
+    public static List<Integer> topologicalSortStack(List<Integer> jobs, List<Integer[]> deps) {
+        Stack<Integer> stack = new Stack<>();
+        Map<Integer, Set<Integer>> graph = buildSetGraph(jobs, deps);
+        for (Map.Entry<Integer, Set<Integer>> entry : graph.entrySet()) {
+            if (entry.getValue().size() == 0) {
+                stack.add(entry.getKey());
+            }
+        }
+        List<Integer> sortedJobs = new ArrayList<>();
+        while (!stack.isEmpty()) {
+            Integer elem = stack.pop();
+            if (!graph.containsKey(elem)) {
+                continue;
+            }
+            graph.remove(elem);
+            sortedJobs.add(elem);
+            for (Map.Entry<Integer, Set<Integer>> entry : graph.entrySet()) {
+                Set<Integer> depJobs = entry.getValue();
+                depJobs.remove(elem);
+                if (depJobs.size() == 0) {
+                    stack.add(entry.getKey());
+                }
+            }
+        }
+        for (Map.Entry<Integer, Set<Integer>> entry : graph.entrySet()) {
+            if (entry.getValue().size() != 0) {
+                return new ArrayList<>();
+            }
+        }
+        return sortedJobs;
+    }
+
+    private static Map<Integer, Set<Integer>> buildSetGraph(List<Integer> jobs, List<Integer[]> deps) {
+        Map<Integer, Set<Integer>> graph = new HashMap<>();
+        for (Integer job : jobs) {
+            graph.put(job, new HashSet<>());
+        }
+        for (Integer[] dep : deps) {
+            graph.get(dep[1]).add(dep[0]);
+        }
+        return graph;
+    }
 }
