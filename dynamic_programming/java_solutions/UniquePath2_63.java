@@ -1,6 +1,13 @@
 package dynamic_programming.java_solutions;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class UniquePath2_63 {
+
+    // DP
 
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int width = obstacleGrid[0].length;
@@ -18,7 +25,45 @@ public class UniquePath2_63 {
         return dp[width - 1];
     }
 
+    // --------------------------------------------------------------------------------------------------
+    // With cache
+
+    private Map<String, Integer> cache;
+
+    public int uniquePathsWithObstaclesWithCache(int[][] obstacleGrid) {
+        int colLength = obstacleGrid[0].length;
+        int rowLength = obstacleGrid.length;
+        if (obstacleGrid[rowLength - 1][colLength - 1] == 1) {
+            return 0;
+        }
+        cache = new HashMap<>();
+        return dfs(obstacleGrid, 0, 0, rowLength, colLength);
+    }
+
+    private int dfs(int[][] obstacleGrid, int row, int col, int rowLength, int colLength) {
+        if (row >= rowLength || col >= colLength) {
+            return 0;
+        }
+        String key = String.format("%d,%d", row, col);
+        if (cache.containsKey(key)) {
+            return cache.get(key);
+        }
+        if (obstacleGrid[row][col] == 1) {
+            cache.put(key, 0);
+            return 0;
+        }
+        if (row == rowLength - 1 && col == colLength - 1) {
+            return 1;
+        }
+        int left = dfs(obstacleGrid, row + 1, col, rowLength, colLength);
+        int right = dfs(obstacleGrid, row, col + 1, rowLength, colLength);
+        cache.put(key, left + right);
+        return left + right;
+    }
+
+
     // ---------------------------------------------------------------------------------------------------
+    // Backtracking
     // Time Limit Exceeded
 
     private int rowLength;

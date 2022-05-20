@@ -3,7 +3,6 @@ package array.medium.java_solutions;
 public class SubarraySort_Algo {
 
     public static int[] subarraySort(int[] array) {
-        // Write your code here.
         int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
         for (int i = 0; i < array.length; i++) {
             int num = array[i];
