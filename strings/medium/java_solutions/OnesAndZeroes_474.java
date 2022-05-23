@@ -23,9 +23,6 @@ public class OnesAndZeroes_474 {
     // ----------------------------------------------------------------------------------
 
     public int findMaxFormTimeLimit(String[] strs, int m, int n) {
-        Arrays.sort(strs, Comparator.comparingInt(String::length));
-        System.out.println(Arrays.toString(strs));
-
         int[][] pairs = new int[strs.length][2];
         int current = 0;
 
