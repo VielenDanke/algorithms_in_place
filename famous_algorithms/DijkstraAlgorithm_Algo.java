@@ -1,4 +1,4 @@
-package graph.medium.java_solutions;
+package famous_algorithms;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
