@@ -46,10 +46,4 @@ public class KnuthMorrisPratt_Algo {
         }
         return pattern;
     }
-
-
-    public static void main(String[] args) {
-        boolean b = KnuthMorrisPratt_Algo.knuthMorrisPrattAlgorithm("aefaefaefaedaefaedaefaefa", "aefaedaefaefa");
-        System.out.println(b);
-    }
 }
