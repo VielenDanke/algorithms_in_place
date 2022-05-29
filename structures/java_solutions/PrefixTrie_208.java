@@ -48,11 +48,11 @@ class Trie:
 
 public class PrefixTrie_208 {
 
-    static class TrieNode {
+    public static class TrieNode {
         Map<Character, TrieNode> children = new HashMap<>();
     }
 
-    static class SuffixTrie {
+    public static class SuffixTrie {
         TrieNode root = new TrieNode();
         char endSymbol = '*';
 
@@ -76,6 +76,16 @@ public class PrefixTrie_208 {
                 node = node.children.get(letter);
             }
             return node.children.containsKey(endSymbol);
+        }
+
+        public boolean hasIntersections(String str) {
+            for (int i = 0; i < str.length(); i++) {
+                char letter = str.charAt(i);
+                if (root.children.containsKey(letter)) {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void insertIntoSuffixTrie(String str, int i) {
