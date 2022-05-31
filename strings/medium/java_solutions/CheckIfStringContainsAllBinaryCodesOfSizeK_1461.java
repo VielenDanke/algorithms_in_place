@@ -19,16 +19,14 @@ public class CheckIfStringContainsAllBinaryCodesOfSizeK_1461 {
     // Binary approach
     public static boolean hasAllCodesBinary(String s, int k) {
         int need = 1 << k;
-        boolean[] got = new boolean[need];
-        int allOne = need - 1;
-        int hashVal = 0;
+        boolean[] hashed = new boolean[need];
+        int ones = need - 1;
+        int hash = 0;
 
         for (int i = 0; i < s.length(); i++) {
-            // calculate hash for s.substr(i-k+1,i+1)
-            hashVal = ((hashVal << 1) & allOne) | (s.charAt(i) - '0');
-            // hash only available when i-k+1 > 0
-            if (i >= k - 1 && !got[hashVal]) {
-                got[hashVal] = true;
+            hash = ((hash << 1) & ones) | (s.charAt(i) - '0');
+            if (i >= k - 1 && !hashed[hash]) {
+                hashed[hash] = true;
                 need--;
                 if (need == 0) {
                     return true;
