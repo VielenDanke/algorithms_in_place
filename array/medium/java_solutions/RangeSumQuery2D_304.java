@@ -17,8 +17,12 @@ public class RangeSumQuery2D_304 {
                 }
             }
         }
+
         public int sumRegion(int r1, int c1, int r2, int c2) {
-            r1++; c1++; r2++; c2++;
+            r1++;
+            c1++;
+            r2++;
+            c2++;
             return sum[r2][c2] - sum[r2][c1 - 1] - sum[r1 - 1][c2] + sum[r1 - 1][c1 - 1];
         }
     }
