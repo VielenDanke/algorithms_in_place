@@ -1,4 +1,4 @@
-package array.hard;
+package array.hard.java_solutions;
 
 import java.util.HashMap;
 import java.util.Map;
