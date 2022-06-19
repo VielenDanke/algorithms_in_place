@@ -75,7 +75,7 @@ public class PrefixTrie_208 {
                 }
                 node = node.children.get(letter);
             }
-            return node.children.containsKey(endSymbol);
+            return true;
         }
 
         public boolean hasIntersections(String str) {
