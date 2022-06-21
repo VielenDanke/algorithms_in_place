@@ -1,9 +1,6 @@
 package strings.medium.java_solutions;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class ShortEncodingWords_820 {
 
@@ -34,6 +31,66 @@ public class ShortEncodingWords_820 {
             if (result.indexOf(currentWord) == -1) result.append(currentWord);
         }
         return result.length();
+    }
+
+    // -------------------------------------------------------------------------------------
+
+    private static class Trie {
+        TrieNode root = new TrieNode();
+
+        public void insert(String str) {
+            for (int i = 0; i < str.length(); i++) {
+                insertIntoTrieNode(str, i);
+            }
+        }
+
+        public void insertIntoTrieNode(String str, int startIdx) {
+            TrieNode node = root;
+            for (int i = startIdx; i < str.length(); i++) {
+                char current = str.charAt(i);
+                if (!node.children.containsKey(current)) {
+                    node.children.put(current, new TrieNode());
+                }
+                node = node.children.get(current);
+            }
+            node.children.put('#', new TrieNode());
+        }
+
+        public boolean contains(String str) {
+            TrieNode node = root;
+            for (int i = 0; i < str.length(); i++) {
+                char current = str.charAt(i);
+                if (!node.children.containsKey(current)) {
+                    return false;
+                }
+                node = node.children.get(current);
+            }
+            return true;
+        }
+    }
+
+    private static class TrieNode {
+        Map<Character, TrieNode> children = new HashMap<>();
+    }
+
+    public int minimumLengthEncodingTrie(String[] words) {
+        Trie trie = new Trie();
+        Arrays.sort(words, Comparator.comparingInt(String::length));
+
+        for (int i = words.length - 1; i >= 0; i--) {
+            if (!trie.contains(words[i] + "#")) {
+                trie.insert(words[i]);
+            } else {
+                words[i] = null;
+            }
+        }
+        int sum = 0;
+        for (String word : words) {
+            if (word != null) {
+                sum += word.length() + 1;
+            }
+        }
+        return sum;
     }
 
     // -------------------------------------------------------------------------------------
