@@ -5,6 +5,21 @@ import java.util.List;
 
 public class LongestCommonSubsequence_Algo {
 
+    /*
+    Pattern:
+      T H E I R
+    H 2 2 1 1 0  0
+    A 1 1 1 1 0  0
+    B 1 1 1 1 0  0
+    I 1 1 1 1 0  0
+    T 1 0 0 0 0  0
+      0 0 0 0 0
+
+    Idea:
+    If i == j -> 1 + dp[i+1][j+1] or 1 + dp[i][j] (depends on prefix or suffix problem solution)
+    if i != j -> Math.max(dp[i + 1][j], dp[i][j + 1]
+     */
+
     public static List<Character> longestCommonSubsequence(String str1, String str2) {
         int N = str2.length();
         int M = str1.length();
