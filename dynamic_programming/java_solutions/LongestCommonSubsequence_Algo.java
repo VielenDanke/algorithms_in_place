@@ -1,4 +1,4 @@
-package strings.medium.java_solutions;
+package dynamic_programming.java_solutions;
 
 import java.util.ArrayList;
 import java.util.List;
