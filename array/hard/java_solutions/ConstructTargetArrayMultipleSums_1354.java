@@ -33,8 +33,4 @@ public class ConstructTargetArrayMultipleSums_1354 {
         }
         return true;
     }
-
-    public static void main(String[] args) {
-        new ConstructTargetArrayMultipleSums_1354().isPossible(new int[]{8, 5});
-    }
 }
