@@ -14,8 +14,7 @@ public class CourseSchedule_630 {
         for (int[] course : courses) {
             time += course[0];
             queue.add(course[0]);
-            if (time > course[1] && !queue.isEmpty())
-                time -= queue.poll();
+            if (time > course[1] && !queue.isEmpty()) time -= queue.poll();
         }
         return queue.size();
     }
