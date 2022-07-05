@@ -1,4 +1,4 @@
-package array.medium.java_solutions;
+package dynamic_programming.java_solutions;
 
 import java.util.Arrays;
 import java.util.HashMap;
