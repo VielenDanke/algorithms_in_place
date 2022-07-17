@@ -32,24 +32,15 @@ public class MergeTwoSortedLinkedList_21 {
     }
 
     public ListNode mergeTwoListsRecursive(ListNode list1, ListNode list2) {
-        return mergeRecursive(list1, list2);
-    }
-
-    private ListNode mergeRecursive(ListNode list1, ListNode list2) {
-        if (list1 == null) {
-            return list2;
-        }
-        if (list2 == null) {
-            return list1;
-        }
+        if (list1 == null) return list2;
+        if (list2 == null) return list1;
         ListNode node;
         if (list1.val < list2.val) {
-            node = new ListNode(list1.val);
-            node.next = mergeRecursive(list1.next, list2);
+            node = list1;
+            node.next = mergeTwoLists(list1.next, list2);
         } else {
-            node = new ListNode(list2.val);
-            node.next = mergeRecursive(list1, list2.next);
-
+            node = list2;
+            node.next = mergeTwoLists(list1, list2.next);
         }
         return node;
     }

@@ -3,36 +3,36 @@ package tree.medium.java_solutions;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-import static tree.Helper.Node;
+import static tree.Helper.TreeNodeNext;
 
 public class PopulateNextRightPointersEachNode_117 {
 
-    public Node connect(Node root) {
+    public TreeNodeNext connect(TreeNodeNext root) {
         if (root == null) {
             return null;
         }
-        Queue<Node> queue = new ArrayDeque<>();
+        Queue<TreeNodeNext> queue = new ArrayDeque<>();
 
         queue.add(root);
 
         while (!queue.isEmpty()) {
             int currentSize = queue.size();
 
-            Node prev = null;
+            TreeNodeNext prev = null;
 
             for (int i = 0; i < currentSize; i++) {
-                Node node = queue.poll();
+                TreeNodeNext treeNodeNext = queue.poll();
 
                 if (prev != null) {
-                    prev.next = node;
+                    prev.next = treeNodeNext;
                 }
-                prev = node;
+                prev = treeNodeNext;
 
-                if (node.left != null) {
-                    queue.add(node.left);
+                if (treeNodeNext.left != null) {
+                    queue.add(treeNodeNext.left);
                 }
-                if (node.right != null) {
-                    queue.add(node.right);
+                if (treeNodeNext.right != null) {
+                    queue.add(treeNodeNext.right);
                 }
             }
         }
