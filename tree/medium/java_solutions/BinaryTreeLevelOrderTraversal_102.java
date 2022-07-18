@@ -13,21 +13,21 @@ public class BinaryTreeLevelOrderTraversal_102 {
 
     private static class Solution {
         public List<List<Integer>> levelOrder(TreeNode root) {
-            List<List<Integer>> result = new ArrayList<>();
+            var result = new ArrayList<List<Integer>>();
 
             if (root == null) return result;
 
-            Queue<TreeNode> queue = new LinkedList<>();
+            var queue = new LinkedList<TreeNode>();
 
             queue.add(root);
 
             while (!queue.isEmpty()) {
-                int levelSize = queue.size();
+                var levelSize = queue.size();
 
-                List<Integer> levelList = new ArrayList<>();
+                var levelList = new ArrayList<Integer>();
 
                 for (int i = 0; i < levelSize; i++) {
-                    TreeNode node = queue.poll();
+                    var node = queue.poll();
                     levelList.add(node.val);
                     if (node.left != null) queue.add(node.left);
                     if (node.right != null) queue.add(node.right);
