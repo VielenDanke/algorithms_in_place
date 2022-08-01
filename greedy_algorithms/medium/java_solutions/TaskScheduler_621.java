@@ -41,8 +41,6 @@ public class TaskScheduler_621 {
             }
         }
 
-        int counter = 0;
-
         public int leastInterval(char[] tasks, int n) {
             if (tasks == null || tasks.length == 0) {
                 return 0;
@@ -91,10 +89,6 @@ public class TaskScheduler_621 {
                 queue.addAll(polled);
             }
             return result;
-        }
-
-        public static void main(String[] args) {
-            System.out.println(new SolutionBruteForce().leastInterval(new char[]{'A', 'A', 'A', 'B', 'B', 'B'}, 2));
         }
     }
 }
