@@ -2,26 +2,25 @@ package array.medium.java_solutions;
 
 public class Search2DMatrix_74 {
 
-    public boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix == null) {
-            return false;
-        }
-        if (matrix.length == 0) {
-            return false;
-        }
-        int row = matrix.length - 1, column = 0;
+    private static class Solution {
 
-        while (row >= 0 && column < matrix[0].length) {
-            int current = matrix[row][column];
+        public boolean searchMatrix(int[][] matrix, int target) {
+            int N = matrix.length, M = matrix[0].length;
 
-            if (current == target) {
-                return true;
-            } else if (current > target) {
-                row--;
-            } else {
-                column++;
+            int row = 0, col = M - 1;
+
+            while (row < N && col >= 0) {
+                int current = matrix[row][col];
+
+                if (current < target) {
+                    row++;
+                } else if (current > target) {
+                    col--;
+                } else {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
     }
 }
