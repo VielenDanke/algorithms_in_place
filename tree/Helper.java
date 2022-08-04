@@ -1,8 +1,18 @@
 package tree;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Helper {
+
+    private static void dfs(List<Integer> array, TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        array.add(root.val);
+        dfs(array, root.left);
+        dfs(array, root.right);
+    }
 
     public static class Node {
         public int val;
@@ -36,6 +46,13 @@ public class Helper {
             this.val = val;
             this.left = left;
             this.right = right;
+        }
+
+        @Override
+        public String toString() {
+            List<Integer> list = new ArrayList<>();
+            dfs(list, this);
+            return list.toString();
         }
     }
 
