@@ -1,5 +1,8 @@
 package strings.easy.java_solution;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class LongestCommonPrefix_14 {
 
     private static class Solution {
@@ -22,6 +25,26 @@ public class LongestCommonPrefix_14 {
                 }
             }
             return lowest;
+        }
+    }
+
+    private static class SolutionWithSort {
+
+        public String longestCommonPrefix(String[] strs) {
+            Arrays.sort(strs, Comparator.comparingInt(String::length));
+
+            String prefix = strs[0];
+
+            for (int i = 1; i < strs.length; i++) {
+                int current = 0;
+                if (!strs[i].startsWith(prefix)) {
+                    while (current < prefix.length() && prefix.charAt(current) == strs[i].charAt(current)) {
+                        current++;
+                    }
+                    prefix = prefix.substring(0, current);
+                }
+            }
+            return prefix;
         }
     }
 }
