@@ -7,26 +7,25 @@ public class OddEvenLinkedList_328 {
     private static class SolutionTwoLists {
 
         public ListNode oddEvenList(ListNode head) {
-            ListNode even = new ListNode();
-            ListNode odd = new ListNode();
-            ListNode resultEven = even;
+            ListNode odd = new ListNode(0);
+            ListNode even = new ListNode(0);
             ListNode resultOdd = odd;
-
-            int counter = 0;
-
+            ListNode resultEven = even;
+            int current = 1;
             while (head != null) {
-                if (counter % 2 == 0) {
-                    even.next = new ListNode(head.val);
+                if (current % 2 == 0) {
+                    even.next = head;
                     even = even.next;
                 } else {
-                    odd.next = new ListNode(head.val);
+                    odd.next = head;
                     odd = odd.next;
                 }
-                counter++;
                 head = head.next;
+                current++;
             }
-            even.next = resultOdd.next;
-            return resultEven.next;
+            odd.next = resultEven.next;
+            even.next = null;
+            return resultOdd.next;
         }
     }
 
