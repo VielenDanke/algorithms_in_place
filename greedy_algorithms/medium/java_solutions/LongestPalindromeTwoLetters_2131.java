@@ -1,5 +1,6 @@
 package greedy_algorithms.medium.java_solutions;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +35,42 @@ public class LongestPalindromeTwoLetters_2131 {
                 }
             }
             if (unpaired > 0) {
+                result += 2;
+            }
+            return result;
+        }
+    }
+
+    private static class SolutionBetter {
+
+        public int longestPalindrome(String[] words) {
+            Map<String, Integer> wordsAmount = new HashMap<>();
+
+            Arrays.stream(words).forEach(word -> wordsAmount.put(word, wordsAmount.getOrDefault(word, 0) + 1));
+
+            int result = 0;
+            boolean isFound = false;
+
+            for (String word : words) {
+                if (word.charAt(0) == word.charAt(1)) {
+                    Integer wordAmount = wordsAmount.get(word);
+                    if (wordAmount % 2 != 0) {
+                        wordAmount -= 1;
+                        isFound = true;
+                    }
+                    result += wordAmount * 2;
+                    wordsAmount.put(word,wordsAmount.get(word) - wordAmount);
+                } else {
+                    String reversedWord = new StringBuilder(word).reverse().toString();
+                    if (wordsAmount.containsKey(reversedWord)) {
+                        int min = Math.min(wordsAmount.get(reversedWord), wordsAmount.get(word));
+                        result += (min * 2) * 2;
+                        wordsAmount.put(word, wordsAmount.get(word) - min);
+                        wordsAmount.put(reversedWord, wordsAmount.get(reversedWord) - min);
+                    }
+                }
+            }
+            if (isFound) {
                 result += 2;
             }
             return result;
