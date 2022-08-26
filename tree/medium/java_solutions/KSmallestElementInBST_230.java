@@ -2,6 +2,7 @@ package tree.medium.java_solutions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 import static tree.Helper.TreeNode;
 
@@ -20,6 +21,24 @@ public class KSmallestElementInBST_230 {
             dfs(l, node.left);
             l.add(node.val);
             dfs(l, node.right);
+        }
+    }
+
+    private static class SolutionStack {
+
+        public int kthSmallest(TreeNode root, int k) {
+            Stack<TreeNode> stack = new Stack<>();
+            pushLeft(stack, root);
+            while (--k > 0) {
+                pushLeft(stack, stack.pop().right);
+            }
+            return stack.pop().val;
+        }
+        private void pushLeft(Stack<TreeNode> stack, TreeNode root) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
         }
     }
 
