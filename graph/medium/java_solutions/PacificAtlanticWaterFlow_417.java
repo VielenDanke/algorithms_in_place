@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PacificAtlanticWaterFlow_417 {
 
-    private static class Solution {
+    private static class SolutionBruteForce {
         private static final int[][] DIRECTION = new int[][]{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
         private int rowLength;
         private int colLength;
