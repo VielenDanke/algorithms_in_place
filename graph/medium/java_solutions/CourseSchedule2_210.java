@@ -7,18 +7,9 @@ public class CourseSchedule2_210 {
     private static class Solution {
 
         public int[] findOrder(int numCourses, int[][] prerequisites) {
-            Map<Integer, Set<Integer>> topologicalMap = new HashMap<>();
             Set<Integer> visited = new HashSet<>();
-
-            for (int i = 0; i < numCourses; i++) {
-                topologicalMap.put(i, new HashSet<>());
-            }
-            for (int[] prereq : prerequisites) {
-                Set<Integer> dependencies = topologicalMap.get(prereq[0]);
-                dependencies.add(prereq[1]);
-                topologicalMap.put(prereq[0], dependencies);
-            }
             Stack<Integer> stack = new Stack<>();
+            Map<Integer, Set<Integer>> topologicalMap = buildGraph(numCourses, prerequisites);
 
             for (Map.Entry<Integer, Set<Integer>> entry : topologicalMap.entrySet()) {
                 if (entry.getValue().size() == 0) {
@@ -47,6 +38,20 @@ public class CourseSchedule2_210 {
                 return new int[]{};
             }
             return result;
+        }
+
+        private Map<Integer, Set<Integer>> buildGraph(int numCourses, int[][] prerequisites) {
+            Map<Integer, Set<Integer>> topologicalMap = new HashMap<>();
+
+            for (int i = 0; i < numCourses; i++) {
+                topologicalMap.put(i, new HashSet<>());
+            }
+            for (int[] prereq : prerequisites) {
+                Set<Integer> dependencies = topologicalMap.get(prereq[0]);
+                dependencies.add(prereq[1]);
+                topologicalMap.put(prereq[0], dependencies);
+            }
+            return topologicalMap;
         }
     }
 }
