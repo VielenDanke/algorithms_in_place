@@ -1,7 +1,5 @@
 package dynamic_programming.java_solutions;
 
-import java.util.*;
-
 public class PartitionEqualSubsetSum_416 {
 
     private static class Solution {

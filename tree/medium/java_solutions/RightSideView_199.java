@@ -11,20 +11,26 @@ public class RightSideView_199 {
         public List<Integer> rightSideView(TreeNode root) {
             Queue<TreeNode> queue = new LinkedList<>();
 
-            List<Integer> result = new ArrayList<>();
-
-            if (root == null) return result;
-
             queue.add(root);
 
-            while (!queue.isEmpty()) {
-                int size = queue.size();
+            List<Integer> result = new ArrayList<>();
 
-                for (int i = 0; i < size; i++) {
-                    TreeNode temp = queue.poll();
-                    if (i == 0) result.add(temp.val);
-                    if (temp.right != null) queue.add(temp.right);
-                    if (temp.left != null) queue.add(temp.left);
+            while (!queue.isEmpty()) {
+                int levelSize = queue.size();
+
+                Integer theMostRight = null;
+
+                for (int i = 0; i < levelSize; i++) {
+                    TreeNode node = queue.poll();
+
+                    if (node != null) {
+                        theMostRight = node.val;
+                        queue.add(node.left);
+                        queue.add(node.right);
+                    }
+                }
+                if (theMostRight != null) {
+                    result.add(theMostRight);
                 }
             }
             return result;
