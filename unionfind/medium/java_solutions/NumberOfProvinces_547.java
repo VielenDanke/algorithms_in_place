@@ -1,4 +1,4 @@
-package graph.medium.java_solutions;
+package unionfind.medium.java_solutions;
 
 public class NumberOfProvinces_547 {
 
