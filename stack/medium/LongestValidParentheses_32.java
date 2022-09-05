@@ -1,4 +1,4 @@
-package stack;
+package stack.medium;
 
 import java.util.Stack;
 
