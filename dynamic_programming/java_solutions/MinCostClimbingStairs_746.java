@@ -2,7 +2,7 @@ package dynamic_programming.java_solutions;
 
 public class MinCostClimbingStairs_746 {
 
-    private static class SolutionTopDown {
+    static class SolutionTopDown {
         private Integer[] memo;
 
         public int minCostClimbingStairs(int[] cost) {
@@ -19,7 +19,7 @@ public class MinCostClimbingStairs_746 {
         }
     }
 
-    private static class SolutionDP {
+    static class SolutionDP {
 
         private int minCostClimbingStairs(int[] cost) {
             int N = cost.length;
