@@ -26,8 +26,7 @@ public class NumberOfWeakCharactersInGame_1996 {
         public int numberOfWeakCharacters(int[][] properties) {
             Queue<int[]> queue = new PriorityQueue<>((left, right) -> (left[0] == right[0]) ? (left[1] - right[1]) : right[0] - left[0]);
             queue.addAll(Arrays.asList(properties));
-            int weak = 0;
-            int max = 0;
+            int weak = 0, max = 0;
             while (!queue.isEmpty()) {
                 int[] first = queue.poll();
                 if (first[1] < max) {
