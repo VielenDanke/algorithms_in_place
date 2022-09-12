@@ -15,13 +15,34 @@ public class JumpGame_55 {
              4) idx 0 + 2 >= 1 - yes, set lastPos to 0
      */
 
-    public boolean canJump(int[] nums) {
-        int lastPos = nums.length - 1;
-        for (int i = nums.length - 1; i >= 0; i--) {
-            if (i + nums[i] >= lastPos) {
-                lastPos = i;
+    static class SolutionBest {
+        public boolean canJump(int[] nums) {
+            int lastPos = nums.length - 1;
+            for (int i = nums.length - 1; i >= 0; i--) {
+                if (i + nums[i] >= lastPos) {
+                    lastPos = i;
+                }
             }
+            return lastPos == 0;
         }
-        return lastPos == 0;
+    }
+
+    static class SolutionDP {
+        public boolean canJump(int[] nums) {
+            int n = nums.length;
+            boolean[] dp = new boolean[n];
+
+            dp[0] = true;
+
+            for (int i = 1; i < n; i++) {
+                for (int j = 0; j < i; j++) {
+                    if (dp[j] && nums[j] + j >= i) {
+                        dp[i] = true;
+                        break;
+                    }
+                }
+            }
+            return dp[n - 1];
+        }
     }
 }
