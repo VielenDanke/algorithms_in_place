@@ -39,7 +39,7 @@ public class SatisfiabilityEqualityEquations_990 {
                 }
             }
             for (String str : equations) {
-                if (str.charAt(1) == '!' && uf.find(str.charAt(0) - 'a') == uf.find(str.charAt(3) - 'a')) {
+                if (str.charAt(1) == '!' && uf.isConnected(str.charAt(0) - 'a', str.charAt(3) - 'a')) {
                     return false;
                 }
             }
