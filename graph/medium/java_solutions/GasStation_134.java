@@ -3,6 +3,14 @@ package graph.medium.java_solutions;
 public class GasStation_134 {
 
     static class Solution {
+        /*
+        Idea:
+        1. We are moving 1 time through gas and cost
+        2. Each iteration we increase total and subTotal by gas[i] and decrease cost[i]
+        3. if subTotal < 0 means we cannot finish from start point (index 0), we need assign subTotal to 0
+           and start to the next index in array (i + 1)
+        4. By the end we check if total < 0, if true - means we cannot reach from any index in array, if false - return start
+         */
         public int canCompleteCircuit(int[] gas, int[] cost) {
             int n = gas.length;
             int total = 0;
