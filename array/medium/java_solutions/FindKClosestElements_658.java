@@ -5,6 +5,17 @@ import java.util.*;
 public class FindKClosestElements_658 {
 
     static class Solution {
+        /*
+        arr = [1,2,3,4,5]
+        k = 4
+        x = 3
+
+        Iterations:
+        1. left = 0, right = 5 - k (1), middleIdx = 0
+        2. left = 0, right = 0, end of the loop
+
+        result = arr[left, left + k] elements
+         */
         public List<Integer> findClosestElements(int[] arr, int k, int x) {
             int left = 0, right = arr.length - k;
 
@@ -22,6 +33,10 @@ public class FindKClosestElements_658 {
                 result.add(arr[i]);
             }
             return result;
+        }
+
+        public static void main(String[] args) {
+            new Solution().findClosestElements(new int[]{1,2,3,4,5}, 4, 3);
         }
     }
 
