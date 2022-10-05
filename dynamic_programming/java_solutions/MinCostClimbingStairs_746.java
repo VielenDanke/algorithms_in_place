@@ -22,20 +22,10 @@ public class MinCostClimbingStairs_746 {
     static class SolutionDP {
 
         private int minCostClimbingStairs(int[] cost) {
-            int N = cost.length;
-            int[] dp = new int[N + 1];
-
-            dp[0] = cost[0];
-            dp[1] = cost[1];
-
-            for (int i = 2; i < N + 1; i++) {
-                int min = Math.min(dp[i - 1], dp[i - 2]);
-                if (i < N) {
-                    min += cost[i];
-                }
-                dp[i] = min;
+            for (int i = 2; i < cost.length; i ++) {
+                cost[i] += Math.min(cost[i - 1], cost[i - 2]);
             }
-            return dp[N];
+            return Math.min(cost[cost.length - 1], cost[cost.length - 2]);
         }
     }
 }

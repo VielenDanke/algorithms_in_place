@@ -34,7 +34,6 @@ public class DeleteAndEarn_740 {
             for (int num : nums) {
                 sum[num] += num;
             }
-
             for(int i = 2; i < sum.length; i++){
                 sum[i] = Math.max(sum[i-1], sum[i-2] + sum[i]);
             }
