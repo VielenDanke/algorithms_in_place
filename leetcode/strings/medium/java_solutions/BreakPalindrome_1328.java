@@ -31,43 +31,36 @@ public class BreakPalindrome_1328 {
         public String breakPalindrome(String palindrome) {
             if (palindrome == null) return "";
 
-            StringBuilder toSwitch = new StringBuilder();
-
             int n = palindrome.length();
 
             if (n == 0 || n == 1) return "";
 
-            toSwitch.append("z".repeat(n));
+            String toSwitch = "";
 
             char[] pal = palindrome.toCharArray();
+
             int left = 0, right = n - 1;
+
             while (left < right) {
-                char current = pal[left];
-                if (current > 97) {
-                    pal[left] = 'a';
-                } else if (current == 97) {
-                    pal[left] = 'b';
-                }
-                StringBuilder b = new StringBuilder();
-                b.append(pal);
-                if (b.toString().compareTo(toSwitch.toString()) < 0) {
-                    toSwitch = new StringBuilder(b.toString());
-                }
-                pal[left++] = current;
-                char rightCurrent = pal[right];
-                if (rightCurrent > 97) {
-                    pal[right] = 'a';
-                } else if (rightCurrent == 97) {
-                    pal[right] = 'b';
-                }
-                b = new StringBuilder();
-                b.append(pal);
-                if (b.toString().compareTo(toSwitch.toString()) < 0) {
-                    toSwitch = new StringBuilder(b.toString());
-                }
-                pal[right--] = rightCurrent;
+                toSwitch = swapAndReturn(pal, left++, toSwitch);
+                toSwitch = swapAndReturn(pal, right--, toSwitch);
             }
-            return toSwitch.toString();
+            return toSwitch;
+        }
+
+        private String swapAndReturn(char[] pal, int idx, String toSwitch) {
+            char current = pal[idx];
+            if (current > 97) {
+                pal[idx] = 'a';
+            } else if (current == 97) {
+                pal[idx] = 'b';
+            }
+            String s = new String(pal);
+            if (toSwitch.isEmpty() || s.compareTo(toSwitch) < 0) {
+                toSwitch = s;
+            }
+            pal[idx] = current;
+            return toSwitch;
         }
     }
 }
