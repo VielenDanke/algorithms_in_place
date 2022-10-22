@@ -11,6 +11,7 @@ public class ClimbingLeaderboard {
 
     static class Solution {
 
+        // TODO: solve
         public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> players) {
             int amountOfRanked = 0;
             int[] ranks = new int[10000];
