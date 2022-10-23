@@ -1,71 +1,79 @@
 package hackerrank.array.medium;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ClimbingLeaderboard {
 
     // https://www.hackerrank.com/challenges/climbing-the-leaderboard
 
     static class Solution {
-
-        // TODO: solve
         public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> players) {
-            int amountOfRanked = 0;
-            int[] ranks = new int[10000];
+            LinkedList<Integer> queue = new LinkedList<>();
+            int rank = 1;
+            int rankScore = ranked.get(0);
 
-            for (Integer rank : ranked) {
-                if (ranks[rank] == 0) {
-                    ranks[rank]++;
-                    amountOfRanked++;
+            for (int player = players.size() - 1, s = 0; player >= 0; player--) {
+                if (players.get(player) < rankScore) {
+                    while (s++ < ranked.size()) {
+                        if (ranked.get(s) < rankScore) {
+                            rank++;
+                            rankScore = ranked.get(s);
+                        }
+                        if(players.get(player) >= ranked.get(s)) break;
+                    }
                 }
+                queue.add(s == ranked.size() ? rank + 1 : rank);
             }
+            List<Integer> result = new ArrayList<>();
+            while (!queue.isEmpty()) {
+                result.add(queue.pollLast());
+            }
+            return result;
+        }
+    }
+
+    static class SolutionTreeSetShorter {
+        public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> players) {
+            TreeSet<Integer> ranks = new TreeSet<>((i, j) -> j - i);
+
+            ranks.addAll(ranked);
+
             List<Integer> places = new LinkedList<>();
             for (Integer player : players) {
-                int place;
-                if (ranks[player] != 0) {
-                    place = 0;
-                } else {
-                    ranks[player]++;
-                    place = 0;
-                }
-                places.add(place);
+                ranks.add(player);
+                places.add(ranks.headSet(player).size() + 1);
             }
             return places;
         }
     }
 
     static class SolutionBruteForce {
-        public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
-            // Write your code here
-            TreeSet<Integer> set = new TreeSet<>((i, j) -> j - i);
 
-            set.addAll(ranked);
+        public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> players) {
+            TreeSet<Integer> ranks = new TreeSet<>((i, j) -> j - i);
+
+            ranks.addAll(ranked);
 
             List<Integer> places = new LinkedList<>();
-
-            for (Integer currentScore : player) {
-                List<Integer> list = new LinkedList<>();
-                int size = set.size();
-
-                while (!set.isEmpty() && set.first() > currentScore) {
-                    list.add(set.pollFirst());
-                }
-                if (set.isEmpty()) {
-                    places.add(size + 1);
+            for (Integer player : players) {
+                if (player < ranks.last()) {
+                    places.add(ranks.size() + 1);
+                } else if (player > ranks.first()) {
+                    places.add(1);
                 } else {
-                    places.add(size - set.size() + 1);
+                    int place = 1;
+                    for (Integer currentRank : ranks) {
+                        if (currentRank <= player) {
+                            places.add(place);
+                            break;
+                        }
+                        place++;
+                    }
                 }
-                list.add(currentScore);
-                set.addAll(list);
+                ranks.add(player);
             }
             return places;
-        }
-
-        public static void main(String[] args) {
-            System.out.println(SolutionBruteForce.climbingLeaderboard(Arrays.asList(100, 100, 50, 40, 40, 20, 10), Arrays.asList(5, 25, 50, 120)));
         }
     }
 }
