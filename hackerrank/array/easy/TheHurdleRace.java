@@ -1,5 +1,6 @@
 package hackerrank.array.easy;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class TheHurdleRace {
