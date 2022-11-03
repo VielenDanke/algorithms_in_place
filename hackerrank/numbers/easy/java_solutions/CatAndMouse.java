@@ -1,4 +1,4 @@
-package hackerrank.numbers.easy;
+package hackerrank.numbers.easy.java_solutions;
 
 public class CatAndMouse {
 
