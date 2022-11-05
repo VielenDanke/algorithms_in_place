@@ -94,7 +94,7 @@ public class WordSearch2_212 {
                 loop:
                 for (int i = 0; i < n; i++) {
                     for (int j = 0; j < m; j++) {
-                        if (isBoardContainsWord(board, i, j, word, 0, new boolean[n][m])) {
+                        if (isBoardContainsWord(board, i, j, word, 0)) {
                             list.add(word);
                             break loop;
                         }
@@ -104,26 +104,27 @@ public class WordSearch2_212 {
             return list;
         }
 
-        private boolean isBoardContainsWord(char[][] board, int row, int col, String word, int idx, boolean[][] visited) {
+        private boolean isBoardContainsWord(char[][] board, int row, int col, String word, int idx) {
             if (idx >= word.length()) {
                 return true;
             }
             if (isBoardersViolated(row, col)) {
                 return false;
             }
-            if (visited[row][col]) {
+            char currentBoard = board[row][col];
+            if (currentBoard == '#') {
                 return false;
             }
             char current = word.charAt(idx);
-            if (current != board[row][col]) {
+            if (current != currentBoard) {
                 return false;
             }
-            visited[row][col] = true;
-            boolean isBoardContains = isBoardContainsWord(board, row + 1, col, word, idx + 1, visited) ||
-                    isBoardContainsWord(board, row - 1, col, word, idx + 1, visited) ||
-                    isBoardContainsWord(board, row, col + 1, word, idx + 1, visited) ||
-                    isBoardContainsWord(board, row, col - 1, word, idx + 1, visited);
-            visited[row][col] = false;
+            board[row][col] = '#';
+            boolean isBoardContains = isBoardContainsWord(board, row + 1, col, word, idx + 1) ||
+                    isBoardContainsWord(board, row - 1, col, word, idx + 1) ||
+                    isBoardContainsWord(board, row, col + 1, word, idx + 1) ||
+                    isBoardContainsWord(board, row, col - 1, word, idx + 1);
+            board[row][col] = currentBoard;
             return isBoardContains;
         }
 
