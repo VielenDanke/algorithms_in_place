@@ -1,5 +1,7 @@
 package leetcode.strings.medium.java_solutions;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.TreeMap;
 
@@ -52,6 +54,35 @@ public class ReverseWordsInString_151 {
                 }
             }
             return result.toString();
+        }
+    }
+
+    static class SolutionTrim {
+        public String reverseWords(String s) {
+            String[] str = s.split(" ");
+            StringBuilder builder = new StringBuilder();
+
+            for (int i = str.length - 1; i >= 0; i--) {
+                if (!str[i].isBlank()) {
+                    builder.append(str[i].trim());
+                    builder.append(" ");
+                }
+            }
+            return builder.toString().trim();
+        }
+    }
+
+    static class SolutionRegex {
+        public String reverseWords(String s) {
+            String[] words = s.trim().split(" +");
+            StringBuilder builder = new StringBuilder();
+            for (int i = words.length - 1; i >= 0; i--) {
+                builder.append(words[i]);
+                if (i > 0) {
+                    builder.append(" ");
+                }
+            }
+            return builder.toString();
         }
     }
 }
