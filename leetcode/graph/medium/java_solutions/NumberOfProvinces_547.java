@@ -1,4 +1,4 @@
-package leetcode.java_solutions;
+package leetcode.graph.medium.java_solutions;
 
 public class NumberOfProvinces_547 {
 

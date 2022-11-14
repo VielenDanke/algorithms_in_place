@@ -1,8 +1,36 @@
-package leetcode.java_solutions;
+package leetcode.graph.medium.java_solutions;
 
 public class MostStonesRemovedWithSameRowOrColumn_947 {
 
-    private static class Solution {
+    static class SolutionDFS {
+        private int n;
+
+        public int removeStones(int[][] stones) {
+            n = stones.length;
+            boolean[] visited = new boolean[n];
+            int numOfIslands = 0;
+
+            for (int i = 0; i < n; i++) {
+                if (!visited[i]) {
+                    dfs(i, stones, visited);
+                    numOfIslands++;
+                }
+            }
+            return n - numOfIslands;
+        }
+
+        private void dfs(int prevIdx, int[][] stones, boolean[] visited) {
+            visited[prevIdx] = true;
+
+            for (int i = 0; i < n; i++) {
+                if (!visited[i] && (stones[prevIdx][0] == stones[i][0] || stones[prevIdx][1] == stones[i][1])) {
+                    dfs(i, stones, visited);
+                }
+            }
+        }
+    }
+
+    static class Solution {
         private int[] id;
         private int numOfComponents;
 
