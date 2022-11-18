@@ -1,4 +1,4 @@
-package hackerrank.array.easy;
+package hackerrank.array.easy.java_solutions;
 
 import java.util.LinkedList;
 import java.util.List;
