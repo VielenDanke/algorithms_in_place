@@ -31,6 +31,8 @@ func nonDivisibleSubsetSolution(k int32, s []int32) int32 {
 	return result
 }
 
+// ----------------------------------------------------------------------
+
 func nonDivisibleSubset(k int32, s []int32) int32 {
 	// Write your code here
 	temp = make([]int32, 0)
