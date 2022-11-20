@@ -1,4 +1,4 @@
-package hackerrank.string.easy;
+package hackerrank.string.easy.java_solutions;
 
 import java.util.List;
 

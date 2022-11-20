@@ -1,4 +1,4 @@
-package hackerrank.string.easy;
+package hackerrank.string.easy.java_solutions;
 
 public class CountingValley {
 
