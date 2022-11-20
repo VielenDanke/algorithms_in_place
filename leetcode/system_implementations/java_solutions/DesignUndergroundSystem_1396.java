@@ -1,9 +1,6 @@
 package leetcode.system_implementations.java_solutions;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DesignUndergroundSystem_1396 {
 
