@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 func ConnectedComponentsCount(graph map[string][]string) (counter int) {
 	visited := make(map[string]interface{})

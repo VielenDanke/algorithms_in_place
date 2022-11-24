@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 func LargestComponent(graph map[string][]string) (largest int) {
 	for node := range graph {

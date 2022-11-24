@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 type Node struct {
 	Name      string

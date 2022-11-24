@@ -1,4 +1,4 @@
-package easy
+package golang_solutions
 
 func findJudge(n int, trust [][]int) int {
 	citizenMap := make(map[int]map[int]interface{})
