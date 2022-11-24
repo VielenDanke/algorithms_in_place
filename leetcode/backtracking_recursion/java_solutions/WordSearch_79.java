@@ -1,4 +1,4 @@
-package leetcode.strings.medium.java_solutions;
+package leetcode.backtracking_recursion.java_solutions;
 
 public class WordSearch_79 {
 

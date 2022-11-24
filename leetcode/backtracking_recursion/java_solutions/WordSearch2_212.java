@@ -1,4 +1,4 @@
-package leetcode.strings.hard.java_solutions;
+package leetcode.backtracking_recursion.java_solutions;
 
 import java.util.LinkedList;
 import java.util.List;
