@@ -1,4 +1,4 @@
-package leetcode.dynamic_programming.java_solutions;
+package leetcode.stack.medium;
 
 import java.util.Stack;
 
