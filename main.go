@@ -1,16 +1,29 @@
 package main
 
-//var elementsNum = 100000
+import (
+	"github.com/vielendanke/algorithms_in_place/leetcode/system_implementations/golang_solutions"
+	"math/rand"
+	"time"
+)
 
 func main() {
+	storage := golang_solutions.NewUniqueRandomStorage(rand.New(rand.NewSource(time.Now().UnixNano())))
 
-	//rand.Seed(int64(elementsNum))
-	//arr := make([]int, elementsNum)
-	//for i := 0; i < elementsNum; i++ {
-	//	arr[i] = int(rand.Int31n(int32(elementsNum)))
-	//}
-	//start := time.Now()
-	//medium.MergeSortWithInsertion(arr, 64)
-	//end := time.Now().Sub(start)
-	//fmt.Printf("End time %d\n", end.Milliseconds())
+	counter := 1
+
+	for counter < rand.Intn(200) {
+		randNum := rand.Intn(counter)
+		storage.Add(randNum)
+		counter++
+	}
+	for counter >= rand.Intn(50) {
+		randNum := rand.Intn(counter)
+		storage.Remove(randNum)
+		counter--
+	}
+	println(storage.GetRandom())
+	println(storage.GetRandom())
+	println(storage.GetRandom())
+	println(storage.GetRandom())
+	println(storage.GetRandom())
 }
