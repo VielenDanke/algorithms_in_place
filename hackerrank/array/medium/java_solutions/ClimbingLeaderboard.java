@@ -1,4 +1,4 @@
-package hackerrank.array.medium;
+package hackerrank.array.medium.java_solutions;
 
 import java.util.*;
 import java.util.stream.Collectors;
