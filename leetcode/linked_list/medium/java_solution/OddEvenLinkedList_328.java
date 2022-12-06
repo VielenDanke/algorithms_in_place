@@ -4,7 +4,23 @@ import static leetcode.linked_list.Helper.ListNode;
 
 public class OddEvenLinkedList_328 {
 
-    private static class SolutionTwoLists {
+    static class Solution {
+
+        public ListNode oddEvenList(ListNode head) {
+            if (head == null) return null;
+            ListNode odd = head, even = head.next, evenHead = even;
+            while (even != null && even.next != null) {
+                odd.next = even.next;
+                odd = odd.next;
+                even.next = odd.next;
+                even = even.next;
+            }
+            odd.next = evenHead;
+            return head;
+        }
+    }
+
+    static class SolutionTwoLists {
 
         public ListNode oddEvenList(ListNode head) {
             ListNode odd = new ListNode(0);
@@ -29,7 +45,7 @@ public class OddEvenLinkedList_328 {
         }
     }
 
-    private static class Solution {
+    static class SolutionBruteForce {
 
         public ListNode oddEvenList(ListNode head) {
             ListNode dummy = new ListNode();
