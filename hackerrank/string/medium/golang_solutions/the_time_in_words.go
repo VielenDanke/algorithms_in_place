@@ -2,6 +2,8 @@ package golang_solutions
 
 import "fmt"
 
+// https://www.hackerrank.com/challenges/the-time-in-words/problem
+
 var mapper map[int32]string
 
 func init() {
