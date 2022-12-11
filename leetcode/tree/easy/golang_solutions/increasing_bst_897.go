@@ -1,6 +1,6 @@
 package golang_solutions
 
-import "github.com/vielendanke/algorithms_in_place/tree"
+import "github.com/vielendanke/algorithms_in_place/leetcode/tree"
 
 func increasingBST(root *tree.TreeNode) *tree.TreeNode {
 	nodes := make([]*tree.TreeNode, 0)

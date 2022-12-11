@@ -1,6 +1,6 @@
 package golang_solutions
 
-import "github.com/vielendanke/algorithms_in_place/linked_list"
+import "github.com/vielendanke/algorithms_in_place/leetcode/linked_list"
 
 func detectCycle(head *linked_list.ListNode) *linked_list.ListNode {
 	visited := make(map[*linked_list.ListNode]interface{})

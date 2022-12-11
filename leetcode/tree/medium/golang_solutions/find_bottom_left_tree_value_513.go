@@ -1,6 +1,6 @@
 package golang_solutions
 
-import "github.com/vielendanke/algorithms_in_place/tree"
+import "github.com/vielendanke/algorithms_in_place/leetcode/tree"
 
 func findBottomLeftValue(root *tree.TreeNode) int {
 	queue := make([]*tree.TreeNode, 0)

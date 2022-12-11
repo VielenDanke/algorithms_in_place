@@ -1,7 +1,7 @@
 package golang_solutions
 
 import (
-	"github.com/vielendanke/algorithms_in_place/tree"
+	"github.com/vielendanke/algorithms_in_place/leetcode/tree"
 )
 
 var prev *tree.TreeNode = nil

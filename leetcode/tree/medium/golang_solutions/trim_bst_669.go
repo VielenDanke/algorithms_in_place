@@ -1,6 +1,6 @@
 package golang_solutions
 
-import "github.com/vielendanke/algorithms_in_place/tree"
+import "github.com/vielendanke/algorithms_in_place/leetcode/tree"
 
 func trimBST(root *tree.TreeNode, low int, high int) *tree.TreeNode {
 	if root == nil {

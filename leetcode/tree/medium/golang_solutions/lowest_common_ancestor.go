@@ -1,6 +1,6 @@
 package golang_solutions
 
-import "github.com/vielendanke/algorithms_in_place/tree"
+import "github.com/vielendanke/algorithms_in_place/leetcode/tree"
 
 func lowestCommonAncestor(root, p, q *tree.TreeNode) *tree.TreeNode {
 	if root == nil {

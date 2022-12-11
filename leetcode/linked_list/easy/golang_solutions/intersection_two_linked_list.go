@@ -1,6 +1,6 @@
 package golang_solutions
 
-import "github.com/vielendanke/algorithms_in_place/linked_list"
+import "github.com/vielendanke/algorithms_in_place/leetcode/linked_list"
 
 func getIntersectionNode(headA, headB *linked_list.ListNode) *linked_list.ListNode {
 	storage := make(map[*linked_list.ListNode]interface{})

@@ -1,6 +1,6 @@
 package golang_solution
 
-import "github.com/vielendanke/algorithms_in_place/linked_list"
+import "github.com/vielendanke/algorithms_in_place/leetcode/linked_list"
 
 func reorderList(head *linked_list.ListNode) {
 	nodes := make([]int, 0)

@@ -1,6 +1,6 @@
 package golang_solutions
 
-import "github.com/vielendanke/algorithms_in_place/leetcode/easy"
+import "github.com/vielendanke/algorithms_in_place/leetcode/leetcode/easy"
 
 type LinkedList struct {
 	Value int

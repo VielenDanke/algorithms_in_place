@@ -1,6 +1,6 @@
 package bfs_dfs
 
-import "github.com/vielendanke/algorithms_in_place/tree"
+import "github.com/vielendanke/algorithms_in_place/leetcode/tree"
 
 type NodePointerDepth struct {
 	Node  *tree.NodePointer

@@ -1,7 +1,7 @@
 package golang_solutions
 
 import (
-	"github.com/vielendanke/algorithms_in_place/linked_list"
+	"github.com/vielendanke/algorithms_in_place/leetcode/linked_list"
 	"sort"
 )
 

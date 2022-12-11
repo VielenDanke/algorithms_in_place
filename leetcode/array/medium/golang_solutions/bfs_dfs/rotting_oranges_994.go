@@ -1,6 +1,6 @@
 package bfs_dfs
 
-import "github.com/vielendanke/algorithms_in_place/array"
+import "github.com/vielendanke/algorithms_in_place/leetcode/array"
 
 func orangesRotting(grid [][]int) (minutes int) {
 	rottingOranges := make([]*array.Pair, 0)
