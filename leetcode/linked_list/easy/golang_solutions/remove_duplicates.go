@@ -1,64 +1,59 @@
 package golang_solutions
 
-import "github.com/vielendanke/algorithms_in_place/leetcode/leetcode/easy"
-
-type LinkedList struct {
-	Value int
-	Next  *LinkedList
-}
+import "github.com/vielendanke/algorithms_in_place/leetcode/linked_list"
 
 // iterate over linked list
 // if next == temp - switch the pointer to next node
 // repeat the process until the different number appears
 
-func RemoveDuplicatesFromLinkedList3(linkedList *LinkedList) *LinkedList {
+func RemoveDuplicatesFromListNode3(ListNode *linked_list.ListNode) *linked_list.ListNode {
 	intSet := make(map[int]interface{})
 
-	temp := linkedList
+	temp := ListNode
 
-	intSet[linkedList.Value] = nil
+	intSet[ListNode.Val] = nil
 
 	for temp.Next != nil {
-		if _, ok := intSet[temp.Next.Value]; ok {
+		if _, ok := intSet[temp.Next.Val]; ok {
 			temp.Next = temp.Next.Next
 		} else {
 			temp = temp.Next
-			intSet[temp.Value] = nil
+			intSet[temp.Val] = nil
 		}
 	}
-	return linkedList
+	return ListNode
 }
 
-func RemoveDuplicatesFromLinkedList2(linkedList *LinkedList) *LinkedList {
-	currentNode := linkedList
+func RemoveDuplicatesFromListNode2(ListNode *linked_list.ListNode) *linked_list.ListNode {
+	currentNode := ListNode
 	for currentNode != nil {
 		nextDistinctNode := currentNode.Next
-		for nextDistinctNode != nil && nextDistinctNode.Value == currentNode.Value {
+		for nextDistinctNode != nil && nextDistinctNode.Val == currentNode.Val {
 			nextDistinctNode = nextDistinctNode.Next
 		}
 		currentNode.Next = nextDistinctNode
 		currentNode = nextDistinctNode
 	}
-	return linkedList
+	return ListNode
 }
 
-func RemoveDuplicatesFromLinkedList(linkedList *LinkedList) *LinkedList {
-	temp := linkedList
+func RemoveDuplicatesFromListNode(ListNode *linked_list.ListNode) *linked_list.ListNode {
+	temp := ListNode
 
-	prevNum := linkedList.Value
+	prevNum := ListNode.Val
 
 	for temp.Next != nil {
-		if temp.Next.Value == prevNum {
+		if temp.Next.Val == prevNum {
 			temp.Next = temp.Next.Next
 		} else {
 			temp = temp.Next
-			prevNum = temp.Value
+			prevNum = temp.Val
 		}
 	}
-	return linkedList
+	return ListNode
 }
 
-func RemoveDuplicatesFromLinkedList4(head *easy.ListNode) *easy.ListNode {
+func RemoveDuplicatesFromListNode4(head *linked_list.ListNode) *linked_list.ListNode {
 	if head == nil {
 		return nil
 	}
@@ -66,9 +61,9 @@ func RemoveDuplicatesFromLinkedList4(head *easy.ListNode) *easy.ListNode {
 		for head.Next != nil && head.Val == head.Next.Val {
 			head = head.Next
 		}
-		return RemoveDuplicatesFromLinkedList4(head.Next)
+		return RemoveDuplicatesFromListNode4(head.Next)
 	} else {
-		head.Next = RemoveDuplicatesFromLinkedList4(head.Next)
+		head.Next = RemoveDuplicatesFromListNode4(head.Next)
 	}
 	return head
 }

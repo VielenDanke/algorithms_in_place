@@ -1,9 +1,9 @@
 package golang_solutions
 
-import "github.com/vielendanke/algorithms_in_place/leetcode/leetcode/easy"
+import "github.com/vielendanke/algorithms_in_place/leetcode/linked_list"
 
-func reverse(head *easy.ListNode) *easy.ListNode {
-	var previousNode, currentNode *easy.ListNode = nil, head
+func reverse(head *linked_list.ListNode) *linked_list.ListNode {
+	var previousNode, currentNode *linked_list.ListNode = nil, head
 
 	for currentNode != nil {
 		nextNode := currentNode.Next
@@ -14,7 +14,7 @@ func reverse(head *easy.ListNode) *easy.ListNode {
 	return previousNode
 }
 
-func reverseRecursive(head, prev *easy.ListNode) *easy.ListNode {
+func reverseRecursive(head, prev *linked_list.ListNode) *linked_list.ListNode {
 	if head == nil {
 		return prev
 	}
