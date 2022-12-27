@@ -2,6 +2,37 @@ package golang_solutions
 
 import "math"
 
+func absolutePermutation(n int32, k int32) []int32 {
+	result := make([]int32, 0)
+	if k == 0 {
+		for i := int32(1); i <= n; i++ {
+			result = append(result, i)
+		}
+		return result
+	}
+	set := make(map[int32]interface{})
+	for i := int32(1); i <= n; i++ {
+		set[i] = nil
+	}
+	for i := int32(1); i <= n; i++ {
+		lower := i - k
+		upper := i + k
+
+		if _, ok := set[lower]; ok {
+			delete(set, lower)
+			result = append(result, lower)
+		} else if _, ok := set[upper]; ok {
+			delete(set, upper)
+			result = append(result, upper)
+		} else {
+			return []int32{-1}
+		}
+	}
+	return result
+}
+
+// ---------------------------------------------------------------------------------
+
 func absolutePermutationBruteForce(n int32, k int32) []int32 {
 	// Write your code here
 	result := make([]int32, n, n)
