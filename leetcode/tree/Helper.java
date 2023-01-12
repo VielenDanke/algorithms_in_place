@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Helper {
 
-    private static void dfs(List<Integer> array, TreeNode root) {
+    public static void dfs(List<Integer> array, TreeNode root) {
         if (root == null) {
             return;
         }
@@ -18,7 +18,8 @@ public class Helper {
         public int val;
         public List<Node> children;
 
-        public Node() {}
+        public Node() {
+        }
 
         public Node(int _val) {
             val = _val;

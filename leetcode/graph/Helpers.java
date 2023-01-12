@@ -7,13 +7,13 @@ import java.util.Map;
 
 public abstract class Helpers {
 
-    public static Map<Integer, List<Integer>> buildBidirectedGraph(int[][] dislikes) {
+    public static Map<Integer, List<Integer>> buildBidirectedGraph(int[][] edges) {
         Map<Integer, List<Integer>> map = new HashMap<>();
-        for (int[] dislike : dislikes) {
-            map.putIfAbsent(dislike[0], new ArrayList<>());
-            map.putIfAbsent(dislike[1], new ArrayList<>());
-            map.get(dislike[0]).add(dislike[1]);
-            map.get(dislike[1]).add(dislike[0]);
+        for (int[] edge : edges) {
+            map.putIfAbsent(edge[0], new ArrayList<>());
+            map.putIfAbsent(edge[1], new ArrayList<>());
+            map.get(edge[0]).add(edge[1]);
+            map.get(edge[1]).add(edge[0]);
         }
         return map;
     }

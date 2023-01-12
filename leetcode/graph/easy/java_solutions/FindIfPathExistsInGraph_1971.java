@@ -1,6 +1,11 @@
 package leetcode.graph.easy.java_solutions;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import static leetcode.graph.Helpers.buildBidirectedGraph;
 
 public class FindIfPathExistsInGraph_1971 {
 
@@ -34,7 +39,7 @@ public class FindIfPathExistsInGraph_1971 {
 
     static class Solution {
         public boolean validPath(int n, int[][] edges, int source, int destination) {
-            Map<Integer, List<Integer>> graph = buildGraph(edges);
+            Map<Integer, List<Integer>> graph = buildBidirectedGraph(edges);
             return dfs(graph, source, destination, new HashSet<>());
         }
 
@@ -55,17 +60,6 @@ public class FindIfPathExistsInGraph_1971 {
                 }
             }
             return false;
-        }
-
-        private Map<Integer, List<Integer>> buildGraph(int[][] edges) {
-            Map<Integer, List<Integer>> m = new HashMap<>();
-            for (int[] current : edges) {
-                m.putIfAbsent(current[0], new ArrayList<>());
-                m.putIfAbsent(current[1], new ArrayList<>());
-                m.get(current[0]).add(current[1]);
-                m.get(current[1]).add(current[0]);
-            }
-            return m;
         }
     }
 }
