@@ -1,5 +1,7 @@
 package leetcode.strings.medium.java_solutions;
 
+import java.util.TreeMap;
+
 public class LexicographicallySmallestEquivalentString_1061 {
 
     static class Solution {
