@@ -1,0 +1,20 @@
+package leetcode.strings.medium.java_solutions;
+
+public class ZigzagConversion_6 {
+
+    static class Solution {
+        public String convert(String s, int nRows) {
+            char[] c = s.toCharArray();
+            int len = c.length;
+            StringBuilder[] sb = new StringBuilder[nRows];
+            int i = 0;
+            for (int i = 0; i < sb.length; i++) sb[i] = new StringBuilder();
+            while (i < len) {
+                for (int idx = 0; idx < nRows && i < len; idx++) sb[idx].append(c[i++]);
+                for (int idx = nRows - 2; idx >= 1 && i < len; idx--) sb[idx].append(c[i++]);
+            }
+            for (int idx = 1; idx < sb.length; idx++) sb[0].append(sb[idx]);
+            return sb[0].toString();
+        }
+    }
+}
