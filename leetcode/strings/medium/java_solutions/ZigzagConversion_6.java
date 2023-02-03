@@ -7,8 +7,8 @@ public class ZigzagConversion_6 {
             char[] c = s.toCharArray();
             int len = c.length;
             StringBuilder[] sb = new StringBuilder[nRows];
-            int i = 0;
             for (int i = 0; i < sb.length; i++) sb[i] = new StringBuilder();
+            int i = 0;
             while (i < len) {
                 for (int idx = 0; idx < nRows && i < len; idx++) sb[idx].append(c[i++]);
                 for (int idx = nRows - 2; idx >= 1 && i < len; idx--) sb[idx].append(c[i++]);
