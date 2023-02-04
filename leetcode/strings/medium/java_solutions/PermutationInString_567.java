@@ -15,12 +15,10 @@ public class PermutationInString_567 {
             int[] alph = new int[ALPH_NUMBER];
             int[] sub = new int[ALPH_NUMBER];
 
-            for (char c : s1.toCharArray()) {
-                sub[c - 'a']++;
-            }
-            for (int i = 0; i < n; i++) {
-                alph[s2.charAt(i) - 'a']++;
-            }
+            for (char c : s1.toCharArray()) sub[c - 'a']++;
+
+            for (int i = 0; i < n; i++) alph[s2.charAt(i) - 'a']++;
+
             if (isPermutationsEqual(sub, alph)) return true;
 
             for (int i = n; i < m; i++) {
