@@ -40,23 +40,24 @@ public class FindAnagrams_438 {
 
     public List<Integer> findAnagramsBetter(String s, String p) {
         List<Integer> list = new ArrayList<>();
-        if (p.length() > s.length()) {
+        int m = p.length(), n = s.length();
+        if (m > n) {
             return list;
         }
         int[] left = new int[26];
         int[] right = new int[26];
-        for (int i = 0; i < p.length(); i++) {
+        for (int i = 0; i < m; i++) {
             left[s.charAt(i) - 'a']++;
             right[p.charAt(i) - 'a']++;
         }
         if (Arrays.equals(left, right)) {
             list.add(0);
         }
-        for (int i = p.length(); i < s.length(); i++) {
+        for (int i = m; i < n; i++) {
             left[s.charAt(i)-'a']++;
-            left[s.charAt(i-p.length()) - 'a']--;
+            left[s.charAt(i- m) - 'a']--;
             if (Arrays.equals(left, right)) {
-                list.add(i-p.length() + 1);
+                list.add(i- m + 1);
             }
         }
         return list;
