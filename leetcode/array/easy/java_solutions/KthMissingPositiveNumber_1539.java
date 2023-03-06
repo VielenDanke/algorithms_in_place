@@ -8,12 +8,12 @@ public class KthMissingPositiveNumber_1539 {
     static class Solution {
         public int findKthPositive(int[] arr, int k) {
             int left = 0, right = arr.length, middle;
-            while (left < right) {
-                middle = (left + right) / 2;
-                if (arr[middle] - 1 - middle < k) {
+            while (left <= right) {
+                middle = left + (right - left) / 2;
+                if (arr[middle] - middle <= k) {
                     left = middle + 1;
                 } else {
-                    right = middle;
+                    right = middle - 1;
                 }
             }
             return left + k;
