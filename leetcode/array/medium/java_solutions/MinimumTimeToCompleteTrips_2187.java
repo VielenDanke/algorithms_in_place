@@ -2,17 +2,18 @@ package leetcode.array.medium.java_solutions;
 
 public class MinimumTimeToCompleteTrips_2187 {
 
-    static class SolutionCalculateLeftRight {
+    // the fastest
+    static class SolutionPreCalculateLeftRight {
         public long minimumTime(int[] time, int totalTrips) {
-            long left = Long.MAX_VALUE, ans = Long.MAX_VALUE, right;
+            long minTime = Long.MAX_VALUE, ans = Long.MAX_VALUE, maxTime;
 
             for (int t : time) {
-                left = Math.min(left, t);
+                minTime = Math.min(minTime, t);
             }
-            right = totalTrips * left;
+            maxTime = totalTrips * minTime;
 
-            while (left <= right) {
-                long midTime = left + ((right - left) / 2);
+            while (minTime <= maxTime) {
+                long midTime = minTime + (maxTime - minTime) / 2;
 
                 long trips = 0;
 
@@ -22,9 +23,9 @@ public class MinimumTimeToCompleteTrips_2187 {
                 }
                 if (trips >= totalTrips) {
                     ans = Math.min(ans, midTime);
-                    right = midTime - 1;
+                    maxTime = midTime - 1;
                 } else
-                    left = midTime + 1;
+                    minTime = midTime + 1;
             }
             return ans;
         }
