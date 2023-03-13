@@ -7,28 +7,20 @@ import static leetcode.tree.Helper.TreeNode;
 
 public class SymmetricTree_101 {
 
-    private static class Solution {
-        public boolean checkNode(TreeNode checkLeft, TreeNode checkRight) {
-            if (checkLeft == null && checkRight == null) {
-                return true;
-            }
-            if (checkLeft == null || checkRight == null) {
-                return false;
-            } else {
-                if (checkLeft.val == checkRight.val) {
-                    return checkNode(checkLeft.left, checkRight.right) && checkNode(checkLeft.right, checkRight.left);
-                } else {
-                    return false;
-                }
-            }
+    static class Solution {
+        public boolean isSymmetric(TreeNode root) {
+            return isSymmetric(root, root);
         }
 
-        public boolean isSymmetric(TreeNode root) {
-            return checkNode(root, root);
+        private boolean isSymmetric(TreeNode left, TreeNode right) {
+            if (left == null && right == null) return true;
+            if (left == null || right == null) return false;
+            if (left.val == right.val) return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
+            return false;
         }
     }
 
-    private static class SolutionBruteForce {
+    static class SolutionBruteForce {
         public boolean isSymmetric(TreeNode root) {
             Queue<TreeNode> queue = new LinkedList<>();
 
