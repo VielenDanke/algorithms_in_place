@@ -1,30 +1,34 @@
 package leetcode.tree.medium.java_solutions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static leetcode.tree.Helper.TreeNode;
 
 public class ConstructBinaryTreeFromInorderPostorderTraversal_106 {
 
     static class SolutionNext {
 
+        private Map<Integer, Integer> inOrderHashMap;
+
         public TreeNode buildTree(int[] inorder, int[] postorder) {
-            return buildTree(inorder, 0, inorder.length - 1, postorder, 0, postorder.length - 1);
+            inOrderHashMap = new HashMap<>();
+
+            for (int i = 0; i < inorder.length; i++) {
+                inOrderHashMap.put(inorder[i], i);
+            }
+            return buildTree(0, inorder.length - 1, postorder, 0, postorder.length - 1);
         }
 
-        public TreeNode buildTree(int[] inorder, int inStartIdx, int inEndIdx, int[] postorder, int postStartIdx, int postEndIdx) {
+        public TreeNode buildTree(int inStartIdx, int inEndIdx, int[] postorder, int postStartIdx, int postEndIdx) {
             if (inStartIdx > inEndIdx || postStartIdx > postEndIdx) return null;
 
             TreeNode root = new TreeNode(postorder[postEndIdx]);
 
-            int rootIdx = 0;
+            int rootIdx = inOrderHashMap.get(root.val);
 
-            for (int i = 0; i < inorder.length; i++) {
-                if (inorder[i] == root.val) {
-                    rootIdx = i;
-                    break;
-                }
-            }
-            root.left = buildTree(inorder, inStartIdx, rootIdx - 1, postorder, postStartIdx, postStartIdx + rootIdx - inStartIdx - 1);
-            root.right = buildTree(inorder, rootIdx + 1, inEndIdx, postorder, postStartIdx + rootIdx - inStartIdx, postEndIdx - 1);
+            root.left = buildTree(inStartIdx, rootIdx - 1, postorder, postStartIdx, postStartIdx + rootIdx - inStartIdx - 1);
+            root.right = buildTree(rootIdx + 1, inEndIdx, postorder, postStartIdx + rootIdx - inStartIdx, postEndIdx - 1);
 
             return root;
         }
