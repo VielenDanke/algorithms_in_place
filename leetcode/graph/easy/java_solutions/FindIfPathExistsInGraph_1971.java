@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static leetcode.graph.Helpers.buildBidirectedGraph;
+import static leetcode.graph.Helpers.buildBidirectionalGraph;
 
 public class FindIfPathExistsInGraph_1971 {
 
@@ -39,7 +39,7 @@ public class FindIfPathExistsInGraph_1971 {
 
     static class Solution {
         public boolean validPath(int n, int[][] edges, int source, int destination) {
-            Map<Integer, List<Integer>> graph = buildBidirectedGraph(edges);
+            Map<Integer, List<Integer>> graph = buildBidirectionalGraph(edges);
             return dfs(graph, source, destination, new HashSet<>());
         }
 

@@ -2,7 +2,7 @@ package leetcode.tree.hard.java_solutions;
 
 import java.util.*;
 
-import static leetcode.graph.Helpers.buildBidirectedGraph;
+import static leetcode.graph.Helpers.buildBidirectionalGraph;
 
 public class SumOfDistancesInTree_834 {
 
@@ -48,7 +48,7 @@ public class SumOfDistancesInTree_834 {
     static class SolutionBruteForce {
 
         public int[] sumOfDistancesInTree(int n, int[][] edges) {
-            Map<Integer, List<Integer>> graph = buildBidirectedGraph(edges);
+            Map<Integer, List<Integer>> graph = buildBidirectionalGraph(edges);
 
             int[] result = new int[n];
 

@@ -7,7 +7,7 @@ import java.util.Map;
 
 public abstract class Helpers {
 
-    public static Map<Integer, List<Integer>> buildBidirectedGraph(int[][] edges) {
+    public static Map<Integer, List<Integer>> buildBidirectionalGraph(int[][] edges) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         for (int[] edge : edges) {
             map.putIfAbsent(edge[0], new ArrayList<>());

@@ -2,13 +2,13 @@ package leetcode.tree.medium.java_solutions;
 
 import java.util.*;
 
-import static leetcode.graph.Helpers.buildBidirectedGraph;
+import static leetcode.graph.Helpers.buildBidirectionalGraph;
 
 public class MinimumTimeToCollectAllApplesInATree_1443 {
 
     static class Solution {
         public int minTime(int n, int[][] edges, List<Boolean> hasApple) {
-            Map<Integer, List<Integer>> graph = buildBidirectedGraph(edges);
+            Map<Integer, List<Integer>> graph = buildBidirectionalGraph(edges);
             return dfs(0, graph, hasApple, new HashSet<>());
         }
 

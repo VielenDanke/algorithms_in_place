@@ -2,13 +2,13 @@ package leetcode.graph.medium.java_solutions;
 
 import java.util.*;
 
-import static leetcode.graph.Helpers.buildBidirectedGraph;
+import static leetcode.graph.Helpers.buildBidirectionalGraph;
 
 public class ReorderRoutesToMakeAllPathsLeadToTheCityZero_1466 {
 
     static class Solution {
         public int minReorder(int n, int[][] connections) {
-            var graph = buildBidirectedGraph(connections);
+            var graph = buildBidirectionalGraph(connections);
             var validator = new Validator(connections);
 
             Queue<Integer> queue = new LinkedList<>();

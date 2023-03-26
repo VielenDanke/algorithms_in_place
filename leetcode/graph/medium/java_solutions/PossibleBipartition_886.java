@@ -4,14 +4,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static leetcode.graph.Helpers.buildBidirectedGraph;
+import static leetcode.graph.Helpers.buildBidirectionalGraph;
 
 public class PossibleBipartition_886 {
 
     static class SolutionDFS {
 
         public boolean possibleBipartition(int n, int[][] dislikes) {
-            Map<Integer, List<Integer>> graph = buildBidirectedGraph(dislikes);
+            Map<Integer, List<Integer>> graph = buildBidirectionalGraph(dislikes);
 
             int[] colors = new int[n + 1];
 
@@ -48,7 +48,7 @@ public class PossibleBipartition_886 {
             for (int i = 0; i < n; i++) {
                 id[i] = i;
             }
-            Map<Integer, List<Integer>> graph = buildBidirectedGraph(dislikes);
+            Map<Integer, List<Integer>> graph = buildBidirectionalGraph(dislikes);
 
             for (int i = 1; i <= n; i++) {
                 List<Integer> neighbors = graph.get(i);

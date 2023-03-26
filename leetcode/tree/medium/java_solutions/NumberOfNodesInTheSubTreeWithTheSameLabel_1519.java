@@ -2,7 +2,7 @@ package leetcode.tree.medium.java_solutions;
 
 import java.util.*;
 
-import static leetcode.graph.Helpers.buildBidirectedGraph;
+import static leetcode.graph.Helpers.buildBidirectionalGraph;
 
 public class NumberOfNodesInTheSubTreeWithTheSameLabel_1519 {
 
@@ -12,7 +12,7 @@ public class NumberOfNodesInTheSubTreeWithTheSameLabel_1519 {
 
         public int[] countSubTrees(int n, int[][] edges, String labels) {
             visited = new HashSet<>();
-            graph = buildBidirectedGraph(edges);
+            graph = buildBidirectionalGraph(edges);
             int[] result = new int[labels.length()];
             dfs(0, labels, result);
             return result;
