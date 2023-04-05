@@ -9,7 +9,7 @@ public class MinimizeMaximumArray_2439 {
         public int minimizeArrayValue(int[] nums) {
             int left = 0, right = Arrays.stream(nums).max().getAsInt(), best = 0;
             while (left <= right) {
-                int mid = (left + (right - left) / 2);
+                int mid = left + (right - left) / 2;
                 if (isValid(mid, nums)) {
                     best = mid;
                     right = mid - 1;
