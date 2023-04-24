@@ -3,7 +3,7 @@ package leetcode.dynamic_programming.java_solutions;
 public class RestoreTheArray_1416 {
 
     static class Solution {
-        private static final long MOD = 1000000007;
+        private static final long MOD = (long) 1e9 + 7;
 
         private int k;
         private Integer[] cache;
