@@ -1,11 +1,9 @@
 package leetcode.linked_list.medium.java_solution;
 
-import leetcode.linked_list.Helper;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static leetcode.linked_list.Helper.*;
+import static leetcode.linked_list.Helper.ListNode;
 
 public class MaximumTwinSumOfLinkedList_2130 {
 
