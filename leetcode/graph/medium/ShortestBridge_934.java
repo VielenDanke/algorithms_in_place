@@ -14,7 +14,6 @@ public class ShortestBridge_934 {
         public int shortestBridge(int[][] grid) {
             Queue<int[]> queue = new LinkedList<>();
             this.n = grid.length;
-            boolean isFound = false;
             boolean[][] visited = new boolean[n][n];
 
             islandFound:
