@@ -13,7 +13,7 @@ public class MaximumSubsequenceScore_2542 {
             }
             Arrays.sort(pairs, (a, b) -> b[1] - a[1]);
 
-            PriorityQueue<Integer> topKHeap = new PriorityQueue<>(k, (a, b) -> a - b);
+            PriorityQueue<Integer> topKHeap = new PriorityQueue<>(k, Comparator.comparingInt(a -> a));
             long topKSum = 0;
             for (int i = 0; i < k; ++i) {
                 topKSum += pairs[i][0];
