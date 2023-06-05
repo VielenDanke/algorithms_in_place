@@ -17,6 +17,7 @@ public class NumberOfProvinces_547 {
         }
         return count;
     }
+
     private void dfs(int[][] provinces, int[] visited, int i) {
         for (int j = 0; j < provinces.length; j++) {
             if (provinces[i][j] == 1 && visited[j] == 0) {
