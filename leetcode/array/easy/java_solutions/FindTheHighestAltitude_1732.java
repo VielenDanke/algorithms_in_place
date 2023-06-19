@@ -21,4 +21,20 @@ public class FindTheHighestAltitude_1732 {
             return maxAltitude;
         }
     }
+
+    static class SolutionNoArray {
+        public int largestAltitude(int[] gain) {
+            int maxAttitude = 0, currentSum = 0;
+
+            for (int i = 0; i < gain.length; i++) {
+                if (i > 0) {
+                    currentSum = currentSum + gain[i];
+                } else {
+                    currentSum = gain[i];
+                }
+                maxAttitude = Math.max(maxAttitude, currentSum);
+            }
+            return maxAttitude;
+        }
+    }
 }
