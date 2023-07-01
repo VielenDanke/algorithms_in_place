@@ -3,24 +3,24 @@ package leetcode.backtracking_recursion.java_solutions;
 public class FairDistributionOfCookies_2305 {
 
     static class Solution {
-        private int result;
+        private int min;
 
         public int distributeCookies(int[] cookies, int k) {
-            this.result = Integer.MAX_VALUE;
-            backtrack(cookies, new int[cookies.length], k, 0);
-            return result;
+            min = Integer.MAX_VALUE;
+            backtrack(cookies, new int[k], 0);
+            return min;
         }
 
-        private void backtrack(int[] cookies, int[] children, int k, int start) {
-            if (start == cookies.length) {
-                int max = 0;
+        private void backtrack(int[] cookies, int[] children, int start) {
+            if (start >= cookies.length) {
+                int max = Integer.MIN_VALUE;
                 for (int sum : children) max = Math.max(max, sum);
-                result = Math.min(result, max);
+                min = Math.min(min, max);
                 return;
             }
-            for (int i = 0; i < k; i++) {
+            for (int i = 0; i < children.length; i++) {
                 children[i] += cookies[start];
-                backtrack(cookies, children, k, start + 1);
+                backtrack(cookies, children, start + 1);
                 children[i] -= cookies[start];
             }
         }
