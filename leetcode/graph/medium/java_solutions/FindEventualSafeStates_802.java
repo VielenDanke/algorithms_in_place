@@ -1,9 +1,49 @@
 package leetcode.graph.medium.java_solutions;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class FindEventualSafeStates_802 {
+
+    static class SolutionTopologicalSort {
+            public List<Integer> eventualSafeNodes(int[][] graph) {
+                List<Set<Integer>> graphs = new ArrayList<>();
+
+                TreeSet<Integer> result = new TreeSet<>(Comparator.comparingInt(Integer::intValue));
+
+                Queue<Integer> queue = new LinkedList<>();
+
+                for (int i = 0; i < graph.length; i++) {
+                    if (graph[i].length == 0) {
+                        queue.offer(i);
+                        result.add(i);
+                        graphs.add(null);
+                    } else {
+                        Set<Integer> s = new HashSet<>();
+                        for (int gr : graph[i]) {
+                            s.add(gr);
+                        }
+                        graphs.add(s);
+                    }
+                }
+
+                while (!queue.isEmpty()) {
+                    int terminal = queue.poll();
+
+                    result.add(terminal);
+
+                    for (int i = 0; i < graphs.size(); i++) {
+                        Set<Integer> s = graphs.get(i);
+                        if (s == null) continue;
+                        s.remove(terminal);
+                        if (s.size() == 0) {
+                            queue.offer(i);
+                            graphs.set(i, null);
+                        }
+                    }
+                }
+                return new ArrayList<>(result);
+            }
+    }
 
     static class Solution {
         public List<Integer> eventualSafeNodes(int[][] graph) {
