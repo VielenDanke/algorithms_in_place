@@ -34,9 +34,8 @@ public class LRUCache_146 {
                 remove(node);
                 insert(node);
                 return node.value;
-            } else {
-                return -1;
             }
+            return -1;
         }
 
         public void put(int key, int value) {
