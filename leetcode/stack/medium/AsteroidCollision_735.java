@@ -23,9 +23,6 @@ public class AsteroidCollision_735 {
                     }
                 }
             }
-            if (stack.isEmpty()) {
-                return new int[]{};
-            }
             int size = stack.size();
             asteroids = new int[size];
             for (int i = size - 1; i >= 0; i--) {
