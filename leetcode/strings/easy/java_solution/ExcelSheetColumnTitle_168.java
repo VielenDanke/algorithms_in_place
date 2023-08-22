@@ -8,7 +8,7 @@ public class ExcelSheetColumnTitle_168 {
             StringBuilder result = new StringBuilder();
             while (columnNumber > 0) {
                 columnNumber--;
-                result.append(Character.toUpperCase((char) (columnNumber % del + 'a')));
+                result.append((char) (columnNumber % del + 'A'));
                 columnNumber /= del;
             }
             return result.reverse().toString();
