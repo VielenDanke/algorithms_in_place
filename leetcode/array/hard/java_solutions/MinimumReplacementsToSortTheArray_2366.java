@@ -7,6 +7,7 @@ public class MinimumReplacementsToSortTheArray_2366 {
             var operations = 0L;
             var prevBound = nums[nums.length - 1];
 
+
             for (int i = nums.length - 2; i >= 0; i--) {
                 var num = nums[i];
                 var noOfTimes = (num + prevBound - 1) / prevBound;
