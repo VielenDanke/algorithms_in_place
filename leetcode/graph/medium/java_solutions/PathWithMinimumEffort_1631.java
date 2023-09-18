@@ -20,8 +20,8 @@ public class PathWithMinimumEffort_1631 {
         pq.add(new int[]{0, 0, 0});
 
         while (!pq.isEmpty()) {
-            int[] pair = pq.poll();
-            int row = pair[0], column = pair[1];
+            int[] triple = pq.poll();
+            int row = triple[0], column = triple[1];
             if (row == rowLength - 1 && column == columnLength - 1) {
                 break;
             }
@@ -32,7 +32,7 @@ public class PathWithMinimumEffort_1631 {
                 if (nextRow < 0 || nextColumn < 0 || nextRow >= rowLength || nextColumn >= columnLength) {
                     continue;
                 }
-                int alt = Math.max(pair[2], Math.abs(heights[row][column] - heights[nextRow][nextColumn]));
+                int alt = Math.max(triple[2], Math.abs(heights[row][column] - heights[nextRow][nextColumn]));
                 if (alt < weightPath[nextRow][nextColumn]) {
                     pq.add(new int[]{nextRow, nextColumn, weightPath[nextRow][nextColumn] = alt});
                 }
