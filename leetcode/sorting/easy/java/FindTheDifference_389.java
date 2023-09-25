@@ -1,6 +1,8 @@
 package leetcode.sorting.easy.java;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FindTheDifference_389 {
 
@@ -20,6 +22,22 @@ public class FindTheDifference_389 {
                 }
             }
             return tt[tt.length - 1];
+        }
+    }
+
+    static class SolutionNoSort {
+        public char findTheDifference(String s, String t) {
+            Map<Character, Integer> counterS = new HashMap<>();
+            Map<Character, Integer> counterT = new HashMap<>();
+
+            for (char c : s.toCharArray()) counterS.merge(c, 1, Integer::sum);
+            for (char c : t.toCharArray()) counterT.merge(c, 1, Integer::sum);
+            for (char c : s.toCharArray()) {
+                if (!counterT.containsKey(c) || !counterS.get(c).equals(counterT.get(c))) {
+                    return c;
+                }
+            }
+            return t.charAt(t.length() - 1);
         }
     }
 }
