@@ -65,5 +65,4 @@ public class RemoveColoredPiecesIfBothNeighborsAreTheSameColor_2038 {
             return false;
         }
     }
-    }
 }
