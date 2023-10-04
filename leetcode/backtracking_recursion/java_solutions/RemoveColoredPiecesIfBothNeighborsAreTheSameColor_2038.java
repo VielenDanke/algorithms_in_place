@@ -14,7 +14,6 @@ public class RemoveColoredPiecesIfBothNeighborsAreTheSameColor_2038 {
 
                 if (current == 'A' && left == 'A' && right == 'A') {
                     aliceScore++;
-
                 } else if (current == 'B' && left == 'B' && right == 'B') {
                     bobScore++;
                 }
