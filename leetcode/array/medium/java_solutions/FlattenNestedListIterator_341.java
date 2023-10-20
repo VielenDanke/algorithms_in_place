@@ -17,38 +17,37 @@ interface NestedInteger {
     List<NestedInteger> getList();
 }
 
-public class FlattenNestedListIterator_341 implements Iterator<Integer> {
+public class FlattenNestedListIterator_341 {
 
-    private final Iterator<Integer> unflattenListIterator;
+    static class NestedIterator implements Iterator<Integer> {
 
-    public FlattenNestedListIterator_341(List<NestedInteger> nestedList) {
-        List<Integer> unflattenList = new ArrayList<>();
+        private final List<Integer> list;
+        private final Iterator<Integer> iter;
 
-        for (NestedInteger n : nestedList) {
-            unflatten(n, unflattenList);
+        public NestedIterator(List<NestedInteger> nestedList) {
+            list = new ArrayList<>();
+            flatList(nestedList);
+            this.iter = list.iterator();
         }
-        this.unflattenListIterator = unflattenList.iterator();
-    }
 
-    @Override
-    public Integer next() {
-        return unflattenListIterator.next();
-    }
+        @Override
+        public Integer next() {
+            return iter.next();
+        }
 
-    @Override
-    public boolean hasNext() {
-        return unflattenListIterator.hasNext();
-    }
+        @Override
+        public boolean hasNext() {
+            return iter.hasNext();
+        }
 
-    private void unflatten(NestedInteger nestedInteger, List<Integer> root) {
-        if (!nestedInteger.isInteger()) {
-            List<NestedInteger> list = nestedInteger.getList();
-
-            for (NestedInteger n : list) {
-                unflatten(n, root);
+        private void flatList(List<NestedInteger> nestedList) {
+            for (NestedInteger n : nestedList) {
+                if (n.isInteger()) {
+                    list.add(n.getInteger());
+                } else {
+                    flatList(n.getList());
+                }
             }
-        } else {
-            root.add(nestedInteger.getInteger());
         }
     }
 }
