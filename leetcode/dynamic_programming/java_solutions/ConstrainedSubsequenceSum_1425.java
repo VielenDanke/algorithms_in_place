@@ -39,7 +39,7 @@ public class ConstrainedSubsequenceSum_1425 {
             heap.offer(new int[]{nums[0], 0});
             int max = nums[0];
 
-            for (int i = 1; i < nums.length && !heap.isEmpty(); i++) {
+            for (int i = 1; i < nums.length; i++) {
                 while (!heap.isEmpty() && i - heap.peek()[1] > k) {
                     heap.poll();
                 }
