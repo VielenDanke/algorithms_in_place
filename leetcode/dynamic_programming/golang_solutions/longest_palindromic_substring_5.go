@@ -5,24 +5,23 @@ import "strings"
 func longestPalindrome(s string) string {
 	transformedS := "^#" + strings.Join(strings.Split(s, ""), "#") + "#$"
 	n := len(transformedS)
-	dp := make([]int, n)
-	c, r := 0, 0
+	radius := make([]int, n)
+	center, rightBoundary := 0, 0
 
 	for i := 1; i < n-1; i++ {
-		if r > i {
-			dp[i] = min(r-i, dp[2*c-i])
+		if rightBoundary > i {
+			radius[i] = min(rightBoundary-i, radius[2*center-i])
 		}
-		for transformedS[i+1+dp[i]] == transformedS[i-1-dp[i]] {
-			dp[i]++
+		for transformedS[i+1+radius[i]] == transformedS[i-1-radius[i]] {
+			radius[i]++
 		}
-		if i+dp[i] > r {
-			c, r = i, i+dp[i]
+		if i+radius[i] > rightBoundary {
+			center, rightBoundary = i, i+radius[i]
 		}
 	}
-
 	maxLen := 0
 	centerIndex := 0
-	for i, v := range dp {
+	for i, v := range radius {
 		if v > maxLen {
 			maxLen = v
 			centerIndex = i
