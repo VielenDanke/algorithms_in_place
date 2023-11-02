@@ -1,4 +1,4 @@
-package leetcode.graph.medium.java_solutions;
+package leetcode.tree.medium.java_solutions;
 
 import java.util.*;
 
