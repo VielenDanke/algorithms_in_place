@@ -1,5 +1,7 @@
 package golang_solutions
 
+import "math"
+
 func GetMaxLen(nums []int) int {
 	if len(nums) == 1 {
 		if nums[0] > 0 {
@@ -54,14 +56,7 @@ func getMaxLen(nums []int) int {
 			length, lenNeg, lastNegIdx = 0, 0, -1
 			isNegative = false
 		}
-		maxLength = max(maxLength, length)
+		maxLength = int(math.Max(float64(maxLength), float64(length)))
 	}
 	return maxLength
-}
-
-func max(f, s int) int {
-	if f > s {
-		return f
-	}
-	return s
 }

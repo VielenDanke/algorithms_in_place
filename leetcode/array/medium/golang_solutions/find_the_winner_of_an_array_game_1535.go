@@ -1,5 +1,7 @@
 package golang_solutions
 
+import "math"
+
 func getWinner(arr []int, k int) int {
 	// k consecutive games
 	// arr[0] and arr[1] are gaming
@@ -7,12 +9,12 @@ func getWinner(arr []int, k int) int {
 	if k > len(arr) {
 		maxVal := arr[0]
 		for _, v := range arr {
-			maxVal = max(maxVal, v)
+			maxVal = int(math.Max(float64(maxVal), float64(v)))
 		}
 		return maxVal
 	}
 	if k == 1 {
-		return max(arr[0], arr[1])
+		return int(math.Max(float64(arr[0]), float64(arr[1])))
 	}
 	currentWinner, consecutiveWins := arr[0], 0
 
@@ -37,12 +39,12 @@ func getWinnerBruteForce(arr []int, k int) int {
 	if k > len(arr) {
 		maxVal := arr[0]
 		for _, v := range arr {
-			maxVal = max(maxVal, v)
+			maxVal = int(math.Max(float64(maxVal), float64(v)))
 		}
 		return maxVal
 	}
 	if k == 1 {
-		return max(arr[0], arr[1])
+		return int(math.Max(float64(arr[0]), float64(arr[1])))
 	}
 	lastWinner, consecutiveWins := -1, 1
 
