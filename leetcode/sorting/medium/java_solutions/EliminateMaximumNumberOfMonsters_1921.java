@@ -6,10 +6,6 @@ import java.util.Queue;
 
 public class EliminateMaximumNumberOfMonsters_1921 {
 
-    public static void main(String[] args) {
-        new SolutionBruteForce().eliminateMaximum(new int[]{3,3,5,7,7}, new int[]{1,1,4,2,2});
-    }
-
     static class SolutionSort {
         public int eliminateMaximum(int[] dist, int[] speed) {
             int n = dist.length;
