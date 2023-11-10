@@ -1,9 +1,5 @@
 package leetcode.strings.medium.java_solutions;
 
-import java.io.BufferedReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 public class CountNumberOfHomogenousSubstrings_1759 {
 
     static class Solution {
