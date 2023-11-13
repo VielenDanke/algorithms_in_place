@@ -27,10 +27,4 @@ public class PalindromeHours {
         }
         System.out.println(palindromes);
     }
-
-    private static boolean isPalindromeTime(int hour, int minute, int maxSize) {
-        String format = "%0" + maxSize + "d:%0" + maxSize + "d";
-        String timeStr = String.format(format, hour, minute);
-        return timeStr.contentEquals(new StringBuilder(timeStr).reverse());
-    }
 }
