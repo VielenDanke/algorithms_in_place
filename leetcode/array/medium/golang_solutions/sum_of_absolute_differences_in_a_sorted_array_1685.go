@@ -10,20 +10,18 @@ func getSumAbsoluteDifferencesTwoPointers(nums []int) []int {
 	}
 	left, right := 0, sum
 
-	result := make([]int, n)
-
 	for i := 0; i < n; i++ {
 		currentVal := nums[i]
 		right -= currentVal
-		result[i] = currentVal*i - left + right - currentVal*(n-i-1)
+		nums[i] = currentVal*i - left + right - currentVal*(n-i-1)
 		left += currentVal
 	}
-	return result
+	return nums
 }
 
 func getSumAbsoluteDifferences(nums []int) []int {
 	n := len(nums)
-	result, prefixSum, suffixSum := make([]int, n), make([]int, n), make([]int, n)
+	prefixSum, suffixSum := make([]int, n), make([]int, n)
 
 	prefixSum[0] = nums[0]
 	suffixSum[n-1] = nums[n-1]
@@ -33,9 +31,9 @@ func getSumAbsoluteDifferences(nums []int) []int {
 		suffixSum[n-i-1] = suffixSum[n-i] + nums[n-i-1]
 	}
 	for i := 0; i < n; i++ {
-		result[i] = ((nums[i] * i) - prefixSum[i]) + (suffixSum[i] - (nums[i] * (n - i - 1)))
+		nums[i] = ((nums[i] * i) - prefixSum[i]) + (suffixSum[i] - (nums[i] * (n - i - 1)))
 	}
-	return result
+	return nums
 }
 
 func getSumAbsoluteDifferencesBruteForce(nums []int) []int {
