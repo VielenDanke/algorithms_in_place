@@ -9,12 +9,8 @@ func numberOfMatchesOptimal(n int) int {
 
 // brute force
 
-func numberOfMatches(n int) int {
-	if n == 2 {
-		return 1
-	}
-	var matches int
-	for n > 1 {
+func numberOfMatches(n int) (matches int) {
+	for n >= 2 {
 		matches += n / 2
 		if n%2 == 0 {
 			n /= 2
@@ -22,5 +18,5 @@ func numberOfMatches(n int) int {
 			n = (n-1)/2 + 1
 		}
 	}
-	return matches
+	return
 }
