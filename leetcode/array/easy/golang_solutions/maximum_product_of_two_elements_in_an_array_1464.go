@@ -21,9 +21,10 @@ func maxProduct(nums []int) int {
 // sort
 
 func maxProductBruteForce(nums []int) int {
-	if len(nums) < 2 {
+	n := len(nums)
+	if n < 2 {
 		return -1
 	}
 	sort.Ints(nums)
-	return (nums[len(nums)-1] - 1) * (nums[len(nums)-2] - 1)
+	return (nums[n-1] - 1) * (nums[n-2] - 1)
 }
