@@ -4,6 +4,13 @@ import java.util.*;
 
 public class DesignFoodRatingSystem_2353 {
 
+    /**
+     * Your FoodRatings object will be instantiated and called as such:
+     * FoodRatings obj = new FoodRatings(foods, cuisines, ratings);
+     * obj.changeRating(food,newRating);
+     * String param_2 = obj.highestRated(cuisine);
+     */
+
     static class FoodRatings {
 
         private final Map<String, Integer> foodToRating;
@@ -43,11 +50,4 @@ public class DesignFoodRatingSystem_2353 {
             return cuisineFoodRating.get(cuisine).lastEntry().getValue().peek();
         }
     }
-
-/**
- * Your FoodRatings object will be instantiated and called as such:
- * FoodRatings obj = new FoodRatings(foods, cuisines, ratings);
- * obj.changeRating(food,newRating);
- * String param_2 = obj.highestRated(cuisine);
- */
 }
