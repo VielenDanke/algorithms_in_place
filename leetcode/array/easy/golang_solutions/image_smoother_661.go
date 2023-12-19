@@ -16,10 +16,9 @@ func imageSmoother(img [][]int) [][]int {
 }
 
 func round(img [][]int, i, j int) int {
-	counter := 1
-	sum := img[i][j]
-	for _, v := range neighbors {
-		nextRow, nextCol := i+v[0], j+v[1]
+	counter, sum := 1, img[i][j]
+	for _, neighbor := range neighbors {
+		nextRow, nextCol := i+neighbor[0], j+neighbor[1]
 		if isValid(img, nextRow, nextCol) {
 			counter++
 			sum += img[nextRow][nextCol]
