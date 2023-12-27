@@ -2,7 +2,7 @@ package golang_solutions
 
 /*
 Input: leetcode.array of leetcode.numbers
-Output: max sum of non-adjacent leetcode.numbers
+Output: maxVal sum of non-adjacent leetcode.numbers
 */
 
 func MaxSubsetSumNoAdjacent(array []int) int {
@@ -14,14 +14,14 @@ func MaxSubsetSumNoAdjacent(array []int) int {
 		return array[0]
 	}
 	maxSums := make([]int, len(array))
-	maxSums[0], maxSums[1] = array[0], max(array[0], array[1])
+	maxSums[0], maxSums[1] = array[0], maxVal(array[0], array[1])
 	for i := 2; i < len(array); i++ {
-		maxSums[i] = max(maxSums[i-1], maxSums[i-2]+array[i])
+		maxSums[i] = maxVal(maxSums[i-1], maxSums[i-2]+array[i])
 	}
 	return maxSums[len(array)-1]
 }
 
-func max(vals ...int) int {
+func maxVal(vals ...int) int {
 	maxVal := -1 << 31
 
 	for _, v := range vals {
@@ -80,7 +80,7 @@ func backtrackingWithoutGlobal(array []int, start int) int {
 	}
 	maxSum := 0
 	for i := start; i < len(array); i++ {
-		maxSum = max(maxSum, backtrackingWithoutGlobal(array, i+2)+array[i])
+		maxSum = maxVal(maxSum, backtrackingWithoutGlobal(array, i+2)+array[i])
 	}
 	return maxSum
 }

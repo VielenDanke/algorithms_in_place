@@ -11,7 +11,7 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 			if text1[i] == text2[j] {
 				dp[i+1][j+1] = 1 + dp[i][j]
 			} else {
-				dp[i+1][j+1] = max(dp[i][j+1], dp[i+1][j])
+				dp[i+1][j+1] = maxVal(dp[i][j+1], dp[i+1][j])
 			}
 		}
 	}
