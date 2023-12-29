@@ -13,19 +13,19 @@ public class MinimumDifficultyOfJobSchedule_1335 {
         public int minDifficulty(int[] jobDifficulty, int days) {
             final int n = jobDifficulty.length;
             if (n < days) return -1;
-            cache = new Integer[n][days];
+            cache = new Integer[n+1][days+1];
             return dfs(days, 0, jobDifficulty);
         }
 
         private int dfs(int d, int start, int[] jobDifficulty) {
-            final int N = jobDifficulty.length;
-            if (d == 0 && start == N) return 0;
-            if (d == 0 || start == N) return Integer.MAX_VALUE;
+            final int n = jobDifficulty.length;
+            if (d == 0 && start == n) return 0;
+            if (d == 0 || start == n) return Integer.MAX_VALUE;
             if (cache[start][d] != null) return cache[start][d];
 
             int curMax = jobDifficulty[start];
             int min = Integer.MAX_VALUE;
-            for (int schedule = start; schedule < N; ++schedule) {
+            for (int schedule = start; schedule < n; schedule++) {
                 curMax = Math.max(curMax, jobDifficulty[schedule]);
                 int temp = dfs(d - 1, schedule + 1, jobDifficulty);
                 if (temp != Integer.MAX_VALUE) {
