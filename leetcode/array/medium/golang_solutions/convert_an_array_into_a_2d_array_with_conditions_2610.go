@@ -2,6 +2,7 @@ package golang_solutions
 
 func findMatrix(nums []int) [][]int {
 	arr := make([]int, 201)
+
 	for _, num := range nums {
 		arr[num]++
 	}
@@ -11,7 +12,9 @@ func findMatrix(nums []int) [][]int {
 
 	for isRun {
 		isRun = false
+
 		temp := make([]int, 0)
+
 		for num, counter := range arr {
 			if counter > 0 {
 				temp = append(temp, num)
