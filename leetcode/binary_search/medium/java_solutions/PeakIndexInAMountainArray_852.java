@@ -1,4 +1,4 @@
-package leetcode.binary_search.medium;
+package leetcode.binary_search.medium.java_solutions;
 
 public class PeakIndexInAMountainArray_852 {
 
