@@ -11,7 +11,6 @@ func findWinners(matches [][]int) [][]int {
 			scores[match[1]] = 1
 		}
 		scores[match[1]]++
-
 	}
 	zeros := make([]int, 0)
 	ones := make([]int, 0)
