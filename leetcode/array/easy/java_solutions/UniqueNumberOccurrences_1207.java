@@ -4,6 +4,9 @@ import java.util.*;
 
 public class UniqueNumberOccurrences_1207 {
 
+    private static final int ARRAY_MAX_SIZE = 2001;
+    private static final int INCREMENTOR = 1000;
+
     static class Solution {
         public boolean uniqueOccurrences(int[] arr) {
             Map<Integer, Integer> counter = new HashMap<>();
@@ -23,10 +26,10 @@ public class UniqueNumberOccurrences_1207 {
 
     static class SolutionSort {
         public boolean uniqueOccurrences(int[] arr) {
-            int[] counter = new int[2001];
+            int[] counter = new int[ARRAY_MAX_SIZE];
 
             for (int num : arr) {
-                counter[num + 1000]++;
+                counter[num + INCREMENTOR]++;
             }
             Arrays.sort(counter);
 
@@ -40,13 +43,12 @@ public class UniqueNumberOccurrences_1207 {
     }
 
     static class SolutionArray {
-        private static final int ARRAY_MAX_SIZE = 2001;
 
         public boolean uniqueOccurrences(int[] arr) {
             int[] counter = new int[ARRAY_MAX_SIZE];
 
             for (int num : arr) {
-                counter[num + 1000]++;
+                counter[num + INCREMENTOR]++;
             }
             int[] unique = new int[ARRAY_MAX_SIZE];
 
