@@ -1,5 +1,8 @@
 package leetcode.stack.medium;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Stack;
 
 public class SumOfSubarrayMinimums_907 {
@@ -19,12 +22,45 @@ public class SumOfSubarrayMinimums_907 {
                     int mid = stack.peek();
                     int left = idx - mid;
                     int right = i - idx;
-                    result += ((long) left * right * arr[idx]) % mod;
-                    result %= mod;
+                    result += (long) left * right * arr[idx];
                 }
                 stack.push(i);
             }
-            return (int) result;
+            return (int) (result % mod);
+        }
+    }
+
+    static class SolutionWorkWithMinIndexes {
+        private static final int MOD = (int) 10e8 + 7;
+
+        public int sumSubarrayMins(int[] arr) {
+            int window = 1;
+            int n = arr.length;
+            int sum = 0;
+
+            List<Integer> list = new ArrayList<>();
+
+            for (int i = 0; i < n; i++) {
+                list.add(i);
+            }
+            list.sort(Comparator.comparingInt(left -> arr[left]));
+
+            while (window <= n) {
+                for (int left = 0; left + window <= n; left++) {
+                    int right = left + window;
+
+                    for (int i = 0; i < n; i++) {
+                        int idx = list.get(i);
+                        if (idx >= left && idx < right) {
+                            sum += arr[idx];
+                            sum %= MOD;
+                            break;
+                        }
+                    }
+                }
+                window++;
+            }
+            return sum;
         }
     }
 
