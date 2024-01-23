@@ -44,3 +44,37 @@ func collectLetters(a, b string) []int {
 	}
 	return alph
 }
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+var max int
+
+func maxLengthSecond(arr []string) int {
+	max = 0
+	backtrackUniqueLettersSecond(arr, "", 0)
+	return max
+}
+
+func backtrackUniqueLettersSecond(arr []string, temp string, idx int) {
+	isUniqueLetters := checkIfStringContainsUniqueLetters(temp)
+
+	if isUniqueLetters {
+		max = int(math.Max(float64(max), float64(len(temp))))
+	} else if idx >= len(arr) || !isUniqueLetters {
+		return
+	}
+	for i := idx; i < len(arr); i++ {
+		backtrackUniqueLettersSecond(arr, temp+arr[i], i+1)
+	}
+}
+
+func checkIfStringContainsUniqueLetters(temp string) bool {
+	alph := make([]int, 26)
+	for _, ch := range temp {
+		alph[ch-'a']++
+		if alph[ch-'a'] > 1 {
+			return false
+		}
+	}
+	return true
+}
