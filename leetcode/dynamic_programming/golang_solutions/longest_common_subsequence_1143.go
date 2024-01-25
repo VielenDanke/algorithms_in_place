@@ -17,3 +17,31 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 	}
 	return dp[len(text1)][len(text2)]
 }
+
+// ------------------------------------------------------------------------------------------------
+
+func longestCommonSubsequenceMemo(text1 string, text2 string) int {
+	memo := make([][]int, len(text1)+1)
+	for i := range memo {
+		memo[i] = make([]int, len(text2)+1)
+		for j := range memo[i] {
+			memo[i][j] = -1
+		}
+	}
+	return lcsMemo(text1, text2, len(text1), len(text2), memo)
+}
+
+func lcsMemo(text1, text2 string, n, m int, memo [][]int) int {
+	if n == 0 || m == 0 {
+		return 0
+	}
+	if memo[n][m] != -1 {
+		return memo[n][m]
+	}
+	if text1[n-1] == text2[m-1] {
+		memo[n][m] = 1 + lcsMemo(text1, text2, n-1, m-1, memo)
+	} else {
+		memo[n][m] = maxVal(lcsMemo(text1, text2, n-1, m, memo), lcsMemo(text1, text2, n, m-1, memo))
+	}
+	return memo[n][m]
+}

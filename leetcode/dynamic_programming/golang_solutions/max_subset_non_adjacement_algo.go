@@ -1,5 +1,7 @@
 package golang_solutions
 
+import "math"
+
 /*
 Input: leetcode.array of leetcode.numbers
 Output: maxVal sum of non-adjacent leetcode.numbers
@@ -22,7 +24,7 @@ func MaxSubsetSumNoAdjacent(array []int) int {
 }
 
 func maxVal(vals ...int) int {
-	maxVal := -1 << 31
+	maxVal := math.MinInt
 
 	for _, v := range vals {
 		if maxVal < v {
