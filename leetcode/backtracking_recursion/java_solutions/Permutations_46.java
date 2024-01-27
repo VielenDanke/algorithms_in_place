@@ -1,5 +1,6 @@
 package leetcode.backtracking_recursion.java_solutions;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class Permutations_46 {
         private void backtrack(List<List<Integer>> result, int[] nums, int start) {
             if (start >= nums.length) {
                 result.add(transformToList(nums));
+                new ArrayList<Integer>().clone();
                 return;
             }
             for (int i = start; i < nums.length; i++) {
