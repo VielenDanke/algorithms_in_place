@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func ThreeNumberSort(array []int, order []int) []int {
 	// Write your code here.

@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func Sort(arr []int) []int {
 	if len(arr) <= 1 {

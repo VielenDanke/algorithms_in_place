@@ -1,4 +1,4 @@
-package medium
+package golang_solutions
 
 func MergeSortWithInsertion(arr []int, k int) []int {
 	if len(arr) <= k {
