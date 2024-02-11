@@ -12,9 +12,10 @@ class Solution:
             total = 0
             for m_1 in possible_moves:
                 for m_2 in possible_moves:
-                    if col_1 + m_1 >= len(grid[0]) or col_2 + m_2 >= len(grid[0]) or col_1 + m_1 < 0 or col_2 + m_2 < 0:
+                    next_col_1, next_col_2 = col_1 + m_1, col_2 + m_2
+                    if next_col_1 >= len(grid[0]) or next_col_2 >= len(grid[0]) or next_col_1 < 0 or next_col_2 < 0:
                         continue
-                    total = max(total, (move(row + 1, col_1 + m_1, col_2 + m_2) +
+                    total = max(total, (move(row + 1, next_col_1, next_col_2) +
                                         (grid[row][col_1] if col_1 == col_2 else grid[row][col_1] + grid[row][col_2])))
             return total
 
