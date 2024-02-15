@@ -28,5 +28,5 @@ class Solution:
 
         for i in range(len(nums) - 1, 1, -1):
             if nums[i] < prefix_sum[i - 1]:
-                return sum(nums[:(i + 1)])
+                return prefix_sum[i - 1] + nums[i]
         return -1
