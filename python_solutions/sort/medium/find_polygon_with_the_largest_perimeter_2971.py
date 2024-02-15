@@ -21,10 +21,7 @@ class Solution:
         prefix_sum = [0] * len(nums)
 
         for i in range(len(nums)):
-            if i == 0:
-                prefix_sum[i] = nums[i]
-            else:
-                prefix_sum[i] = nums[i] + prefix_sum[i - 1]
+            prefix_sum[i] = nums[i] if i == 0 else nums[i] + prefix_sum[i - 1]
 
         for i in range(len(nums) - 1, 1, -1):
             if nums[i] < prefix_sum[i - 1]:
