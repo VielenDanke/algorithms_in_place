@@ -9,14 +9,16 @@ class Solution:
             num_sum += i - nums[i]
         return num_sum
 
+    def missingNumberArithmetic(self, nums: List[int]) -> int:
+        n = len(nums)
+        total_sum = n * (n + 1) // 2
+        array_sum = sum(nums)
+        return total_sum - array_sum
+
     def missingNumberBruteForce(self, nums: List[int]) -> int:
         nums.sort()
 
-        start = min(nums)
-        cp_start = start
-
-        for num in nums:
-            if num != start:
-                return start
-            start += 1
-        return start if cp_start == 0 else cp_start - 1
+        for i, num in enumerate(nums):
+            if i != num:
+                return i
+        return len(nums)
