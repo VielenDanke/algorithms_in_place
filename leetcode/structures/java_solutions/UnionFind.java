@@ -2,16 +2,15 @@ package leetcode.structures.java_solutions;
 
 public class UnionFind {
 
-    private int[] id;
-    private int[] sizes;
-    private int size;
+    private final int[] id;
+    private final int[] sizes;
     private int numComponents;
 
     public UnionFind(int size) {
         if (size <= 0) {
             throw new IllegalArgumentException();
         }
-        this.size = numComponents = size;
+        int size1 = numComponents = size;
         id = new int[size];
         sizes = new int[size];
 
@@ -22,19 +21,14 @@ public class UnionFind {
     }
 
     public int find(int p) {
-        int root = p;
-        while (root != id[root]) root = id[root];
-
-        // Compress the path leading back to the root
-        while (p != root) {
-            int next = id[p];
-            id[p] = root;
-            p = next;
+        while (p != id[p]) {
+            id[p] = id[id[p]];
+            p = id[p];
         }
-        return root;
+        return p;
     }
 
-    public void unify(int p, int q) {
+    public void union(int p, int q) {
         int root1 = find(p), root2 = find(q);
 
         if (root1 == root2) return;
@@ -47,5 +41,13 @@ public class UnionFind {
             id[root2] = root1;
         }
         numComponents--;
+    }
+
+    public boolean isConnected(int p, int q) {
+        return find(p) == find(q);
+    }
+
+    public int getNumComponents() {
+        return numComponents;
     }
 }
