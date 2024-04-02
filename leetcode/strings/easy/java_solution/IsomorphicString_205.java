@@ -3,6 +3,41 @@ package leetcode.strings.easy.java_solution;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+Rust solution:
+
+use std::collections::HashMap;
+
+struct Solution {}
+
+impl Solution {
+    pub fn is_isomorphic(s: String, t: String) -> bool {
+        if s.len() != t.len() {
+            false
+        } else {
+            Solution::check(&s, &t) && Solution::check(&t, &s)
+        }
+    }
+
+    fn check(s: &String, t: &String) -> bool {
+        let mut map = HashMap::new();
+        let (s_bytes, t_bytes) = (s.as_bytes(), t.as_bytes());
+
+        for i in 0..s.len() {
+            let s_current = s_bytes[i];
+            let t_current = t_bytes[i];
+            if let Some(old_value) = map.insert(s_current, t_current) {
+                if old_value != t_current {
+                    return false;
+                }
+            }
+        }
+        true
+    }
+}
+
+ */
+
 public class IsomorphicString_205 {
 
     private static class SolutionMap {
