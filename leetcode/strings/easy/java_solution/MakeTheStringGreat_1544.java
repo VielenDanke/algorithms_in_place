@@ -7,9 +7,7 @@ public class MakeTheStringGreat_1544 {
     static class SolutionBuilder {
         public String makeGood(String s) {
             StringBuilder builder = new StringBuilder();
-            for (char c : s.toCharArray()) {
-                builder.append(c);
-            }
+            builder.append(s);
             return dfs(builder).toString();
         }
 
