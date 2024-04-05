@@ -4,6 +4,27 @@ import java.util.Stack;
 
 public class MakeTheStringGreat_1544 {
 
+    static class SolutionBuilder {
+        public String makeGood(String s) {
+            StringBuilder builder = new StringBuilder();
+            for (char c : s.toCharArray()) {
+                builder.append(c);
+            }
+            return dfs(builder).toString();
+        }
+
+        private StringBuilder dfs(StringBuilder s) {
+            for (int i = 0; i < s.length() - 1; i++) {
+                if (Math.abs(s.charAt(i) - s.charAt(i + 1)) == 32) {
+                    s.deleteCharAt(i);
+                    s.deleteCharAt(i);
+                    return dfs(s);
+                }
+            }
+            return s;
+        }
+    }
+
     static class SolutionStack {
         public String makeGood(String s) {
             Stack<Character> stack = new Stack<>();
